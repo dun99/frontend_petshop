@@ -1,6 +1,9 @@
-import './App.css';
+import "./App.css";
+import "./assets/styles/styles.scss";
+import Client from "./pages/Client/Client";
+
 function App() {
-  return <div className="App"></div>;
+  return <Client />;
 }
 
 export default App;
