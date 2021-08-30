@@ -3,11 +3,12 @@ import banner from "assets/images/banner.jpg";
 import Banner from "components/Banner/Banner";
 import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
+import { PRODUCTS_PATH, ROOT_PATH } from "constants/route";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./Client.scss";
-import Home from "./Home/Home";
-import Products from "./Products/Products";
+import Home from "./pages/Home/Home";
+import Products from "./pages/Products/Products";
 
 function Client() {
   const { Content } = Layout;
@@ -16,13 +17,13 @@ function Client() {
     <BrowserRouter>
       <HeaderApp />
       <Banner banner={banner} />
-      <Layout className="container">
+      <Layout className="container main-page">
         <Content>
           <Switch>
-            <Route path="/" exact>
+            <Route path={ROOT_PATH} exact>
               <Home />
             </Route>
-            <Route path="/products">
+            <Route path={PRODUCTS_PATH} exact>
               <Products />
             </Route>
           </Switch>

@@ -1,0 +1,25 @@
+@import "assets/styles/variables.scss";
+
+.backtop {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+    font-size: 14px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+
+    .anticon {
+        line-height: 40px;
+
+        svg {
+            font-size: 1.5rem;
+            vertical-align: middle;
+        }
+    }
+}

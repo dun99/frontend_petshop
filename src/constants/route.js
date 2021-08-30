@@ -1,7 +1,7 @@
 export const ROOT_PATH = "/";
 export const PRODUCTS_PATH = "/products";
 export const CART_PATH = "/cart";
-export const ORDER_PATH = "/order"
+export const ORDER_PATH = "/order";
 export const SIGN_IN_PATH = "/signin";
 export const SIGN_UP_PATH = "/signup";
 export const PROFILE_PATH = "/profile";
