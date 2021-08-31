@@ -15,10 +15,10 @@
             "printWidth": 80,
             "trailingComma": "es5",
             "semi": true,
-            "singleQuote": true,
+            "doubleQuote": true,
             "no-mixed-spaces-and-tabs": ["error", "smart-tabs"]
           }
       ],
-      "no-unused-vars": ["error", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
+      "no-unused-vars": ["warn", { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }]
   }
 }
