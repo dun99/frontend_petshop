@@ -1,0 +1,14 @@
+{
+    "language": {
+        "name": "Ngôn ngữ",
+        "english": "Tiếng Anh",
+        "vietnam": "Tiếng Việt"
+    },
+    "Home": "Trang chủ",
+    "Logout": "Đăng xuất",
+    "Product": "Sản phẩm",
+    "Categories": "Danh mục",
+    "Price": "Gía",
+    "From": "TỪ",
+    "To": "Đến"
+}
