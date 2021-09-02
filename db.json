@@ -1,140 +1,260 @@
 {
 	"products": [
-			{
-			  "name": "Squishy MJ Momo duck nháy mắt 7cm",
-			  "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-			  "brand": "Pogoplug",
-			  "categories": [
+		{
+			"id": 1,
+			"name": "Squishy MJ Momo duck nháy mắt 7cm",
+			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+			"brand": "Pogoplug",
+			"categories": [
 				"Quà lưu niệm"
-			  ],
-			  "type": "Online data backup",
-			  "price": 69,
-			  "price_range": "50 - 100",
-			  "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-			  "url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			  "free_shipping": true,
-			  "popularity": 10000,
-			  "rating": 2,
-			  "objectID": "1696302"
-			},
-			{
-			  "name": "Cắm bàn chải Baby shark and duck",
-			  "description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
-			  "brand": "360fly",
-			  "categories": [
+			],
+			"type": "Online data backup",
+			"price": 69,
+			"price_range": "50 - 100",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": true,
+			"popularity": 10000,
+			"rating": 2,
+			"objectID": "1696302",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"id": 2,
+			"name": "Cắm bàn chải Baby shark and duck",
+			"description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
+			"brand": "360fly",
+			"categories": [
 				"Dụng cụ cá nhân"
-			  ],
-			  "type": "Point&#38;shoot camcrder",
-			  "price": 399.99,
-			  "price_range": "200 - 500",
-			  "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378110/samples/e-commerce/21070017_BU_thumb_jdbq2h.jpg",
-			  "url": "http://www.bestbuy.com/site/360fly-panoramic-360-hd-video-camera-black/9131042.p?id=1219405459683&skuId=9131042&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			  "free_shipping": false,
-			  "popularity": 9999,
-			  "rating": 5,
-			  "objectID": "9131042"
-			},
-			{
-			  "name": "Sticker bảng MJ Baby bear rabbit cute pets bow daily time",
-			  "description": "3D Robotics Backpack for Solo Drones: Protect your Solo drone and accessories from the elements, wherever your adventures lead you. This Solo drone backpack features a custom-fitted foam interior that prevents the drone from jostling inside. The black exterior is water-resistant, with padded straps for extra comfort.",
-			  "brand": "3DR",
-			  "categories": [
+			],
+			"type": "Point&#38;shoot camcrder",
+			"price": 399.99,
+			"price_range": "200 - 500",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378110/samples/e-commerce/21070017_BU_thumb_jdbq2h.jpg",
+			"url": "http://www.bestbuy.com/site/360fly-panoramic-360-hd-video-camera-black/9131042.p?id=1219405459683&skuId=9131042&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": false,
+			"popularity": 9999,
+			"rating": 5,
+			"objectID": "9131042",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"id": 3,
+			"name": "Sticker bảng MJ Baby bear rabbit cute pets bow daily time",
+			"description": "3D Robotics Backpack for Solo Drones: Protect your Solo drone and accessories from the elements, wherever your adventures lead you. This Solo drone backpack features a custom-fitted foam interior that prevents the drone from jostling inside. The black exterior is water-resistant, with padded straps for extra comfort.",
+			"brand": "3DR",
+			"categories": [
 				"Sticker"
-			  ],
-			  "type": "Drone accessory",
-			  "price": 149.95,
-			  "price_range": "100 - 200",
-			  "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378108/samples/e-commerce/21070016_XX_thumb_hhwruv.jpg",
-			  "url": "http://www.bestbuy.com/site/3dr-backpack-for-solo-black/5353024.p?id=1219650465782&skuId=5353024&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			  "free_shipping": false,
-			  "popularity": 9998,
-			  "rating": 5,
-			  "objectID": "5353024"
-			},
-			{
-			  "name": "Kẹp tài liệu A4 Rabbit gourmet 22x31",
-			  "description": "3D Robotics Propellers for Solo Drones: Buy this set of replacement propellers before you need them so you can get back to flying as soon as you damage or lose a propeller. The 1-piece design of these propellers keeps them secure during flight, self-tightening so you can install them in an instant and return to in-air fun.",
-			  "brand": "3DR",
-			  "categories": [
+			],
+			"type": "Drone accessory",
+			"price": 149.95,
+			"price_range": "100 - 200",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378108/samples/e-commerce/21070016_XX_thumb_hhwruv.jpg",
+			"url": "http://www.bestbuy.com/site/3dr-backpack-for-solo-black/5353024.p?id=1219650465782&skuId=5353024&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": false,
+			"popularity": 9998,
+			"rating": 5,
+			"objectID": "5353024",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"id": 4,
+			"name": "Kẹp tài liệu A4 Rabbit gourmet 22x31",
+			"description": "3D Robotics Propellers for Solo Drones: Buy this set of replacement propellers before you need them so you can get back to flying as soon as you damage or lose a propeller. The 1-piece design of these propellers keeps them secure during flight, self-tightening so you can install them in an instant and return to in-air fun.",
+			"brand": "3DR",
+			"categories": [
 				"Đồ dùng học tập"
-			  ],
-			  "type": "Drone accessory",
-			  "price": 14.95,
-			  "price_range": "1 - 50",
-			  "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378106/samples/e-commerce/21070015_XX_thumb_ez74gq.jpg",
-			  "url": "http://www.bestbuy.com/site/3dr-propellers-for-3dr-solo-drones-2-pack-black/5357011.p?id=1219650465778&skuId=5357011&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			  "free_shipping": false,
-			  "popularity": 9997,
-			  "rating": 2,
-			  "objectID": "5357011"
-			},
-			{
-				"name": "Squishy MJ Momo duck nháy mắt 7cm",
-				"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-				"brand": "Pogoplug",
-				"categories": [
-				  "Quà lưu niệm"
-				],
-				"type": "Online data backup",
-				"price": 69,
-				"price_range": "50 - 100",
-				"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-				"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-				"free_shipping": true,
-				"popularity": 10000,
-				"rating": 2,
-				"objectID": "1696302"
-			  },
-			  {
-				"name": "Squishy MJ Momo duck nháy mắt 7cm",
-				"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-				"brand": "Pogoplug",
-				"categories": [
-				  "Quà lưu niệm"
-				],
-				"type": "Online data backup",
-				"price": 69,
-				"price_range": "50 - 100",
-				"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-				"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-				"free_shipping": true,
-				"popularity": 10000,
-				"rating": 2,
-				"objectID": "1696302"
-			  },
-			  {
-				"name": "Squishy MJ Momo duck nháy mắt 7cm",
-				"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-				"brand": "Pogoplug",
-				"categories": [
-				  "Quà lưu niệm"
-				],
-				"type": "Online data backup",
-				"price": 69,
-				"price_range": "50 - 100",
-				"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-				"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-				"free_shipping": true,
-				"popularity": 10000,
-				"rating": 2,
-				"objectID": "1696302"
-			  },
-			  {
-				"name": "Squishy MJ Momo duck nháy mắt 7cm",
-				"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-				"brand": "Pogoplug",
-				"categories": [
-				  "Quà lưu niệm"
-				],
-				"type": "Online data backup",
-				"price": 69,
-				"price_range": "50 - 100",
-				"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-				"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-				"free_shipping": true,
-				"popularity": 10000,
-				"rating": 2,
-				"objectID": "1696302"
-			  }
-        ]
+			],
+			"type": "Drone accessory",
+			"price": 14.95,
+			"price_range": "1 - 50",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378106/samples/e-commerce/21070015_XX_thumb_ez74gq.jpg",
+			"url": "http://www.bestbuy.com/site/3dr-propellers-for-3dr-solo-drones-2-pack-black/5357011.p?id=1219650465778&skuId=5357011&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": false,
+			"popularity": 9997,
+			"rating": 2,
+			"objectID": "5357011",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"id": 5,
+			"name": "Squishy MJ Momo duck nháy mắt 7cm",
+			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+			"brand": "Pogoplug",
+			"categories": [
+				"Quà lưu niệm"
+			],
+			"type": "Online data backup",
+			"price": 69,
+			"price_range": "50 - 100",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": true,
+			"popularity": 10000,
+			"rating": 2,
+			"objectID": "1696302",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"id": 6,
+			"name": "Squishy MJ Momo duck nháy mắt 7cm",
+			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+			"brand": "Pogoplug",
+			"categories": [
+				"Quà lưu niệm"
+			],
+			"type": "Online data backup",
+			"price": 69,
+			"price_range": "50 - 100",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": true,
+			"popularity": 10000,
+			"rating": 2,
+			"objectID": "1696302",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"id": 7,
+			"name": "Squishy MJ Momo duck nháy mắt 7cm",
+			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+			"brand": "Pogoplug",
+			"categories": [
+				"Quà lưu niệm"
+			],
+			"type": "Online data backup",
+			"price": 69,
+			"price_range": "50 - 100",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": true,
+			"popularity": 10000,
+			"rating": 2,
+			"objectID": "1696302",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		},
+		{
+			"id": 8,
+			"name": "Squishy MJ Momo duck nháy mắt 7cm",
+			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+			"brand": "Pogoplug",
+			"categories": [
+				"Quà lưu niệm"
+			],
+			"type": "Online data backup",
+			"price": 69,
+			"price_range": "50 - 100",
+			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+			"free_shipping": true,
+			"popularity": 10000,
+			"rating": 2,
+			"objectID": "1696302",
+			"sizes": [
+				{
+					"name": "S",
+					"quantity": 10
+				},
+				{
+					"name": "M",
+					"quantity": 8
+				},
+				{
+					"name": "L",
+					"quantity": 5
+				}
+			]
+		}
+	]
 }
