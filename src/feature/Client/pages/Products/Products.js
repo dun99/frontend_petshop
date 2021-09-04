@@ -7,6 +7,8 @@ import CategoryFilter from "feature/Client/components/Filters/CategoryList";
 import Price from "feature/Client/components/Filters/Price";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { fetchProductsRequest } from "redux/productsSlice";
 import "./Products.scss";
 
@@ -15,6 +17,7 @@ function Products() {
   const filters = useSelector((state) => state.products.filters);
   const products = useSelector((state) => state.products.list);
   const totalCount = useSelector((state) => state.products.count);
+
   useEffect(() => {
     dispatch(fetchProductsRequest(filters));
   }, [filters]);
@@ -31,6 +34,7 @@ function Products() {
 
   return (
     <div className="products-list">
+      <ToastContainer autoClose={3000} />
       <Row gutter={16}>
         <Col xs={24} sm={24} md={4} className="gutter-row">
           <CategoryFilter categories={categoryList} />

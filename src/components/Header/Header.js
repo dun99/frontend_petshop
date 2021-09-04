@@ -1,13 +1,22 @@
 import { MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
-import { PRODUCTS_PATH, ROOT_PATH } from "constants/route";
-import React from "react";
-import { Link } from "react-router-dom";
-import "./Header.scss";
+import { CART_PATH, PRODUCTS_PATH, ROOT_PATH } from "constants/route";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { totalCart } from "redux/cartSlice";
+import "./Header.scss";
 const { Header } = Layout;
 
 function HeaderApp() {
+  const dispatch = useDispatch();
+  const cartCount = useSelector((state) => state.cart.cartTotalQuantity);
+  const cart = useSelector((state) => state.cart.cartItem);
+
+  useEffect(() => {
+    dispatch(totalCart());
+  }, [cartCount, cart]);
   const { t, i18n } = useTranslation();
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -36,7 +45,11 @@ function HeaderApp() {
               <Link to={PRODUCTS_PATH} />
             </Menu.Item>
             <Menu.Item key="cart">
-              <ShoppingCartOutlined />
+              <Link to={CART_PATH} />
+              <span className="cart-icon">
+                <ShoppingCartOutlined />
+                <span className="count-cart">{cartCount}</span>
+              </span>
             </Menu.Item>
           </Menu>
         </Header>
