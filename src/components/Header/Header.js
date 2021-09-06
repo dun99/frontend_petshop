@@ -1,15 +1,23 @@
 import { MenuOutlined, ShoppingCartOutlined } from "@ant-design/icons";
-import { Layout, Menu } from "antd";
+import { Button, Layout, Menu } from "antd";
+import { PRODUCTS_PATH, ROOT_PATH } from "constants/route";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Header.scss";
-import { ROOT_PATH, PRODUCTS_PATH } from "constants/route";
+import { useTranslation } from "react-i18next";
 const { Header } = Layout;
 
 function HeaderApp() {
+  const { t, i18n } = useTranslation();
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+  };
   return (
     <div>
-      <div className="header-top"></div>
+      <div className="header-top">
+        <Button onClick={() => changeLanguage("en")}>en</Button>
+        <Button onClick={() => changeLanguage("vi")}>vi</Button>
+      </div>
       <div className="header-main">
         <Header>
           <Menu
@@ -20,11 +28,11 @@ function HeaderApp() {
             overflowedIndicator={<MenuOutlined />}
           >
             <Menu.Item key="home">
-              Trang chủ
+              {t("Home")}
               <Link to={ROOT_PATH} />
             </Menu.Item>
             <Menu.Item key="products">
-              Sản phẩm
+              {t("Product")}
               <Link to={PRODUCTS_PATH} />
             </Menu.Item>
             <Menu.Item key="cart">
