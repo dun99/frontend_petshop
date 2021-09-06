@@ -3,14 +3,19 @@ import banner from "assets/images/banner.jpg";
 import Banner from "components/Banner/Banner";
 import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
+import LoginForm from "components/LoginForm/LoginForm";
+import Register from "components/LoginForm/Register";
 import {
   CART_PATH,
   PRODUCTS_PATH,
   PRODUCT_DETAIL_PATH,
+  REGISTER_PATH,
   ROOT_PATH,
+  SIGN_IN_PATH,
 } from "constants/route";
 import React from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./Client.scss";
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
@@ -19,6 +24,7 @@ import Products from "./pages/Products/Products";
 
 function Client() {
   const { Content } = Layout;
+  const currentUser = useSelector((state) => state.auth.currentUser);
 
   return (
     <BrowserRouter>
@@ -31,6 +37,14 @@ function Client() {
             <Route path={PRODUCTS_PATH} exact component={Products} />
             <Route path={PRODUCT_DETAIL_PATH} component={ProductDetail} />
             <Route path={CART_PATH} exact component={Cart} />
+            <Route path={REGISTER_PATH} exact component={Register} />
+            <Route
+              exact
+              path={SIGN_IN_PATH}
+              render={() =>
+                currentUser ? <Redirect to={PRODUCTS_PATH} /> : <LoginForm />
+              }
+            />
           </Switch>
         </Content>
       </Layout>

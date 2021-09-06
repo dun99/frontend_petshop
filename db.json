@@ -1,260 +1,370 @@
 {
-	"products": [
-		{
-			"id": 1,
-			"name": "Squishy MJ Momo duck nháy mắt 7cm",
-			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-			"brand": "Pogoplug",
-			"categories": [
-				"Quà lưu niệm"
-			],
-			"type": "Online data backup",
-			"price": 69,
-			"price_range": "50 - 100",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": true,
-			"popularity": 10000,
-			"rating": 2,
-			"objectID": "1696302",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"id": 2,
-			"name": "Cắm bàn chải Baby shark and duck",
-			"description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
-			"brand": "360fly",
-			"categories": [
-				"Dụng cụ cá nhân"
-			],
-			"type": "Point&#38;shoot camcrder",
-			"price": 399.99,
-			"price_range": "200 - 500",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378110/samples/e-commerce/21070017_BU_thumb_jdbq2h.jpg",
-			"url": "http://www.bestbuy.com/site/360fly-panoramic-360-hd-video-camera-black/9131042.p?id=1219405459683&skuId=9131042&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": false,
-			"popularity": 9999,
-			"rating": 5,
-			"objectID": "9131042",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"id": 3,
-			"name": "Sticker bảng MJ Baby bear rabbit cute pets bow daily time",
-			"description": "3D Robotics Backpack for Solo Drones: Protect your Solo drone and accessories from the elements, wherever your adventures lead you. This Solo drone backpack features a custom-fitted foam interior that prevents the drone from jostling inside. The black exterior is water-resistant, with padded straps for extra comfort.",
-			"brand": "3DR",
-			"categories": [
-				"Sticker"
-			],
-			"type": "Drone accessory",
-			"price": 149.95,
-			"price_range": "100 - 200",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378108/samples/e-commerce/21070016_XX_thumb_hhwruv.jpg",
-			"url": "http://www.bestbuy.com/site/3dr-backpack-for-solo-black/5353024.p?id=1219650465782&skuId=5353024&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": false,
-			"popularity": 9998,
-			"rating": 5,
-			"objectID": "5353024",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"id": 4,
-			"name": "Kẹp tài liệu A4 Rabbit gourmet 22x31",
-			"description": "3D Robotics Propellers for Solo Drones: Buy this set of replacement propellers before you need them so you can get back to flying as soon as you damage or lose a propeller. The 1-piece design of these propellers keeps them secure during flight, self-tightening so you can install them in an instant and return to in-air fun.",
-			"brand": "3DR",
-			"categories": [
-				"Đồ dùng học tập"
-			],
-			"type": "Drone accessory",
-			"price": 14.95,
-			"price_range": "1 - 50",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378106/samples/e-commerce/21070015_XX_thumb_ez74gq.jpg",
-			"url": "http://www.bestbuy.com/site/3dr-propellers-for-3dr-solo-drones-2-pack-black/5357011.p?id=1219650465778&skuId=5357011&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": false,
-			"popularity": 9997,
-			"rating": 2,
-			"objectID": "5357011",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"id": 5,
-			"name": "Squishy MJ Momo duck nháy mắt 7cm",
-			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-			"brand": "Pogoplug",
-			"categories": [
-				"Quà lưu niệm"
-			],
-			"type": "Online data backup",
-			"price": 69,
-			"price_range": "50 - 100",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": true,
-			"popularity": 10000,
-			"rating": 2,
-			"objectID": "1696302",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"id": 6,
-			"name": "Squishy MJ Momo duck nháy mắt 7cm",
-			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-			"brand": "Pogoplug",
-			"categories": [
-				"Quà lưu niệm"
-			],
-			"type": "Online data backup",
-			"price": 69,
-			"price_range": "50 - 100",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": true,
-			"popularity": 10000,
-			"rating": 2,
-			"objectID": "1696302",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"id": 7,
-			"name": "Squishy MJ Momo duck nháy mắt 7cm",
-			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-			"brand": "Pogoplug",
-			"categories": [
-				"Quà lưu niệm"
-			],
-			"type": "Online data backup",
-			"price": 69,
-			"price_range": "50 - 100",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": true,
-			"popularity": 10000,
-			"rating": 2,
-			"objectID": "1696302",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		},
-		{
-			"id": 8,
-			"name": "Squishy MJ Momo duck nháy mắt 7cm",
-			"description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-			"brand": "Pogoplug",
-			"categories": [
-				"Quà lưu niệm"
-			],
-			"type": "Online data backup",
-			"price": 69,
-			"price_range": "50 - 100",
-			"image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-			"url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-			"free_shipping": true,
-			"popularity": 10000,
-			"rating": 2,
-			"objectID": "1696302",
-			"sizes": [
-				{
-					"name": "S",
-					"quantity": 10
-				},
-				{
-					"name": "M",
-					"quantity": 8
-				},
-				{
-					"name": "L",
-					"quantity": 5
-				}
-			]
-		}
-	]
+  "products": [
+    {
+      "id": 1,
+      "name": "Squishy MJ Momo duck nháy mắt 7cm",
+      "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+      "brand": "Pogoplug",
+      "categories": [
+        "Quà lưu niệm"
+      ],
+      "type": "Online data backup",
+      "price": 69,
+      "price_range": "50 - 100",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+      "url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": true,
+      "popularity": 10000,
+      "rating": 2,
+      "objectID": "1696302",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Cắm bàn chải Baby shark and duck",
+      "description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
+      "brand": "360fly",
+      "categories": [
+        "Dụng cụ cá nhân"
+      ],
+      "type": "Point&#38;shoot camcrder",
+      "price": 399.99,
+      "price_range": "200 - 500",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378110/samples/e-commerce/21070017_BU_thumb_jdbq2h.jpg",
+      "url": "http://www.bestbuy.com/site/360fly-panoramic-360-hd-video-camera-black/9131042.p?id=1219405459683&skuId=9131042&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": false,
+      "popularity": 9999,
+      "rating": 5,
+      "objectID": "9131042",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sticker bảng MJ Baby bear rabbit cute pets bow daily time",
+      "description": "3D Robotics Backpack for Solo Drones: Protect your Solo drone and accessories from the elements, wherever your adventures lead you. This Solo drone backpack features a custom-fitted foam interior that prevents the drone from jostling inside. The black exterior is water-resistant, with padded straps for extra comfort.",
+      "brand": "3DR",
+      "categories": [
+        "Sticker"
+      ],
+      "type": "Drone accessory",
+      "price": 149.95,
+      "price_range": "100 - 200",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378108/samples/e-commerce/21070016_XX_thumb_hhwruv.jpg",
+      "url": "http://www.bestbuy.com/site/3dr-backpack-for-solo-black/5353024.p?id=1219650465782&skuId=5353024&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": false,
+      "popularity": 9998,
+      "rating": 5,
+      "objectID": "5353024",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Kẹp tài liệu A4 Rabbit gourmet 22x31",
+      "description": "3D Robotics Propellers for Solo Drones: Buy this set of replacement propellers before you need them so you can get back to flying as soon as you damage or lose a propeller. The 1-piece design of these propellers keeps them secure during flight, self-tightening so you can install them in an instant and return to in-air fun.",
+      "brand": "3DR",
+      "categories": [
+        "Đồ dùng học tập"
+      ],
+      "type": "Drone accessory",
+      "price": 14.95,
+      "price_range": "1 - 50",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378106/samples/e-commerce/21070015_XX_thumb_ez74gq.jpg",
+      "url": "http://www.bestbuy.com/site/3dr-propellers-for-3dr-solo-drones-2-pack-black/5357011.p?id=1219650465778&skuId=5357011&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": false,
+      "popularity": 9997,
+      "rating": 2,
+      "objectID": "5357011",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Squishy MJ Momo duck nháy mắt 7cm",
+      "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+      "brand": "Pogoplug",
+      "categories": [
+        "Quà lưu niệm"
+      ],
+      "type": "Online data backup",
+      "price": 69,
+      "price_range": "50 - 100",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+      "url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": true,
+      "popularity": 10000,
+      "rating": 2,
+      "objectID": "1696302",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Squishy MJ Momo duck nháy mắt 7cm",
+      "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+      "brand": "Pogoplug",
+      "categories": [
+        "Quà lưu niệm"
+      ],
+      "type": "Online data backup",
+      "price": 69,
+      "price_range": "50 - 100",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+      "url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": true,
+      "popularity": 10000,
+      "rating": 2,
+      "objectID": "1696302",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Squishy MJ Momo duck nháy mắt 7cm",
+      "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+      "brand": "Pogoplug",
+      "categories": [
+        "Quà lưu niệm"
+      ],
+      "type": "Online data backup",
+      "price": 69,
+      "price_range": "50 - 100",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+      "url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": true,
+      "popularity": 10000,
+      "rating": 2,
+      "objectID": "1696302",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Squishy MJ Momo duck nháy mắt 7cm",
+      "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
+      "brand": "Pogoplug",
+      "categories": [
+        "Quà lưu niệm"
+      ],
+      "type": "Online data backup",
+      "price": 69,
+      "price_range": "50 - 100",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+      "url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": true,
+      "popularity": 10000,
+      "rating": 2,
+      "objectID": "1696302",
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "uid": "0XGjUs67JwgcZ5AWcT5tqpT9ROM2",
+      "displayName": null,
+      "photoURL": null,
+      "email": "123dfsaaf@gmail.com",
+      "emailVerified": false,
+      "phoneNumber": null,
+      "isAnonymous": false,
+      "tenantId": null,
+      "providerData": [
+        {
+          "uid": "123dfsaaf@gmail.com",
+          "displayName": null,
+          "photoURL": null,
+          "email": "123dfsaaf@gmail.com",
+          "phoneNumber": null,
+          "providerId": "password"
+        }
+      ],
+      "apiKey": "AIzaSyAMBy4PSDMZw4B3V770b30LtgzdsKBwL90",
+      "appName": "[DEFAULT]",
+      "authDomain": "ecommerce-f01af.firebaseapp.com",
+      "stsTokenManager": {
+        "apiKey": "AIzaSyAMBy4PSDMZw4B3V770b30LtgzdsKBwL90",
+        "refreshToken": "ACzBnChuhWWy5duGuoFUa3VU13m1I3NP0BeCTvKZ8cbnyFFVMigsr6gLerpxFOQ5hL2LpbVkDHuLa9v_556LPUzYIjiGrdEyDruwCnjI0-vjXpjheQ0A8lEh89dPYrJEKIUMvgwphUiyD5OWlkRGNvn3E91E09tCucWoJDo_F06ujgpGlMh9WqyWGkJIYlr9ANKjetNkJniT6TzjDMweUI3OlQyH4wMXRw",
+        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjJjZGFiZDIwNzVjODQxNDI0NDY3MTNlM2U0NGU5ZDcxOGU3YzJkYjQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZWNvbW1lcmNlLWYwMWFmIiwiYXVkIjoiZWNvbW1lcmNlLWYwMWFmIiwiYXV0aF90aW1lIjoxNjMwOTQ2MTU2LCJ1c2VyX2lkIjoiMFhHalVzNjdKd2djWjVBV2NUNXRxcFQ5Uk9NMiIsInN1YiI6IjBYR2pVczY3SndnY1o1QVdjVDV0cXBUOVJPTTIiLCJpYXQiOjE2MzA5NDYxNTYsImV4cCI6MTYzMDk0OTc1NiwiZW1haWwiOiIxMjNkZnNhYWZAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbIjEyM2Rmc2FhZkBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.UfnGwbfP-bvlL4wsUZ7rNdEAe7SUBLOicdFEHfvvADZj64by-GIwO4yx-jj7TZTDZs0qv4q7lokW_mJXLJwDgdPeWa3aRB-TviaOTEe0ZfqAuNY82ujt73g4vs9VdV3LXXhWWVnHSL20Vl1cyEua6bSemH4pckq6GRIaJjGOM6eU7piqUScAWyaBI5epoZEaQQYQTzkP2EabviTUknvHd_maj6z0MtiPg8gOuRV9oTTOZZV9ZFNDYdQVwOyrMxu_nVwrhirZDq3atNCDhRJ05816A0R43qvrnPOG5CAdYaJSvVo4IXw1WA_7iVlC5xWNhhDpBBwunLwdDhZemeJGIA",
+        "expirationTime": 1630949757594
+      },
+      "redirectEventId": null,
+      "lastLoginAt": "1630946156793",
+      "createdAt": "1630946156793",
+      "multiFactor": {
+        "enrolledFactors": []
+      },
+      "id": 1
+    },
+    {
+      "uid": "6yvIN4Bg3SQgtjMxDTE58neQlZR2",
+      "displayName": null,
+      "photoURL": null,
+      "email": "123dfsaddaf@gmail.com",
+      "emailVerified": false,
+      "phoneNumber": null,
+      "isAnonymous": false,
+      "tenantId": null,
+      "providerData": [
+        {
+          "uid": "123dfsaddaf@gmail.com",
+          "displayName": null,
+          "photoURL": null,
+          "email": "123dfsaddaf@gmail.com",
+          "phoneNumber": null,
+          "providerId": "password"
+        }
+      ],
+      "apiKey": "AIzaSyAMBy4PSDMZw4B3V770b30LtgzdsKBwL90",
+      "appName": "[DEFAULT]",
+      "authDomain": "ecommerce-f01af.firebaseapp.com",
+      "stsTokenManager": {
+        "apiKey": "AIzaSyAMBy4PSDMZw4B3V770b30LtgzdsKBwL90",
+        "refreshToken": "ACzBnCixp-kumxXWiTxdQV75NtK5yNYS32Il3EAV_ZI_2QEx3QkbMVAwyMYpLcFjJ2V_-8bzBui-cTMtXUrjBAmkY_CIij2ZkcpcpYnmvnoDb57WF8W3c9KYi-W9U1oILNvEtBpT82L9zxhT1JwaC-7mkQWt2a6qTyJKVmOUO01BwtVltdksy_K7axrA80Cw791vEjB2XwbOJ00Dl6LjPc4tNMJ6qqPBRg",
+        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjJjZGFiZDIwNzVjODQxNDI0NDY3MTNlM2U0NGU5ZDcxOGU3YzJkYjQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZWNvbW1lcmNlLWYwMWFmIiwiYXVkIjoiZWNvbW1lcmNlLWYwMWFmIiwiYXV0aF90aW1lIjoxNjMwOTQ2MjAyLCJ1c2VyX2lkIjoiNnl2SU40QmczU1FndGpNeERURTU4bmVRbFpSMiIsInN1YiI6IjZ5dklONEJnM1NRZ3RqTXhEVEU1OG5lUWxaUjIiLCJpYXQiOjE2MzA5NDYyMDIsImV4cCI6MTYzMDk0OTgwMiwiZW1haWwiOiIxMjNkZnNhZGRhZkBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsiMTIzZGZzYWRkYWZAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.GFJRJSi6pm8bV_61DOrisHtEWvMmi36DS1bc6Wq6Kkx1-Rf03SwtMUNIS9KpWtNpiJLwyc3RYCRdM2tVuyXSGYswfJrlmWHif3HJMyPBvvb9R0o3on2IyldRJrimDqcvZggvDr4qy_x8Q-UbvuKpibGD-HkqCJBY_m1XQPbFpMeWyy9B3-77oivc3kOtJjZZKPMklT9y8gvOQSnrhgd4ChgEzOLGFt9bikS1Lmyj9v68YENmt8H12quQNqvJXUCNdfu7vS37K6bWd-w18zutirlXqFJQa16KkklhTBOQXLDppFQSll0V7Cwjiydgbhz4Fb7-Wf-TFvsA1YbcMMr6rA",
+        "expirationTime": 1630949802560
+      },
+      "redirectEventId": null,
+      "lastLoginAt": "1630946202060",
+      "createdAt": "1630946202060",
+      "multiFactor": {
+        "enrolledFactors": []
+      },
+      "id": 2
+    },
+    {
+      "uid": "y04EliI9rUhtykw8lgUqWo1gszl1",
+      "displayName": null,
+      "photoURL": null,
+      "email": "duongduong19910909@gmail.com",
+      "emailVerified": false,
+      "phoneNumber": null,
+      "isAnonymous": false,
+      "tenantId": null,
+      "providerData": [
+        {
+          "uid": "duongduong19910909@gmail.com",
+          "displayName": null,
+          "photoURL": null,
+          "email": "duongduong19910909@gmail.com",
+          "phoneNumber": null,
+          "providerId": "password"
+        }
+      ],
+      "apiKey": "AIzaSyAMBy4PSDMZw4B3V770b30LtgzdsKBwL90",
+      "appName": "[DEFAULT]",
+      "authDomain": "ecommerce-f01af.firebaseapp.com",
+      "stsTokenManager": {
+        "apiKey": "AIzaSyAMBy4PSDMZw4B3V770b30LtgzdsKBwL90",
+        "refreshToken": "ACzBnCiJYP14-b3ft9IfH03-JGtP7SLilCvU0ldBzI5sOodM7Ji7fPc3Saad3kTyDK9Hf5srI3TTe1Ktx1tdQxWvqDaqVOAftncbZlG25a_mHYqfeMms8Qdd17N7-T3lQEe9xGx_XyC-q_XoTSNNS2DfNA-YnhG3JfJuRiCttqb5cal07P8CwdHGgL_jq5WBC1ZCAyijlJP-36DQKvGOJsnnAvrPQA-r_JBLgMReOOEPOEo753mE5pA",
+        "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjJjZGFiZDIwNzVjODQxNDI0NDY3MTNlM2U0NGU5ZDcxOGU3YzJkYjQiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vZWNvbW1lcmNlLWYwMWFmIiwiYXVkIjoiZWNvbW1lcmNlLWYwMWFmIiwiYXV0aF90aW1lIjoxNjMwOTQ5NzIxLCJ1c2VyX2lkIjoieTA0RWxpSTlyVWh0eWt3OGxnVXFXbzFnc3psMSIsInN1YiI6InkwNEVsaUk5clVodHlrdzhsZ1VxV28xZ3N6bDEiLCJpYXQiOjE2MzA5NDk3MjEsImV4cCI6MTYzMDk1MzMyMSwiZW1haWwiOiJkdW9uZ2R1b25nMTk5MTA5MDlAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImR1b25nZHVvbmcxOTkxMDkwOUBnbWFpbC5jb20iXX0sInNpZ25faW5fcHJvdmlkZXIiOiJwYXNzd29yZCJ9fQ.bEeEdWpjzebPmVN9P-hoY5dhHaakGqSlR5DAAzKS1hLBJZIQoLUa8fNqHhVIcBIGC7Jdby9SvBdMXuNqq5WSVJUFtfrS9uKsPYGW0OxyrOQ-qnxhHYDCa3_PALt-YWRY1yMbMCwu5vPd5FqnDMyTpBXrAA5Mq-oNmRYKin6HyRbPvCOtdasIitIpY0EN8SaeVFTVf2D0Ekm-KbiNP-BNIpMr1kI-bnuvQpbJmzTSdR8uYzx1FBlKDe4uURlX7MZlj2ajiu176j9dQIH8SYOWhxupiYVjHPmS82WJgjbWmxCNZFul6_MzEUxl3JGIc_8fr4sU5okCWYbg10-Ly5ZAkA",
+        "expirationTime": 1630953321252
+      },
+      "redirectEventId": null,
+      "lastLoginAt": "1630949720975",
+      "createdAt": "1630949720975",
+      "multiFactor": {
+        "enrolledFactors": []
+      },
+      "id": 3
+    }
+  ]
 }

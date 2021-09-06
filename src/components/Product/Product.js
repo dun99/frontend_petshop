@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "redux/cartSlice";
 import "./Product.scss";
+import "./Product.scss";
 
 function Product(props) {
   const { product } = props;

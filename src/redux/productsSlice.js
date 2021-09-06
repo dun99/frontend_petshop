@@ -35,7 +35,6 @@ export const productsSlice = createSlice({
     },
 
     changePrice: (state, action) => {
-      console.log(action);
       state.filters = {
         ...state.filters,
         price_gte: action.payload.price_gte,
