@@ -15,7 +15,6 @@ function Products() {
   const filters = useSelector((state) => state.products.filters);
   const products = useSelector((state) => state.products.list);
   const totalCount = useSelector((state) => state.products.count);
-
   useEffect(() => {
     dispatch(fetchProductsRequest(filters));
   }, [filters]);
