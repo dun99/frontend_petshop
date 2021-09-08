@@ -1,4 +1,4 @@
-import { Button } from "bootstrap";
+import { Button } from "antd";
 import { PRODUCTS_PATH, ROOT_PATH } from "constants/route";
 import React from "react";
 import { Link } from "react-router-dom";

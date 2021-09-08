@@ -2,24 +2,26 @@
 import {
   MenuOutlined,
   ShoppingCartOutlined,
-  UserOutlined,
+  UserOutlined
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import {
   CART_PATH,
   ORDER_HISTORY,
   PRODUCTS_PATH,
+  PROFILE_PATH,
   REGISTER_PATH,
   ROOT_PATH,
-  SIGN_IN_PATH,
+  SIGN_IN_PATH
 } from "constants/route";
 import { auth } from "feature/Auth/firebase";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { logoutRequest, setUserCurrent } from "redux/authSlice";
 import { totalCart } from "redux/cartSlice";
+import { fetchUserById } from "redux/userSlice";
 import "./Header.scss";
 const { Header } = Layout;
 const { SubMenu } = Menu;
@@ -31,6 +33,13 @@ function HeaderApp() {
   const isAuth = useSelector((state) => state.auth.isAuth);
   const currentUser = useSelector((state) => state.auth.currentUser);
   const { t, i18n } = useTranslation();
+
+  const userInfo = useSelector((state) => state.users.user);
+  useEffect(() => {
+    if (currentUser.uid) {
+      dispatch(fetchUserById(currentUser.uid));
+    }
+  }, [currentUser, userInfo.id]);
 
   useEffect(() => {
     dispatch(totalCart());
@@ -104,7 +113,9 @@ function HeaderApp() {
                     <Menu.Item key="2">
                       <a onClick={handleLogout}>Đăng xuất</a>
                     </Menu.Item>
-                    <Menu.Item key="3">Thông tin tài khoản</Menu.Item>
+                    <Menu.Item key="3">
+                      <Link to={PROFILE_PATH}>Thông tin tài khoản</Link>
+                    </Menu.Item>
                     <Menu.Item key="4">
                       <Link to={ORDER_HISTORY}>Lịch sử đơn hàng</Link>
                     </Menu.Item>

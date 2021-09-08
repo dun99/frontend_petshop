@@ -60,10 +60,10 @@ const authApi = {
     auth
       .signInWithPopup(provider)
       .then((res) => {
-        return res.user
+        return res.user;
       })
       .catch((error) => {
-        return error.message;
+        return error;
       });
   },
 };
