@@ -1,5 +1,5 @@
-import { Button } from "antd";
-import { PRODUCTS_PATH } from "constants/route";
+import { Button, Empty } from "antd";
+import { ORDER_PATH, PRODUCTS_PATH } from "constants/route";
 import CartItem from "feature/Client/components/CartItem/CartItem";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -16,45 +16,49 @@ function Cart() {
 
   useEffect(() => {
     dispatch(totalCart());
-  }, [cart]);
+  }, [cart, amount]);
 
   const renderCart = (list) => {
     return list.map((item, index) => {
       return <CartItem product={item} key={index} />;
     });
   };
-
-  return (
-    <div className="cart-table">
-      <ToastContainer autoClose={2000} />
-      <table>
-        <thead>
-          <th>Sản phẩm</th>
-          <th>Mô tả</th>
-          <th>Đơn giá</th>
-          <th>Số lượng</th>
-          <th>Tổng</th>
-          <th>Thao tác</th>
-        </thead>
-        <tbody>{renderCart(cart)}</tbody>
-      </table>
-      <div className="cart-desc">
-        <p>Freeship cho đơn hàng từ 150k nội thành HN</p>
-        <p>Hỗ trợ ship 30k cho đơn hàng từ 500k toàn quốc</p>
-        <p>Đơn hàng trên website được xử lý trong giờ hành chính</p>
+  if (cart.length > 0) {
+    return (
+      <div className="cart-table">
+        <ToastContainer autoClose={2000} />
+        <table>
+          <thead>
+            <th>Sản phẩm</th>
+            <th>Mô tả</th>
+            <th>Đơn giá</th>
+            <th>Số lượng</th>
+            <th>Tổng</th>
+            <th>Thao tác</th>
+          </thead>
+          <tbody>{renderCart(cart)}</tbody>
+        </table>
+        <div className="cart-desc">
+          <p>Freeship cho đơn hàng từ 150k nội thành HN</p>
+          <p>Hỗ trợ ship 30k cho đơn hàng từ 500k toàn quốc</p>
+          <p>Đơn hàng trên website được xử lý trong giờ hành chính</p>
+        </div>
+        <div className="total-cart">
+          <span>Tổng tiền: </span>
+          <span>{amount}</span>
+        </div>
+        <div className="action-cart">
+          <Button type="primary">
+            <Link to={PRODUCTS_PATH}>Tiếp tục mua sắm</Link>
+          </Button>
+          <Button>
+            <Link to={ORDER_PATH}>Đặt hàng</Link>
+          </Button>
+        </div>
       </div>
-      <div className="total-cart">
-        <span>Tổng tiền: </span>
-        <span>{amount}</span>
-      </div>
-      <div className="action-cart">
-        <Button type="primary">
-          <Link to={PRODUCTS_PATH}>Tiếp tục mua sắm</Link>
-        </Button>
-        <Button>Thanh toán</Button>
-      </div>
-    </div>
-  );
+    );
+  }
+  return <Empty />;
 }
 
 export default Cart;

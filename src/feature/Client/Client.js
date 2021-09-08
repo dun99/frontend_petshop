@@ -7,6 +7,9 @@ import LoginForm from "components/LoginForm/LoginForm";
 import Register from "components/LoginForm/Register";
 import {
   CART_PATH,
+  ORDER_HISTORY,
+  ORDER_PATH,
+  ORDER_SUCCESS,
   PRODUCTS_PATH,
   PRODUCT_DETAIL_PATH,
   REGISTER_PATH,
@@ -19,13 +22,15 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import "./Client.scss";
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
+import Order from "./pages/Order/Order";
+import OrderHistory from "./pages/OrderHistory/OrderHistory";
+import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Products from "./pages/Products/Products";
 
 function Client() {
   const { Content } = Layout;
   const currentUser = useSelector((state) => state.auth.currentUser);
-
   return (
     <BrowserRouter>
       <HeaderApp />
@@ -45,6 +50,9 @@ function Client() {
                 currentUser ? <Redirect to={PRODUCTS_PATH} /> : <LoginForm />
               }
             />
+            <Route path={ORDER_PATH} exact component={Order} />
+            <Route path={ORDER_SUCCESS} exact component={OrderSuccess} />
+            <Route path={ORDER_HISTORY} exact component={OrderHistory} />
           </Switch>
         </Content>
       </Layout>
