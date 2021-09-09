@@ -3,10 +3,16 @@ import banner from "assets/images/banner.jpg";
 import Banner from "components/Banner/Banner";
 import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
-import { PRODUCTS_PATH, PRODUCT_DETAIL_PATH, ROOT_PATH } from "constants/route";
+import {
+  CART_PATH,
+  PRODUCTS_PATH,
+  PRODUCT_DETAIL_PATH,
+  ROOT_PATH,
+} from "constants/route";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "./Client.scss";
+import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Products from "./pages/Products/Products";
@@ -24,6 +30,7 @@ function Client() {
             <Route path={ROOT_PATH} exact component={Home} />
             <Route path={PRODUCTS_PATH} exact component={Products} />
             <Route path={PRODUCT_DETAIL_PATH} component={ProductDetail} />
+            <Route path={CART_PATH} exact component={Cart} />
           </Switch>
         </Content>
       </Layout>

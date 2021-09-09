@@ -3,8 +3,11 @@ import { PRODUCTS_PATH } from "constants/route";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { addToCart } from "redux/cartSlice";
 import { getProductById } from "redux/productDetailSlice";
 import "./ProductDetail.scss";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function ProductDetail({ match }) {
   const dispatch = useDispatch();
@@ -27,6 +30,10 @@ function ProductDetail({ match }) {
     setquantity(item.quantity);
   };
 
+  const handleAddToCart = (item) => {
+    dispatch(addToCart(item));
+  };
+
   const renderType = (list = []) => {
     if (list) {
       return list.map((item) => {
@@ -40,6 +47,7 @@ function ProductDetail({ match }) {
   };
   return (
     <div className="product-detail">
+      <ToastContainer />
       <Row gutter={16}>
         <Col xs={24} sm={24} md={24} xl={12} className="product-detail-item">
           <img src={product.image} alt="product image" />
@@ -54,7 +62,9 @@ function ProductDetail({ match }) {
           </div>
           <div className="product-detail-type">{renderType(product.sizes)}</div>
           <div className="product-detail-action">
-            <Button>Thêm vào giỏ hàng</Button>
+            <Button onClick={() => handleAddToCart(product)}>
+              Thêm vào giỏ hàng
+            </Button>
             <Button>Mua ngay</Button>
             <Button>
               <Link to={PRODUCTS_PATH}>Tiếp tục mua sắm</Link>

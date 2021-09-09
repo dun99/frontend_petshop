@@ -1,0 +1,53 @@
+@import "assets/styles/variables.scss";
+
+table{
+    width: 100%;
+    border-collapse: collapse;
+
+    tr{
+        border: .5px solid $gray;
+        margin-top: 1rem;
+    }
+    th, td {
+        text-align: left;
+        padding: 8px;
+      }
+
+    tbody{
+        td{
+            height: 120px;
+            img {
+                height: 100%;
+            }
+        }
+    
+        .quantity{
+            height: 30px;
+            display: flex;
+            &-input{
+                width: 30px;
+                text-align: center;
+                outline: none;
+                padding: 0;
+                height: 100%;
+                border: .5px solid $gray;
+            }
+    
+            .action-btn{
+                width: 30px;
+                text-align: center;
+                font-weight: bold;
+                padding: 0;
+                height: 100%;
+                border: .5px solid $gray;
+                outline: none;
+                border-radius: 0;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+                -ms-border-radius: 0;
+                -o-border-radius: 0;
+            }
+        }
+        
+    }
+}
