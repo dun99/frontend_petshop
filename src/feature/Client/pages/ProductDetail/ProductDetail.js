@@ -3,11 +3,11 @@ import { PRODUCTS_PATH } from "constants/route";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { addToCart } from "redux/cartSlice";
 import { getProductById } from "redux/productDetailSlice";
 import "./ProductDetail.scss";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function ProductDetail({ match }) {
   const dispatch = useDispatch();
