@@ -7,6 +7,7 @@ import productDetailReducer from "./productDetailSlice";
 import productsReducer from "./productsSlice";
 import authReducer from "./authSlice";
 import UsersReducer from "./userSlice";
+import ordersReducer from "./ordersSlice";
 
 export const store = configureStore({
   reducer: {
@@ -17,6 +18,7 @@ export const store = configureStore({
     order: orderReducer,
     ordersHistory: ordersHistory,
     users: UsersReducer,
+    orders: ordersReducer,
   },
   middleware: [thunk],
 });

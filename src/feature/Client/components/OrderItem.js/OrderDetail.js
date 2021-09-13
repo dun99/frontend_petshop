@@ -15,7 +15,7 @@ function OrderDetail(props) {
     <tr className="order">
       <td>
         <Link to={`${PRODUCTS_PATH}/${product.id}`}>
-          <img src={product.image} atl={product.image}/>
+          <img src={product.image} atl={product.image} />
         </Link>
       </td>
       <td>{product.name}</td>

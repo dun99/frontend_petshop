@@ -1,0 +1,17 @@
+.dashboard {
+    width: 100%;
+    margin: 0;
+    display: flex;
+
+    .nav {
+        position: fixed;
+        height: 100vh;
+        width: 256px;
+    }
+
+    .content {
+        padding: 2rem;
+        margin-left: 256px;
+        width: calc(100% - 256px);
+    }
+}

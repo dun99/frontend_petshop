@@ -78,8 +78,7 @@ function Profile() {
     const reader = new FileReader();
     reader.addEventListener("load", () => callback(reader.result));
     reader.readAsDataURL(img);
-    setimageUrl(img);
-  }
+  };
 
   const uploadButton = (
     <div>
@@ -102,12 +101,13 @@ function Profile() {
 
   const handleChange = (info) => {
     getBase64(info.file.originFileObj, (imageUrl) => {
+      setUrls(imageUrl);
       setimageUrl(imageUrl);
     });
   };
 
-  const uploadAvatar =  () => {
-     storage
+  const uploadAvatar = () => {
+    storage
       .ref("images/" + imageUrl.name)
       .put(imageUrl)
       .then((snapshot) => {
@@ -123,7 +123,7 @@ function Profile() {
 
   return (
     <div className="profile">
-     <ToastContainer autoClose={2000} />
+      <ToastContainer autoClose={2000} />
       <h1 className="profile-title">Hồ sơ của tôi</h1>
       <Form
         {...formItemLayout}

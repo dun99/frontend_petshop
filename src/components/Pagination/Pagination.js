@@ -18,9 +18,10 @@ function PaginationApp(props) {
     <>
       <Pagination
         showQuickJumper
-        defaultCurrent={1}
+        defaultCurrent={filters._page}
+        current={filters._page}
         total={props.totalCount}
-        defaultPageSize={6}
+        defaultPageSize={filters._limit}
         onChange={handleChangePage}
       />
     </>
