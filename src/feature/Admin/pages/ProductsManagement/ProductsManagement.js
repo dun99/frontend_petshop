@@ -23,6 +23,7 @@ import {
   searchName,
   updateProductRequest,
 } from "redux/productsSlice";
+import { formatMoney } from "until/formatMoney";
 import "./ProductsManagement.scss";
 const { Search } = Input;
 function ProductsManagement() {
@@ -112,6 +113,7 @@ function ProductsManagement() {
       title: "Price",
       dataIndex: "price",
       key: "price",
+      render: (text) => formatMoney(text),
       sorter: (record1, record2) => {
         return record1.price > record2.price;
       },
@@ -121,21 +123,22 @@ function ProductsManagement() {
       dataIndex: "categories",
       key: "categories",
       filters: [
+        // tren doc em thay antd dung value la text luon a
         {
           text: "Quà lưu niệm",
-          value: 1,
+          value: "Quà lưu niệm",
         },
         {
           text: "Dụng cụ cá nhân",
-          value: 2,
+          value: "Dụng cụ cá nhân",
         },
         {
           text: "Sticker",
-          value: 3,
+          value: "Sticker",
         },
         {
           text: "Đồ dùng học tập",
-          value: 4,
+          value: "Đồ dùng học tập",
         },
       ],
       onFilter: (value, record) => {
@@ -189,6 +192,7 @@ function ProductsManagement() {
   const onFinish = (values) => {
     const newinfo = {
       ...values,
+      price: parseFloat(values.price),
       image: urls,
     };
     if (editing === null) {
@@ -237,8 +241,8 @@ function ProductsManagement() {
     });
   };
 
-  const uploadImage =  () => {
-     storage
+  const uploadImage = () => {
+    storage
       .ref("productImages/" + imageUrl.name)
       .put(imageUrl)
       .then((snapshot) => {

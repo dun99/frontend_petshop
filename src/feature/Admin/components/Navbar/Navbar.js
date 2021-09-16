@@ -1,16 +1,14 @@
 import {
-  AppstoreOutlined,
   ContainerOutlined,
   DesktopOutlined,
-  MailOutlined,
   PieChartOutlined,
 } from "@ant-design/icons";
 import { Menu } from "antd";
-import SubMenu from "antd/lib/menu/SubMenu";
 import {
   ADMIN_ORDER_PATH,
   ADMIN_PATH,
   ADMIN_PRODUCTS_PATH,
+  ADMIN_USERS_PATH,
 } from "constants/route";
 import React from "react";
 import { Link } from "react-router-dom";
@@ -35,7 +33,7 @@ function Navbar() {
           <Link to={ADMIN_ORDER_PATH}>Orders</Link>
         </Menu.Item>
         <Menu.Item key="4" icon={<ContainerOutlined />}>
-          Option 3
+          <Link to={ADMIN_USERS_PATH}>Users</Link>
         </Menu.Item>
       </Menu>
     </div>

@@ -3,22 +3,63 @@
     {
       "name": "Cắm bàn chải Baby shark and duck",
       "categories": "Dụng cụ cá nhân",
-      "price": 399.99,
+      "price": 40000,
       "description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
       "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-      "id": 1
+      "id": 1,
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
     },
     {
       "name": "Cắm bàn chải Baby shark and duck",
       "categories": "Sticker",
+      "price": 4000,
+      "description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
+      "brand": "360fly",
+      "categories": [
+        "Dụng cụ cá nhân"
+      ],
+      "type": "Point&#38;shoot camcrder",
       "price": 399.99,
       "description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
       "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378110/samples/e-commerce/21070017_BU_thumb_jdbq2h.jpg",
-      "id": 2
+      "url": "http://www.bestbuy.com/site/360fly-panoramic-360-hd-video-camera-black/9131042.p?id=1219405459683&skuId=9131042&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "free_shipping": false,
+      "popularity": 9999,
+      "rating": 5,
+      "objectID": "9131042",
+      "id": 2,
+      "sizes": [
+        {
+          "name": "S",
+          "quantity": 10
+        },
+        {
+          "name": "M",
+          "quantity": 8
+        },
+        {
+          "name": "L",
+          "quantity": 5
+        }
+      ]
     },
     {
-      "id": 3,
       "name": "Sticker bảng MJ Baby bear rabbit cute pets bow daily time",
+      "categories": "Sticker",
+      "price": 3000,
       "description": "3D Robotics Backpack for Solo Drones: Protect your Solo drone and accessories from the elements, wherever your adventures lead you. This Solo drone backpack features a custom-fitted foam interior that prevents the drone from jostling inside. The black exterior is water-resistant, with padded straps for extra comfort.",
       "brand": "3DR",
       "categories": "Sticker",
@@ -26,11 +67,7 @@
       "price": 149.95,
       "price_range": "100 - 200",
       "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378108/samples/e-commerce/21070016_XX_thumb_hhwruv.jpg",
-      "url": "http://www.bestbuy.com/site/3dr-backpack-for-solo-black/5353024.p?id=1219650465782&skuId=5353024&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-      "free_shipping": false,
-      "popularity": 9998,
-      "rating": 5,
-      "objectID": "5353024",
+      "id": 3,
       "sizes": [
         {
           "name": "S",
@@ -109,7 +146,7 @@
     {
       "name": "Squishy MJ Momo duck nháy mắt 7cm",
       "categories": "Quà lưu niệm",
-      "price": "698",
+      "price": 7000,
       "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
       "brand": "Pogoplug",
       "categories": [

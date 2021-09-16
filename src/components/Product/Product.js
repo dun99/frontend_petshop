@@ -5,6 +5,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "redux/cartSlice";
+import { formatMoney } from "until/formatMoney";
 import "./Product.scss";
 import "./Product.scss";
 
@@ -34,7 +35,7 @@ function Product(props) {
       ]}
     >
       <div className="product-title">{product.name}</div>
-      <div className="product-price">{product.price}</div>
+      <div className="product-price">{formatMoney(product.price)}</div>
     </Card>
   );
 }

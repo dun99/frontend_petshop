@@ -32,23 +32,20 @@ const authApi = {
       userInfo.email,
       userInfo.password
     );
-    const info = await db
-      .collection("users")
-      .doc(user.uid)
-      .get()
-      .then(() => {
-        return {
-          ...info.data(),
-          id: info.id,
-        };
-      })
-      .catch((error) => {
-        return error;
-      });
+    try {
+      const doc = await db.collection("users").doc(user.uid).get();
+      if (doc.exists) {
+        return doc.data();
+      } else {
+        return new Error("No data");
+      }
+    } catch (error) {
+      return error;
+    }
   },
 
-  logout: async () => {
-    await auth
+  logout: () => {
+    auth
       .signOut()
       .then(() => {})
       .catch((error) => {

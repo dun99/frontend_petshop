@@ -18,7 +18,7 @@ import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logoutRequest, setUserCurrent } from "redux/authSlice";
+import { loginRequest, logoutRequest, setUserCurrent } from "redux/authSlice";
 import { totalCart } from "redux/cartSlice";
 import { fetchUserById } from "redux/userSlice";
 import "./Header.scss";
@@ -31,6 +31,7 @@ function HeaderApp() {
   const cart = useSelector((state) => state.cart.cartItem);
   const isAuth = useSelector((state) => state.auth.isAuth);
   const currentUser = useSelector((state) => state.auth.currentUser);
+  const user = useSelector((state) => state.users.user);
   const { t, i18n } = useTranslation();
 
   const userInfo = useSelector((state) => state.users.user);
@@ -41,6 +42,12 @@ function HeaderApp() {
   }, [currentUser, userInfo.id]);
 
   useEffect(() => {
+    if (currentUser.uid) {
+      dispatch(fetchUserById(currentUser.uid));
+    }
+  }, [currentUser]);
+
+  useEffect(() => {
     dispatch(totalCart());
   }, [cartCount, cart]);
 
@@ -49,7 +56,7 @@ function HeaderApp() {
       dispatch(setUserCurrent(user));
     });
     return () => unregisterAuthObserver();
-  }, [currentUser]);
+  }, [currentUser, user.email]);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);

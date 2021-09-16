@@ -30,6 +30,25 @@ const userApi = {
       });
     return userInfor;
   },
+
+  getAllUser: async () => {
+    const userArr = [];
+    await db.collection("users")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          userArr.push({
+            id: doc.id,
+            ...doc.data(),
+          });
+        });
+      });
+    return userArr;
+  },
+
+  deleteUser: (id) => {
+    const res = db.collection("users").doc(id).delete();
+  },
 };
 
 export default userApi;

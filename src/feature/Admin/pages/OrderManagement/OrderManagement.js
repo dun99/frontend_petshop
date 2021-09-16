@@ -8,6 +8,7 @@ import {
   fetchOrdersRequest,
   updateOrderRequest,
 } from "redux/ordersSlice";
+import { formatMoney } from "until/formatMoney";
 function OrderManagement() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
@@ -61,7 +62,7 @@ function OrderManagement() {
       dataIndex: "cart",
       key: "total",
       render: (cart) => {
-        return <div>{cart.cartTotalAmount}</div>;
+        return <div>{formatMoney(cart.cartTotalAmount)}</div>;
       },
     },
     {

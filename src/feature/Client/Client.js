@@ -26,6 +26,7 @@ import Home from "./pages/Home/Home";
 import Order from "./pages/Order/Order";
 import OrderHistory from "./pages/OrderHistory/OrderHistory";
 import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
+import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Products from "./pages/Products/Products";
 import Profile from "./pages/Profile/Profile";
 
@@ -42,11 +43,11 @@ function Client() {
             <Route path={ROOT_PATH} exact>
               <Home />
             </Route>
-            <Route path={PRODUCTS_PATH}>
+            <Route path={PRODUCTS_PATH} exact>
               <Products />
             </Route>
             <Route path={PRODUCT_DETAIL_PATH}>
-              <Products />
+              <ProductDetail />
             </Route>
             <Route path={CART_PATH}>
               <Cart />
