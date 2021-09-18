@@ -1,12 +1,17 @@
-import { Button, Col, Row } from "antd";
+import { Button, Col, Comment, Row } from "antd";
+import Avatar from "antd/lib/avatar/avatar";
 import { PRODUCTS_PATH } from "constants/route";
+import CommentInput from "feature/Client/components/Comment/CommentInput";
+import CommentList from "feature/Client/components/Comment/CommentList";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { addToCart } from "redux/cartSlice";
+import { createCommentRequest, fetchCommentRequest } from "redux/commentSlice";
 import { getProductById } from "redux/productDetailSlice";
+import { fetchUserById } from "redux/userSlice";
 import "./ProductDetail.scss";
 
 function ProductDetail() {
@@ -14,11 +19,26 @@ function ProductDetail() {
   const dispatch = useDispatch();
   const product = useSelector((state) => state.productDetail.product);
   const [quantity, setquantity] = useState(0);
+  const comments = useSelector((state) => state.comments.list);
+  const [submitting, setsubmitting] = useState(false);
+  const [value, setvalue] = useState("");
+  const currentUser = useSelector((state) => state.auth.currentUser);
+  const user = useSelector((state) => state.users.user);
+  useEffect(() => {
+    if (currentUser && currentUser.uid) {
+      dispatch(fetchUserById(currentUser.uid));
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     dispatch(getProductById(id));
     const total = totalItem(product.sizes);
     setquantity(total);
+    dispatch(
+      fetchCommentRequest({
+        productId: id,
+      })
+    );
   }, []);
 
   const totalItem = (list = []) => {
@@ -46,6 +66,31 @@ function ProductDetail() {
       });
     }
   };
+
+  const handleSubmit = () => {
+    if (!value) {
+      return;
+    }
+    setsubmitting(true);
+    setTimeout(() => {
+      setsubmitting(false);
+      setvalue("");
+      dispatch(
+        createCommentRequest({
+          productId: product.id,
+          author: currentUser.uid,
+          content: value,
+          avatar: user.avatar,
+          account: user.email,
+        })
+      );
+    }, 5000);
+  };
+
+  const handleChange = (e) => {
+    setvalue(e.target.value);
+  };
+
   return (
     <div className="product-detail">
       <ToastContainer />
@@ -73,6 +118,25 @@ function ProductDetail() {
           </div>
         </Col>
       </Row>
+
+      <div className="comments">
+        {comments.length > 0 && (
+          <>
+            <CommentList comments={comments} user={user} />
+          </>
+        )}
+        <Comment
+          avatar={<Avatar src={user.avatar} alt="User" />}
+          content={
+            <CommentInput
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+              submitting={submitting}
+              value={value}
+            />
+          }
+        />
+      </div>
     </div>
   );
 }

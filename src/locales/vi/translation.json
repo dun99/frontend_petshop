@@ -1,14 +1,18 @@
 {
-    "language": {
-        "name": "Ngôn ngữ",
-        "english": "Tiếng Anh",
-        "vietnam": "Tiếng Việt"
-    },
     "Home": "Trang chủ",
     "Logout": "Đăng xuất",
     "Product": "Sản phẩm",
     "Categories": "Danh mục",
     "Price": "Gía",
     "From": "TỪ",
-    "To": "Đến"
+    "To": "Đến",
+    "Buy Now" : "Mua ngay",
+    "Detail": "Xem chi tiết",
+    "Add to cart": "Thêm vào giỏ hàng",
+    "Account": "Tài khoản",
+    "Login": "Đăng nhập",
+    "Signup": "Đăng ký",
+    "Logout": "Đăng xuất",
+    "Info": "Thông tin tài khoản",
+    "Orders": "Lịch sử đơn hàng"
 }

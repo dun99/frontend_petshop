@@ -1,6 +1,7 @@
 import { PRODUCTS_PATH } from "constants/route";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { formatMoney } from "util/formatMoney";
 
 function OrderDetail(props) {
   const { product } = props;
@@ -19,11 +20,11 @@ function OrderDetail(props) {
         </Link>
       </td>
       <td>{product.name}</td>
-      <td>{product.price}</td>
+      <td>{formatMoney(product.price)}</td>
       <td>
         <div className="quantity">{product.quantity}</div>
       </td>
-      <td>{totalPrice}</td>
+      <td>{formatMoney(totalPrice)}</td>
     </tr>
   );
 }

@@ -8,7 +8,7 @@ import {
   fetchOrdersRequest,
   updateOrderRequest,
 } from "redux/ordersSlice";
-import { formatMoney } from "until/formatMoney";
+import { formatMoney } from "util/formatMoney";
 function OrderManagement() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);

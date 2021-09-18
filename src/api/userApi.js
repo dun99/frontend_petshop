@@ -33,7 +33,8 @@ const userApi = {
 
   getAllUser: async () => {
     const userArr = [];
-    await db.collection("users")
+    await db
+      .collection("users")
       .get()
       .then((querySnapshot) => {
         querySnapshot.forEach((doc) => {

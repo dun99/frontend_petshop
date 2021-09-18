@@ -6,9 +6,8 @@ export const categoryList = [
 ];
 
 export const priceData = [
-  { id: 2, gte: 1, lte: 80 },
-  { id: 3, gte: 80, lte: 160 },
-  { id: 4, gte: 160, lte: 240 },
-  { id: 5, gte: 240, lte: 1820 },
-  { id: 6, gte: 1820 },
+  { id: 2, gte: 1, lte: 1000 },
+  { id: 3, gte: 1000, lte: 50000 },
+  { id: 4, gte: 50000, lte: 100000 },
+  { id: 5, gte: 100000, lte: 200000 },
 ];

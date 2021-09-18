@@ -1,13 +1,13 @@
-import React, { useEffect } from "react";
-import { auth } from "feature/Auth/firebase";
-import { Form, Input, Button, Checkbox } from "antd";
-import { UserOutlined, LockOutlined, GoogleOutlined } from "@ant-design/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { loginRequest, logoutRequest, setUserCurrent } from "redux/authSlice";
+import { GoogleOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
+import { Button, Checkbox, Form, Input } from "antd";
 import authApi from "api/authApi";
-import { Link } from "react-router-dom";
 import { REGISTER_PATH } from "constants/route";
-
+import { auth } from "feature/Auth/firebase";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { loginRequest, logoutRequest, setUserCurrent } from "redux/authSlice";
+import "./loginForm.scss";
 const LoginForm = () => {
   const dispatch = useDispatch();
   const isAuth = useSelector((state) => state.auth.isAuth);
@@ -35,7 +35,7 @@ const LoginForm = () => {
 
   if (!isAuth || !currentUser) {
     return (
-      <div>
+      <div className="login-form">
         <Form
           name="normal_login"
           className="login-form"
@@ -47,6 +47,10 @@ const LoginForm = () => {
           <Form.Item
             name="email"
             rules={[
+              {
+                type: "email",
+                message: "The input is not valid E-mail!",
+              },
               {
                 required: true,
                 message: "Please input your email!",

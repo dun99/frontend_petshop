@@ -1,6 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
 import cartReducer from "./cartSlice";
+import CommentsReducer from "./commentSlice";
 import ordersHistory from "./orderHistorySlice";
 import orderReducer from "./orderSlice";
 import productDetailReducer from "./productDetailSlice";
@@ -19,6 +20,7 @@ export const store = configureStore({
     ordersHistory: ordersHistory,
     users: UsersReducer,
     orders: ordersReducer,
+    comments: CommentsReducer,
   },
   middleware: [thunk],
 });

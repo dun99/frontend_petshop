@@ -23,7 +23,7 @@ import {
   searchName,
   updateProductRequest,
 } from "redux/productsSlice";
-import { formatMoney } from "until/formatMoney";
+import { formatMoney } from "util/formatMoney";
 import "./ProductsManagement.scss";
 const { Search } = Input;
 function ProductsManagement() {

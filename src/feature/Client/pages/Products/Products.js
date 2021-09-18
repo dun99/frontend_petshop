@@ -1,25 +1,32 @@
-import { Col, Empty, Row } from "antd";
+import { Col, Empty, Input, Row, Spin } from "antd";
 import BackTopApp from "components/BackTop/BackTop";
 import PaginationApp from "components/Pagination/Pagination";
 import Product from "components/Product/Product";
 import { categoryList } from "constants/FilterData";
 import CategoryFilter from "feature/Client/components/Filters/CategoryList";
 import Price from "feature/Client/components/Filters/Price";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { fetchProductsRequest } from "redux/productsSlice";
+import { fetchProductsRequest, searchName } from "redux/productsSlice";
 import "./Products.scss";
+const { Search } = Input;
 
 function Products() {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.products.filters);
   const products = useSelector((state) => state.products.list);
   const totalCount = useSelector((state) => state.products.count);
+  const typingTimeout = useRef(null); // debouce search
+  const [loading, setloading] = useState(false);
 
   useEffect(() => {
-    dispatch(fetchProductsRequest(filters));
+    setloading(true);
+    setTimeout(() => {
+      dispatch(fetchProductsRequest(filters));
+      setloading(false);
+    }, 1000);
   }, [filters]);
 
   const renderProduct = (list) => {
@@ -32,15 +39,44 @@ function Products() {
     });
   };
 
+  const handleSearch = (value) => {
+    dispatch(searchName(value));
+  };
+
+  const handleChangeSearch = (e) => {
+    const value = e.target.value;
+    if (typingTimeout.current) {
+      clearTimeout(typingTimeout.current);
+    }
+
+    typingTimeout.current = setTimeout(() => {
+      dispatch(searchName(value));
+    }, 1000);
+  };
+
   return (
     <div className="products-list">
       <ToastContainer autoClose={3000} />
+      <div className="search">
+        <Search
+          style={{ width: 400 }}
+          placeholder="search name"
+          onSearch={handleSearch}
+          onChange={handleChangeSearch}
+          allowClear
+          enterButton
+        />
+      </div>
       <Row gutter={16}>
         <Col xs={24} sm={24} md={4} className="gutter-row">
           <CategoryFilter categories={categoryList} />
           <Price />
         </Col>
-        {products.length === 0 ? (
+        {loading ? (
+          <div className="loading">
+            <Spin />
+          </div>
+        ) : products.length === 0 ? (
           <Empty />
         ) : (
           <Col xs={24} sm={24} md={20} className="gutter-row">

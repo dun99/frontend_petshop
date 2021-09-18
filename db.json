@@ -7,6 +7,7 @@
       "description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
       "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
       "id": 1,
+      "free_shipping": true,
       "sizes": [
         {
           "name": "S",
@@ -57,7 +58,7 @@
       ]
     },
     {
-      "name": "Sticker bảng MJ Baby bear rabbit cute pets bow daily time",
+      "name": "Sticker bảng MJ Baby bear rabbit cute pets bow daily",
       "categories": "Sticker",
       "price": 3000,
       "description": "3D Robotics Backpack for Solo Drones: Protect your Solo drone and accessories from the elements, wherever your adventures lead you. This Solo drone backpack features a custom-fitted foam interior that prevents the drone from jostling inside. The black exterior is water-resistant, with padded straps for extra comfort.",
@@ -94,7 +95,7 @@
       "price_range": "1 - 50",
       "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378106/samples/e-commerce/21070015_XX_thumb_ez74gq.jpg",
       "url": "http://www.bestbuy.com/site/3dr-propellers-for-3dr-solo-drones-2-pack-black/5357011.p?id=1219650465778&skuId=5357011&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-      "free_shipping": false,
+      "free_shipping": true,
       "popularity": 9997,
       "rating": 2,
       "objectID": "5357011",
@@ -124,7 +125,7 @@
       "price_range": "1 - 50",
       "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378106/samples/e-commerce/21070015_XX_thumb_ez74gq.jpg",
       "url": "http://www.bestbuy.com/site/3dr-propellers-for-3dr-solo-drones-2-pack-black/5357011.p?id=1219650465778&skuId=5357011&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-      "free_shipping": false,
+      "free_shipping": true,
       "popularity": 9997,
       "rating": 2,
       "objectID": "5357011",
@@ -144,23 +145,20 @@
       ]
     },
     {
-      "name": "Squishy MJ Momo duck nháy mắt 7cm",
-      "categories": "Quà lưu niệm",
-      "price": 7000,
-      "description": "Enjoy 3 years of unlimited Cloud storage service with this activation card, which allows you to remotely access your favorite music, movies and other media via a compatible device and enables private file sharing with loved ones.",
-      "brand": "Pogoplug",
-      "categories": [
-        "Quà lưu niệm"
-      ],
-      "type": "Online data backup",
-      "price": 69,
-      "price_range": "50 - 100",
-      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
-      "url": "http://www.bestbuy.com/site/3-year-unlimited-cloud-storage-service-activation-card-other/1696302.p?id=1219066776306&skuId=1696302&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
+      "id": 6,
+      "name": "Kẹp tài liệu A4 Rabbit gourmet 22x31",
+      "description": "3D Robotics Propellers for Solo Drones: Buy this set of replacement propellers before you need them so you can get back to flying as soon as you damage or lose a propeller. The 1-piece design of these propellers keeps them secure during flight, self-tightening so you can install them in an instant and return to in-air fun.",
+      "brand": "3DR",
+      "categories": "Đồ dùng học tập",
+      "type": "Drone accessory",
+      "price": 14.95,
+      "price_range": "1 - 50",
+      "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378106/samples/e-commerce/21070015_XX_thumb_ez74gq.jpg",
+      "url": "http://www.bestbuy.com/site/3dr-propellers-for-3dr-solo-drones-2-pack-black/5357011.p?id=1219650465778&skuId=5357011&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
       "free_shipping": true,
-      "popularity": 10000,
+      "popularity": 9997,
       "rating": 2,
-      "objectID": "1696302",
+      "objectID": "5357011",
       "sizes": [
         {
           "name": "S",
@@ -194,7 +192,7 @@
             "price_range": "200 - 500",
             "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378110/samples/e-commerce/21070017_BU_thumb_jdbq2h.jpg",
             "url": "http://www.bestbuy.com/site/360fly-panoramic-360-hd-video-camera-black/9131042.p?id=1219405459683&skuId=9131042&cmp=RMX&ky=1uWSHMdQqBeVJB9cXgEke60s5EjfS6M1W",
-            "free_shipping": false,
+            "free_shipping": true,
             "popularity": 9999,
             "rating": 5,
             "objectID": "9131042",
@@ -227,6 +225,8 @@
         "id": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
         "email": "duongduong19910909@gmail.com"
       },
+      "orderStatus": "pending",
+      "createAt": 1632074373881,
       "id": 1
     },
     {
@@ -311,7 +311,8 @@
         "id": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
         "email": "duongduong19910909@gmail.com"
       },
-      "orderStatus": "pending",
+      "orderStatus": "confirm",
+      "createAt": 1632010320000,
       "id": 2
     },
     {
@@ -363,8 +364,94 @@
         "id": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
         "email": "duongduong19910909@gmail.com"
       },
-      "orderStatus": "pending",
+      "orderStatus": "shipping",
+      "createAt": 1631923920000,
       "id": 3
+    },
+    {
+      "cart": {
+        "cartItem": [
+          {
+            "name": "Cắm bàn chải Baby shark and duck",
+            "categories": "Dụng cụ cá nhân",
+            "price": 40000,
+            "description": "Only at Best Buy  This 360fly panoramic 360&#176; HD video camera features Wi-Fi, a Bluetooth LE interface and the included 360fly app (download required), so you can easily shoot, edit, replay and share recorded video footage using a compatible iOS or Android smartphone. Included action camera adaptor lets you use your 360fly camera with your existing 3-prong mounts.",
+            "image": "https://res.cloudinary.com/dun0624/image/upload/v1630378111/samples/e-commerce/21071018_XX_thumb_jozdwy.jpg",
+            "id": 1,
+            "free_shipping": true,
+            "sizes": [
+              {
+                "name": "S",
+                "quantity": 10
+              },
+              {
+                "name": "M",
+                "quantity": 8
+              },
+              {
+                "name": "L",
+                "quantity": 5
+              }
+            ],
+            "quantity": 1
+          }
+        ],
+        "cartTotalQuantity": 1,
+        "cartTotalAmount": 40000
+      },
+      "info": {
+        "name": "Dung",
+        "address": "Hai Phong",
+        "phone": "0793220699",
+        "note": "ghi chu"
+      },
+      "user": {
+        "id": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
+        "email": "duongduong19910909@gmail.com"
+      },
+      "orderStatus": "pending",
+      "createAt": 1631837520000,
+      "id": 4
+    }
+  ],
+  "comments": [
+    {
+      "productId": 1,
+      "author": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
+      "content": "comment",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/ecommerce-f01af.appspot.com/o/images%2FScreenshot%20from%202021-05-21%2015-40-29.png?alt=media&token=2ee60b52-b785-490e-a518-79669cf98ef2",
+      "account": "duongduong19910909@gmail.com",
+      "id": 1
+    },
+    {
+      "productId": 1,
+      "author": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
+      "content": "kkkkk",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/ecommerce-f01af.appspot.com/o/images%2FScreenshot%20from%202021-05-21%2015-40-29.png?alt=media&token=2ee60b52-b785-490e-a518-79669cf98ef2",
+      "account": "duongduong19910909@gmail.com",
+      "id": 2
+    },
+    {
+      "productId": 1,
+      "author": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
+      "content": "aaaa",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/ecommerce-f01af.appspot.com/o/images%2FScreenshot%20from%202021-05-21%2015-40-29.png?alt=media&token=2ee60b52-b785-490e-a518-79669cf98ef2",
+      "account": "duongduong19910909@gmail.com",
+      "id": 3
+    },
+    {
+      "productId": 2,
+      "author": "fN1Mz1OhOpOgEvQwrV4scxbIJDm1",
+      "content": "test",
+      "avatar": "https://firebasestorage.googleapis.com/v0/b/ecommerce-f01af.appspot.com/o/images%2FScreenshot%20from%202021-05-21%2015-40-29.png?alt=media&token=2ee60b52-b785-490e-a518-79669cf98ef2",
+      "account": "duongduong19910909@gmail.com",
+      "id": 4
+    },
+    {
+      "productId": 1,
+      "author": "mVLat63T7Qbf2kllSZdJyxzbBmh2",
+      "content": "ffff",
+      "id": 5
     }
   ]
 }
