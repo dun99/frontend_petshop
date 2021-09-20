@@ -1,0 +1,7 @@
+@import "assets/styles/mixin.scss";
+
+.order-success {
+    @include text(1rem, bold);
+    margin: 2rem;
+    text-align: center;
+}

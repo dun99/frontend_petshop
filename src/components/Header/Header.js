@@ -7,6 +7,7 @@ import {
 import { Button, Layout, Menu } from "antd";
 import {
   CART_PATH,
+  ORDER_HISTORY,
   PRODUCTS_PATH,
   REGISTER_PATH,
   ROOT_PATH,
@@ -104,7 +105,9 @@ function HeaderApp() {
                       <a onClick={handleLogout}>Đăng xuất</a>
                     </Menu.Item>
                     <Menu.Item key="3">Thông tin tài khoản</Menu.Item>
-                    <Menu.Item key="4">Lịch sử đơn hàng</Menu.Item>
+                    <Menu.Item key="4">
+                      <Link to={ORDER_HISTORY}>Lịch sử đơn hàng</Link>
+                    </Menu.Item>
                   </>
                 )}
               </SubMenu>

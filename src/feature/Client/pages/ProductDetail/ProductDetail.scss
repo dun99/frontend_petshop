@@ -1,28 +1,32 @@
 @import "assets/styles/mixin.scss";
-.product-detail{
+.product-detail {
     margin-top: 2rem;
     margin-bottom: 2rem;
 
-    &-name, &-price{
-        @include text (1.5rem, bold);
+    &-name,
+    &-price {
+        @include text(1.5rem, bold);
     }
 
-    &-desc, &-quantity, &-type, &-action{
+    &-desc,
+    &-quantity,
+    &-type,
+    &-action {
         margin-top: 1rem;
     }
 
-    &-quantity{
-        @include text (1rem, bold);
+    &-quantity {
+        @include text(1rem, bold);
     }
 
-    button{
+    button {
         margin-right: 1rem;
         margin-bottom: 1rem;
     }
 
-    &-item{
+    &-item {
         text-align: center;
-        img{
+        img {
             width: 100%;
             max-width: 400px;
         }
