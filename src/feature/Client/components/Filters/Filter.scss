@@ -1,6 +1,6 @@
 @import "assets/styles/variables.scss";
 .active {
-    color: $blue;
+    color: $pink-hover;
 }
 
 .category-item {
@@ -8,16 +8,18 @@
     padding: 0.5rem;
 
     &:hover {
-        color: $blue;
+        color: $pink-hover;
     }
 }
 
 .category-title {
-    font-weight: bold;
-    font-size: 1rem;
+    font-weight: 600;
+    font-size: 1.2rem;
     text-transform: uppercase;
-    color: $blue;
+    color: $pink-hover;
     margin-bottom: 0.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid $pink;
 }
 
 .icon {
@@ -33,6 +35,7 @@
 
     input {
         outline: none;
+        width: 100%;
         border: 1px solid $gray;
         padding: 0.5rem;
         border-radius: 5px;
@@ -44,6 +47,8 @@
 
     button {
         display: flex;
+        background-color: $pink;
+        border: 1px solid $pink;
         margin: 1rem auto;
     }
 }

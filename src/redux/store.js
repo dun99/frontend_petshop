@@ -1,15 +1,15 @@
 import { configureStore } from "@reduxjs/toolkit";
 import thunk from "redux-thunk";
+import authReducer from "./authSlice";
 import cartReducer from "./cartSlice";
 import CommentsReducer from "./commentSlice";
 import ordersHistory from "./orderHistorySlice";
 import orderReducer from "./orderSlice";
+import ordersReducer from "./ordersSlice";
 import productDetailReducer from "./productDetailSlice";
 import productsReducer from "./productsSlice";
-import authReducer from "./authSlice";
+import RevenueReducer from "./statisticSlice";
 import UsersReducer from "./userSlice";
-import ordersReducer from "./ordersSlice";
-
 export const store = configureStore({
   reducer: {
     products: productsReducer,
@@ -21,6 +21,7 @@ export const store = configureStore({
     users: UsersReducer,
     orders: ordersReducer,
     comments: CommentsReducer,
+    revenue: RevenueReducer,
   },
   middleware: [thunk],
 });

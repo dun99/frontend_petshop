@@ -1,6 +1,8 @@
-import { Carousel, Col, Empty, Row } from "antd";
+import { Col, Empty, Row } from "antd";
 import BackTopApp from "components/BackTop/BackTop";
 import Product from "components/Product/Product";
+import SliderImage from "components/Slider/Slider";
+import { sliderCategories } from "constants/FilterData";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -35,6 +37,33 @@ function Home() {
       }
     });
   };
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    autoplay: true,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <div className="products-list">
       <ToastContainer autoClose={3000} />
@@ -59,6 +88,11 @@ function Home() {
           </Col>
         )}
       </Row>
+      <SliderImage
+        className="slider"
+        setting={settings}
+        data={sliderCategories}
+      ></SliderImage>
     </div>
   );
 }

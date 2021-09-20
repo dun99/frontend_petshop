@@ -18,9 +18,9 @@
     }
 
     .total-cart {
+        @include text(1.5rem, bold);
         display: flex;
         justify-content: flex-end;
-        @include text(1.5rem, bold);
         margin-bottom: 1rem;
     }
 

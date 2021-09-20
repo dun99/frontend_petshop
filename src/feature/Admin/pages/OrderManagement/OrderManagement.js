@@ -135,6 +135,7 @@ function OrderManagement() {
   return (
     <>
       <ToastContainer autoClose={2000} />
+      <h1>Orders Management</h1>
       <Table
         loading={loading}
         columns={columns}

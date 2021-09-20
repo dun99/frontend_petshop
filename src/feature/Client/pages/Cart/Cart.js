@@ -1,5 +1,5 @@
 import { Button, Empty } from "antd";
-import { ORDER_PATH, PRODUCTS_PATH } from "constants/route";
+import { ORDER_PATH, ROOT_PATH } from "constants/route";
 import CartItem from "feature/Client/components/CartItem/CartItem";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -50,7 +50,7 @@ function Cart() {
         </div>
         <div className="action-cart">
           <Button type="primary">
-            <Link to={PRODUCTS_PATH}>Tiếp tục mua sắm</Link>
+            <Link to={ROOT_PATH}>Tiếp tục mua sắm</Link>
           </Button>
           <Button>
             <Link to={ORDER_PATH}>Đặt hàng</Link>

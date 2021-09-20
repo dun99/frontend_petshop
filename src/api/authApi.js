@@ -13,8 +13,7 @@ const authApi = {
       delete userInfo.password;
       userInfo.createdDate = firebase.firestore.FieldValue.serverTimestamp();
       userInfo.role = "customer";
-      await db
-        .collection("users")
+      db.collection("users")
         .doc(user.uid)
         .set(userInfo)
         .then(() => {
@@ -44,13 +43,12 @@ const authApi = {
     }
   },
 
-  logout: () => {
-    auth
-      .signOut()
-      .then(() => {})
-      .catch((error) => {
-        return error;
-      });
+  logout: async () => {
+    try {
+      await auth.signOut();
+    } catch (error) {
+      return error;
+    }
   },
 
   singinWithGoogle: () => {

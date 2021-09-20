@@ -39,7 +39,7 @@ function Price() {
     return list.map((item, index) => {
       return (
         <li
-          className="categoryItem"
+          className="category-item"
           key={index}
           gte={item.gte}
           lte={item.lte}
@@ -60,7 +60,7 @@ function Price() {
 
   return (
     <div className="price">
-      <h1 className="title__filter categoryTitle">Price</h1>
+      <h1 className="title__filter category-title">Price</h1>
       <ul className="filter-price">
         <div className="filter__item brand__item">
           {displayPrice(priceData)}
@@ -81,9 +81,7 @@ function Price() {
           defaultValue={lte || ""}
           ref={ref_Lte}
         />
-        <Button type="primary" onClick={handleChangePrice}>
-          Go
-        </Button>
+        <Button onClick={handleChangePrice}>Go</Button>
       </div>
     </div>
   );

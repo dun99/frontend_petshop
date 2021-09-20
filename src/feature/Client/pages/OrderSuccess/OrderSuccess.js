@@ -13,7 +13,7 @@ function OrderSuccess() {
         xác nhận đơn hàng trong 24 giờ tới
       </p>
       <div className="action-cart">
-        <Button type="primary">
+        <Button className="">
           <Link to={PRODUCTS_PATH}>Tiếp tục mua sắm</Link>
         </Button>
         <Button>

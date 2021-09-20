@@ -1,7 +1,19 @@
+@import "assets/styles/variables.scss";
+@import "assets/styles/mixin.scss";
 .profile {
     margin-top: 2rem;
 
     &-title {
+        @include text(2rem, 600);
         text-align: center;
+    }
+
+    button {
+        @include button($white, $pink);
+        text-align: center;
+
+        &:hover {
+            @include button($black, $pink-hover);
+        }
     }
 }

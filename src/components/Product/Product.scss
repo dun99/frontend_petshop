@@ -1,21 +1,41 @@
+@import "assets/styles/variables";
 .product-card {
     position: relative;
-    
+    overflow: hidden;
+
     .product-title {
         font-weight: 600;
         font-size: 1rem;
+
+        &:hover {
+            color: $pink-hover;
+        }
     }
 
     .product-price {
         font-weight: 600;
         font-size: 1.2rem;
     }
-}
 
-.freeship-tag {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-size: 1rem;
-    padding: 0.3rem;
+    .freeship-tag {
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 1rem;
+        padding: 0.3rem;
+    }
+
+    img {
+        width: 100%;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        -webkit-transition: all 0.5s ease-in-out;
+        -moz-transition: all 0.5s ease-in-out;
+        -ms-transition: all 0.5s ease-in-out;
+        -o-transition: all 0.5s ease-in-out;
+
+        &:hover {
+            transform: scale(1.15);
+        }
+    }
 }

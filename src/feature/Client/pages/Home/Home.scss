@@ -1,17 +1,10 @@
+@import "assets/styles/variables";
+
 .products-list {
     .category-name {
         font-size: 1.5rem;
-        font-weight: bold;
+        font-weight: 600;
         margin-top: 2rem;
-        text-transform: uppercase;
-    }
-
-    .image-slider {
-        margin-top: 2rem;
-        width: 100%;
-        
-        img {
-            width: 100%;
-        }
+        margin-bottom: 1rem;
     }
 }

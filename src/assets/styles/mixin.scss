@@ -2,3 +2,9 @@
     font-size: $fontSize;
     font-weight: $fontWeight;
 }
+
+@mixin button($color, $background){
+    background-color: $background;
+    color: $color;
+    border: none;
+}

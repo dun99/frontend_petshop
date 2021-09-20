@@ -15,14 +15,8 @@ import { Link } from "react-router-dom";
 import "./Navbar.scss";
 function Navbar() {
   return (
-    <div className="dashboard">
-      <Menu
-        className="nav"
-        defaultSelectedKeys={["1"]}
-        defaultOpenKeys={["sub1"]}
-        mode="inline"
-        theme="dark"
-      >
+    <div className="dashboard-nav">
+      <Menu className="nav" mode="inline" theme="dark" defaultSelectedKeys="1">
         <Menu.Item key="1" icon={<PieChartOutlined />}>
           <Link to={ADMIN_PATH}>Home</Link>
         </Menu.Item>

@@ -1,7 +1,12 @@
 @import "assets/styles/mixin.scss";
-
+@import "assets/styles/variables.scss";
 .order-success {
     @include text(1rem, bold);
     margin: 2rem;
     text-align: center;
+
+    button {
+        margin-left: 1rem;
+        @include button($black, $pink);
+    }
 }

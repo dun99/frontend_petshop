@@ -1,0 +1,55 @@
+@import "assets/styles/variables";
+
+footer {
+    background-color: $pink;
+    padding: 3rem 0;
+    color: $white;
+
+    a {
+        color: $white;
+    }
+
+    img {
+        width: 30%;
+        height: auto;
+    }
+
+    .contact-icon {
+        margin-right: 0.5rem;
+    }
+
+    .city {
+        font-size: 1.3rem;
+        font-weight: bold;
+    }
+
+    .policy{
+        margin-top: .5rem;
+    }
+
+    .icon-social {
+        .anticon {
+            font-size: 2rem;
+            cursor: pointer;
+            margin-right: 0.5rem;
+
+            &:hover {
+                transform: scale(1.2);
+                transition: 0.5s;
+            }
+        }
+
+        .anticon-youtube:hover {
+            color: $red;
+        }
+
+        .anticon-facebook:hover{
+            color: $light-blue;
+        }
+
+        .anticon-linkedin:hover{
+            color: $blue;
+        }
+
+    }
+}

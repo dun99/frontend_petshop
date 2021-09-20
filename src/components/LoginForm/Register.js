@@ -120,7 +120,6 @@ const RegistrationForm = () => {
           tooltip="What do you want others to call you?"
           rules={[
             {
-              required: true,
               message: "Please input your nickname!",
               whitespace: true,
             },

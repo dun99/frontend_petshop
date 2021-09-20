@@ -1,23 +1,74 @@
 @import "assets/styles/variables.scss";
 .header-wrapper {
-    background-color: $black;
-
     .header {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row-reverse;
-
         .header-top {
-            line-height: 64px;
-            button {
-                margin-left: 0.5rem;
-                background-color: $black;
-                color: $white;
+            background-color: $pink;
+            text-transform: uppercase;
+            font-weight: bold;
+            padding: 0.5rem 0;
+
+            .container {
+                display: flex;
+                justify-content: space-between;
+
+                .about-us {
+                    margin-top: 0.5rem;
+
+                    span {
+                        margin-right: 1rem;
+
+                        a {
+                            color: $hotpink;
+                        }
+                    }
+                }
+                
+                button {
+                    margin-left: 0.5rem;
+                    border: 1px solid $hotpink;
+                    background-color: transparent;
+                    color: $hotpink;
+                    margin-bottom: .5rem;
+                    width: 3rem;
+                }
             }
         }
-
+        
         .ant-layout-header {
+            border: none;
             padding: 0;
+            background-color: transparent;
+        }
+
+        .header-main {
+            .ant-menu-horizontal{
+                border-bottom: none;
+            }
+
+            .menu {
+                border: none !important;
+                position: relative;
+                text-transform: uppercase;
+                font-weight: 600;
+
+                .account {
+                    position: absolute;
+                    right: 0;
+                }
+
+                .ant-menu-item-active,
+                .ant-menu-item:hover,
+                .ant-menu-item-selected,
+                .ant-menu-submenu-active,
+                .ant-menu-submenu:hover,
+                .ant-menu-submenu-title:hover {
+                    color: $pink;
+
+                    &:after {
+                        border-bottom: 1px solid $pink;
+                    }
+                }
+            }
         }
     }
 }

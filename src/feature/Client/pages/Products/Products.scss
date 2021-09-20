@@ -1,3 +1,4 @@
+@import "assets/styles/variables";
 .products-list {
     margin-top: 2rem;
 
@@ -11,11 +12,17 @@
         width: 50%;
         margin-bottom: 2rem;
     }
+
     .search {
         display: flex;
         justify-content: center;
         position: relative;
         margin-bottom: 2rem;
+
+        button{
+            background-color: $pink;
+            border: none;
+        }
     }
 
     .ant-empty,

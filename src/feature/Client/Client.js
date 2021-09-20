@@ -1,5 +1,4 @@
 import { Layout } from "antd";
-import banner from "assets/images/banner.jpg";
 import Banner from "components/Banner/Banner";
 import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
@@ -19,7 +18,7 @@ import {
 } from "constants/route";
 import React from "react";
 import { useSelector } from "react-redux";
-import { Redirect, Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 import "./Client.scss";
 import Cart from "./pages/Cart/Cart";
 import Home from "./pages/Home/Home";
@@ -36,13 +35,13 @@ function Client() {
   return (
     <>
       <HeaderApp />
-      <Banner banner={banner} />
+      <Banner />
       <Layout className="container main-page">
         <Content>
           <Switch>
-            <Route path={ROOT_PATH} exact>
+            <sRoute path={ROOT_PATH} exact>
               <Home />
-            </Route>
+            </sRoute>
             <Route path={PRODUCTS_PATH} exact>
               <Products />
             </Route>

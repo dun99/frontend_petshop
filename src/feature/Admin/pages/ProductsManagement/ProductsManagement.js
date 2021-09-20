@@ -115,7 +115,7 @@ function ProductsManagement() {
       key: "price",
       render: (text) => formatMoney(text),
       sorter: (record1, record2) => {
-        return record1.price > record2.price;
+        return record1.price - record2.price;
       },
     },
     {
@@ -123,7 +123,6 @@ function ProductsManagement() {
       dataIndex: "categories",
       key: "categories",
       filters: [
-        // tren doc em thay antd dung value la text luon a
         {
           text: "Quà lưu niệm",
           value: "Quà lưu niệm",
@@ -273,6 +272,7 @@ function ProductsManagement() {
   return (
     <>
       <ToastContainer autoClose={2000} />
+      <h1>Products Management</h1>
       <Search
         placeholder="search name"
         onSearch={handleSearch}
@@ -284,7 +284,7 @@ function ProductsManagement() {
         Add New <PlusOutlined />
       </Button>
       <Modal
-        title="Add Product"
+        title={!item ? "Add product" : "Edit product"}
         visible={isModalVisible}
         onCancel={handleCancel}
         footer={false}

@@ -93,6 +93,7 @@ function UserManagement() {
   return (
     <>
       <ToastContainer autoClose={2000} />
+      <h1>Users Management</h1>
       <Table
         loading={loading}
         columns={columns}

@@ -16,7 +16,7 @@ function Profile() {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    if (currentUser.uid) {
+    if (currentUser && currentUser.uid) {
       dispatch(fetchUserById(currentUser.uid));
       setimageUrl(userInfo.avatar);
       form.setFieldsValue({
@@ -138,7 +138,16 @@ function Profile() {
         }}
         className="register-form"
       >
-        <Form.Item name="email" label="E-mail">
+        <Form.Item
+          name="email"
+          label="E-mail"
+          rules={[
+            {
+              type: "email",
+              message: "The input is not valid E-mail!",
+            },
+          ]}
+        >
           <Input />
         </Form.Item>
         <Form.Item name="nickname" label="Nickname">

@@ -4,6 +4,7 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
+import Banner from "components/Banner/Banner";
 import {
   ADMIN_PATH,
   CART_PATH,
@@ -62,19 +63,35 @@ function HeaderApp() {
   };
 
   return (
-    <div className="header-wrapper">
-      <div className="header container">
+    <header className="header-wrapper">
+      <div className="header">
         <div className="header-top">
-          <Button onClick={() => changeLanguage("en")}>en</Button>
-          <Button onClick={() => changeLanguage("vi")}>vi</Button>
+          <div class="container">
+            <div class="row">
+              <div class="col about-us">
+                <span class="">
+                  <Link to="#">{t("Store")}</Link>
+                </span>
+                <span class="">
+                  <Link to="#">{t("About us")}</Link>
+                </span>
+                <span class="">
+                  <Link to="#">{t("Recruitment")}</Link>
+                </span>
+              </div>
+            </div>
+            <div>
+              <Button onClick={() => changeLanguage("en")}>en</Button>
+              <Button onClick={() => changeLanguage("vi")}>vi</Button>
+            </div>
+          </div>
         </div>
         <div className="header-main">
           <Header>
             <Menu
               mode="horizontal"
-              theme="dark"
               breakpoint="xl"
-              className="container"
+              className="container menu"
               overflowedIndicator={<MenuOutlined />}
             >
               <Menu.Item key="home">
@@ -130,10 +147,11 @@ function HeaderApp() {
                 )}
               </SubMenu>
             </Menu>
+            <Banner />
           </Header>
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 

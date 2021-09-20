@@ -11,3 +11,42 @@ export const priceData = [
   { id: 4, gte: 50000, lte: 100000 },
   { id: 5, gte: 100000, lte: 200000 },
 ];
+
+export const sliderCategories = [
+  {
+    id: 1,
+    image:
+      "https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/sb_1622297990_263.jpg",
+    text: "Under the Moji",
+  },
+  {
+    id: 2,
+    image:
+      "https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/sb_1612252488_11.jpg",
+    text: "In the blink",
+  },
+  {
+    id: 3,
+    image:
+      "https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/sb_1608715990_418.jpg",
+    text: "By mine valentine",
+  },
+  {
+    id: 4,
+    image:
+      "https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/sb_1619281189_509.jpg",
+    text: "Under the Moji",
+  },
+  {
+    id: 5,
+    image:
+      "https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/sb_1622297990_263.jpg",
+    text: "Under the Moji",
+  },
+  {
+    id: 6,
+    image:
+      "https://storage.googleapis.com/cdn.nhanh.vn/store/7534/bn/sb_1608715990_418.jpg",
+    text: "Under the Moji",
+  },
+];

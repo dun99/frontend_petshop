@@ -1,4 +1,6 @@
 @import "assets/styles/mixin.scss";
+@import "assets/styles/variables";
+
 .product-detail {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -22,10 +24,17 @@
     button {
         margin-right: 1rem;
         margin-bottom: 1rem;
+
+        &:hover,
+        &:active {
+            color: $pink;
+            border: 1px solid $pink;
+        }
     }
 
     &-item {
         text-align: center;
+        
         img {
             width: 100%;
             max-width: 400px;
@@ -34,5 +43,16 @@
 
     .comments {
         margin-top: 2rem;
+
+        button {
+            display: flex;
+            background-color: $pink;
+            border: none;
+
+            &:hover,
+            &:active {
+                background-color: $pink-hover;
+            }
+        }
     }
 }

@@ -1,11 +1,13 @@
 import { GoogleOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import authApi from "api/authApi";
-import { REGISTER_PATH } from "constants/route";
+import Banner from "components/Banner/Banner";
+import HeaderApp from "components/Header/Header";
+import { REGISTER_PATH, ROOT_PATH } from "constants/route";
 import { auth } from "feature/Auth/firebase";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { loginRequest, logoutRequest, setUserCurrent } from "redux/authSlice";
 import "./loginForm.scss";
 const LoginForm = () => {
@@ -33,8 +35,11 @@ const LoginForm = () => {
     unregisterAuthObserver();
   }, [currentUser]);
 
-  if (!isAuth || !currentUser) {
-    return (
+  // if (!isAuth || !currentUser) {
+  return (
+    <>
+      <HeaderApp />
+      <Banner />
       <div className="login-form">
         <Form
           name="normal_login"
@@ -95,18 +100,14 @@ const LoginForm = () => {
           </Form.Item>
         </Form>
 
-        <Button onClick={authApi.singinWithGoogle}>
+        <Button className="google" onClick={authApi.singinWithGoogle}>
           <GoogleOutlined />
           Signin with google
         </Button>
       </div>
-    );
-  }
-  return (
-    <div>
-      <p>Welcome! {currentUser.email} You are now signed-in!</p>
-      <a onClick={handleLogout}>Sign-out</a>
-    </div>
+    </>
   );
+  // }
+  // return <Redirect to={ROOT_PATH} />;
 };
 export default LoginForm;
