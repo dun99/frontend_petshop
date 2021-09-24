@@ -12,6 +12,7 @@ import {
   ORDER_SUCCESS,
   PRODUCTS_PATH,
   PRODUCT_DETAIL_PATH,
+  PROFILE_PATH,
   REGISTER_PATH,
   ROOT_PATH,
   SIGN_IN_PATH,
@@ -27,6 +28,7 @@ import OrderHistory from "./pages/OrderHistory/OrderHistory";
 import OrderSuccess from "./pages/OrderSuccess/OrderSuccess";
 import ProductDetail from "./pages/ProductDetail/ProductDetail";
 import Products from "./pages/Products/Products";
+import Profile from "./pages/Profile/Profile";
 
 function Client() {
   const { Content } = Layout;
@@ -50,6 +52,7 @@ function Client() {
                 currentUser ? <Redirect to={PRODUCTS_PATH} /> : <LoginForm />
               }
             />
+            <Route path={PROFILE_PATH} exact component={Profile} />
             <Route path={ORDER_PATH} exact component={Order} />
             <Route path={ORDER_SUCCESS} exact component={OrderSuccess} />
             <Route path={ORDER_HISTORY} exact component={OrderHistory} />
