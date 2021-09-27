@@ -11,4 +11,4 @@ export const REGISTER_PATH = "/register";
 export const PROFILE_PATH = "/profile";
 export const ADMIN_PATH = "/admin";
 export const ADMIN_PRODUCTS_PATH = "/admin/products";
-export const ADMIN_CATEGOIES_PATH = "/admin/categories";
+export const ADMIN_ORDER_PATH = "/admin/orders";

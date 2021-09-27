@@ -24,7 +24,7 @@ function OrderItem(props) {
         return "Chờ xác nhận";
     }
   };
-  
+
   return (
     <>
       {renderCart(order.cart.cartItem)}

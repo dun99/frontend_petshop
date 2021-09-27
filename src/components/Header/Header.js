@@ -1,8 +1,7 @@
-
 import {
   MenuOutlined,
   ShoppingCartOutlined,
-  UserOutlined
+  UserOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import {
@@ -12,7 +11,7 @@ import {
   PROFILE_PATH,
   REGISTER_PATH,
   ROOT_PATH,
-  SIGN_IN_PATH
+  SIGN_IN_PATH,
 } from "constants/route";
 import { auth } from "feature/Auth/firebase";
 import { useEffect, useState } from "react";
@@ -36,7 +35,7 @@ function HeaderApp() {
 
   const userInfo = useSelector((state) => state.users.user);
   useEffect(() => {
-    if (currentUser.uid) {
+    if (currentUser && currentUser.uid) {
       dispatch(fetchUserById(currentUser.uid));
     }
   }, [currentUser, userInfo.id]);
