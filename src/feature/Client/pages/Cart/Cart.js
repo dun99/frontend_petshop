@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { totalCart } from "redux/cartSlice";
+import { formatMoney } from "util/formatMoney";
 import "./Cart.scss";
 
 function Cart() {
@@ -45,7 +46,7 @@ function Cart() {
         </div>
         <div className="total-cart">
           <span>Tổng tiền: </span>
-          <span>{amount}</span>
+          <span>{formatMoney(amount)}</span>
         </div>
         <div className="action-cart">
           <Button type="primary">

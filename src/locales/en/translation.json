@@ -1,13 +1,17 @@
 {
-    "language": {
-        "name": "Language",
-        "english": "English",
-        "vietnam": "Vietnamese"
-    },
     "Home": "Home",
     "Product": "Product",
     "Categories": "Category",
     "Price": "Price",
     "From": "From",
-    "To": "To"
+    "To": "To",
+    "Buy Now" : "Buy Now",
+    "Detail": "Detail",
+    "Add to cart": "Add to cart",
+    "Account": "Account",
+    "Login": "Login",
+    "Signup": "Sigup",
+    "Logout": "Logout",
+    "Info": "Account Information",
+    "Orders": "Orders History"
 }

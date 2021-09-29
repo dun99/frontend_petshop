@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { decreaseCart, increaseCart, removeCart } from "redux/cartSlice";
+import { formatMoney } from "util/formatMoney";
 import "./CartItem.scss";
 
 function CartItem(props) {
@@ -37,7 +38,7 @@ function CartItem(props) {
         </Link>
       </td>
       <td>{product.name}</td>
-      <td>{product.price}</td>
+      <td>{formatMoney(product.price)}</td>
       <td>
         <div className="quantity">
           <Button
@@ -55,7 +56,7 @@ function CartItem(props) {
           </Button>
         </div>
       </td>
-      <td>{totalPrice}</td>
+      <td>{formatMoney(totalPrice)}</td>
       <td>
         <span onClick={() => handleRemove(product)}>Xóa</span>
       </td>

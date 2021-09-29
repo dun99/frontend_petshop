@@ -22,6 +22,7 @@ function Order() {
         email: currentUser.email,
       },
       orderStatus: "pending",
+      createAt: Date.now(),
     };
     dispatch(createOrderRequest(order));
     dispatch(removeAllCart());
@@ -29,7 +30,7 @@ function Order() {
 
   return (
     <div className="order">
-      <div className="order-title">Thong tin khach hang</div>
+      <h1 className="order-title">Thông tin khách hàng</h1>
       <div className="order-form">
         <Form
           name="complex-form"

@@ -5,6 +5,7 @@ import {
 } from "@ant-design/icons";
 import { Button, Layout, Menu } from "antd";
 import {
+  ADMIN_PATH,
   CART_PATH,
   ORDER_HISTORY,
   PRODUCTS_PATH,
@@ -42,12 +43,6 @@ function HeaderApp() {
   }, [currentUser, userInfo.id]);
 
   useEffect(() => {
-    if (currentUser.uid) {
-      dispatch(fetchUserById(currentUser.uid));
-    }
-  }, [currentUser]);
-
-  useEffect(() => {
     dispatch(totalCart());
   }, [cartCount, cart]);
 
@@ -78,7 +73,7 @@ function HeaderApp() {
             <Menu
               mode="horizontal"
               theme="dark"
-              breakpoint="lg"
+              breakpoint="xl"
               className="container"
               overflowedIndicator={<MenuOutlined />}
             >
@@ -90,6 +85,12 @@ function HeaderApp() {
                 {t("Product")}
                 <Link to={PRODUCTS_PATH} />
               </Menu.Item>
+              {currentUser && user.role === "admin" && (
+                <Menu.Item key="products1">
+                  Management
+                  <Link to={ADMIN_PATH} />
+                </Menu.Item>
+              )}
               <Menu.Item key="cart">
                 <Link to={CART_PATH} />
                 <span className="cart-icon">
@@ -100,30 +101,30 @@ function HeaderApp() {
               <SubMenu
                 key="sub1"
                 icon={<UserOutlined />}
-                title={currentUser ? currentUser.email : "Account"}
+                title={currentUser ? currentUser.email : `${t("Account")}`}
                 className="account"
               >
                 {!isAuth || !currentUser ? (
                   <>
                     <Menu.Item key="1">
-                      Đăng ký
+                      {t("Signup")}
                       <Link to={REGISTER_PATH} />
                     </Menu.Item>
                     <Menu.Item key="2">
-                      Đăng nhập
+                      {t("Login")}
                       <Link to={SIGN_IN_PATH} />
                     </Menu.Item>
                   </>
                 ) : (
                   <>
                     <Menu.Item key="2">
-                      <a onClick={handleLogout}>Đăng xuất</a>
+                      <a onClick={handleLogout}>{t("Logout")}</a>
                     </Menu.Item>
                     <Menu.Item key="3">
-                      <Link to={PROFILE_PATH}>Thông tin tài khoản</Link>
+                      <Link to={PROFILE_PATH}>{t("Info")}</Link>
                     </Menu.Item>
                     <Menu.Item key="4">
-                      <Link to={ORDER_HISTORY}>Lịch sử đơn hàng</Link>
+                      <Link to={ORDER_HISTORY}>{t("Orders")}</Link>
                     </Menu.Item>
                   </>
                 )}

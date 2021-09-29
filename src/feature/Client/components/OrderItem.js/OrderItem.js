@@ -1,4 +1,5 @@
 import React from "react";
+import { formatMoney } from "util/formatMoney";
 import OrderDetail from "./OrderDetail";
 import "./OrderItem.scss";
 
@@ -34,7 +35,7 @@ function OrderItem(props) {
       </div>
       <div className="status total">
         <span className="status-title">Thành tiền: </span>
-        <span>{order.cart.cartTotalAmount}</span>
+        <span>{formatMoney(order.cart.cartTotalAmount)}</span>
       </div>
     </>
   );
