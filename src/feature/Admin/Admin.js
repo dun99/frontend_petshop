@@ -4,6 +4,7 @@ import {
   ADMIN_ORDER_PATH,
   ADMIN_PATH,
   ADMIN_PRODUCTS_PATH,
+  ADMIN_USERS_PATH,
 } from "constants/route";
 import React from "react";
 import { Route, Switch } from "react-router-dom";
@@ -12,6 +13,7 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home/Home";
 import OrderManagement from "./pages/OrderManagement/OrderManagement";
 import ProductsManagement from "./pages/ProductsManagement/ProductsManagement";
+import UserManagement from "./pages/UserManagement/UserManagement";
 
 function Admin() {
   const { Content } = Layout;
@@ -34,6 +36,9 @@ function Admin() {
                 </Route>
                 <Route path={ADMIN_ORDER_PATH}>
                   <OrderManagement />
+                </Route>
+                <Route path={ADMIN_USERS_PATH}>
+                  <UserManagement />
                 </Route>
                 <Route path="*">
                   <div>404</div>
