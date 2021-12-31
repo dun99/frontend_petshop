@@ -16,11 +16,11 @@ import {
   SIGN_IN_PATH,
 } from "constants/route";
 import { auth } from "feature/Auth/firebase";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { loginRequest, logoutRequest, setUserCurrent } from "redux/authSlice";
+import { logoutRequest, setUserCurrent } from "redux/authSlice";
 import { totalCart } from "redux/cartSlice";
 import { fetchUserById } from "redux/userSlice";
 import "./Header.scss";

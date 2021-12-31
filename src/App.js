@@ -7,19 +7,23 @@ import PrivateRoute from "routing/PrivateRoute";
 import PublicRoute from "routing/PublicRoute";
 import "./App.css";
 import "./assets/styles/styles.scss";
+import { ToastContainer, toast } from "react-toastify";
 function App() {
   return (
-    <Switch>
-      <PublicRoute restricted={true} path={SIGN_IN_PATH}>
-        <LoginForm />
-      </PublicRoute>
-      <PrivateRoute path={ADMIN_PATH}>
-        <Admin />
-      </PrivateRoute>
-      <PublicRoute restricted={false} path={ROOT_PATH}>
-        <Client />
-      </PublicRoute>
-    </Switch>
+    <>
+      <ToastContainer autoClose={2000} />
+      <Switch>
+        <PublicRoute restricted={true} path={SIGN_IN_PATH}>
+          <LoginForm />
+        </PublicRoute>
+        <PrivateRoute path={ADMIN_PATH}>
+          <Admin />
+        </PrivateRoute>
+        <PublicRoute restricted={false} path={ROOT_PATH}>
+          <Client />
+        </PublicRoute>
+      </Switch>
+    </>
   );
 }
 

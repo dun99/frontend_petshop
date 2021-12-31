@@ -31,7 +31,7 @@ function Profile() {
   useEffect(() => {
     dispatch(fetchUserById(currentUser.uid));
     setUrls(userInfo.avatar);
-  }, [userInfo.avatar]);
+  }, []);
 
   const formItemLayout = {
     labelCol: {
@@ -108,7 +108,7 @@ function Profile() {
 
   const uploadAvatar = () => {
     storage
-      .ref("images/" + imageUrl.name)
+      .ref("images/" + imageUrl)
       .put(imageUrl)
       .then((snapshot) => {
         return snapshot.ref.getDownloadURL();

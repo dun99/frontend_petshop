@@ -1,20 +1,20 @@
 import { PlusOutlined } from "@ant-design/icons";
 import {
   Button,
+  Form,
   Input,
   message,
+  Modal,
+  Select,
   Space,
   Table,
   Upload,
-  Form,
-  Modal,
-  Select,
 } from "antd";
 import PaginationApp from "components/Pagination/Pagination";
 import { storage } from "feature/Auth/firebase";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
+import { fetchCategoriesRequest } from "redux/categoriesSlice";
 import { getProductById } from "redux/productDetailSlice";
 import {
   createProductRequest,
@@ -31,6 +31,7 @@ function ProductsManagement() {
   const [loading, setloading] = useState(false);
   const [urls, setUrls] = useState("");
   const products = useSelector((state) => state.products.list);
+  const categories = useSelector((state) => state.categories.list);
   const filters = useSelector((state) => state.products.filters);
   const totalCount = useSelector((state) => state.products.count);
   const productDetail = useSelector((state) => state.productDetail.product);
@@ -43,11 +44,16 @@ function ProductsManagement() {
 
   useEffect(() => {
     setloading(true);
+
     setTimeout(() => {
       dispatch(fetchProductsRequest(filters));
       setloading(false);
     }, 1000);
   }, [filters, totalCount, productDetail]);
+
+  useEffect(() => {
+    dispatch(fetchCategoriesRequest());
+  }, []);
 
   useEffect(() => {
     // add product
@@ -57,8 +63,10 @@ function ProductsManagement() {
         name: "",
         categories: "",
         price: "",
-        description: "",
+        desc: "",
         image: "",
+        quantity: "",
+        freeShipping: "",
       });
       setUrls("");
     }
@@ -70,8 +78,10 @@ function ProductsManagement() {
           name: editing.name,
           categories: editing.categories,
           price: editing.price,
-          description: editing.description,
+          desc: editing.desc,
           image: editing.image,
+          quantity: editing.quantity,
+          freeShipping: editing.freeShipping,
         });
       }
     }
@@ -92,7 +102,7 @@ function ProductsManagement() {
 
   const handleUpdateProduct = (data) => {
     setIsModalVisible(true);
-    dispatch(getProductById(data.id));
+    dispatch(getProductById(data._id));
     setUrls(data.image);
     setItem(data);
   };
@@ -100,8 +110,8 @@ function ProductsManagement() {
   const columns = [
     {
       title: "ID",
-      dataIndex: "id",
-      key: "id",
+      render: (text, record, index) => index + 1,
+      key: "index",
     },
     {
       title: "Name",
@@ -119,29 +129,17 @@ function ProductsManagement() {
       },
     },
     {
-      title: "Categories",
-      dataIndex: "categories",
-      key: "categories",
-      filters: [
-        {
-          text: "Quà lưu niệm",
-          value: "Quà lưu niệm",
-        },
-        {
-          text: "Dụng cụ cá nhân",
-          value: "Dụng cụ cá nhân",
-        },
-        {
-          text: "Sticker",
-          value: "Sticker",
-        },
-        {
-          text: "Đồ dùng học tập",
-          value: "Đồ dùng học tập",
-        },
-      ],
+      title: "Category",
+      dataIndex: ["category", "name"],
+      key: "category",
+      filters: categories.map((item) => ({
+        value: item._id,
+        text: item.name,
+      })),
       onFilter: (value, record) => {
-        return record.categories.indexOf(value) === 0;
+        // console.log(value, record.category);
+        // return record.category._id.indexOf(value) === 0;
+        // console.log(record);
       },
     },
     {
@@ -189,6 +187,7 @@ function ProductsManagement() {
   };
 
   const onFinish = (values) => {
+    console.log(urls, imageUrl);
     const newinfo = {
       ...values,
       price: parseFloat(values.price),
@@ -200,7 +199,7 @@ function ProductsManagement() {
       dispatch(
         updateProductRequest({
           ...newinfo,
-          id: item.id,
+          _id: item._id,
         })
       );
     }
@@ -258,6 +257,7 @@ function ProductsManagement() {
   const handleSearch = (value) => {
     dispatch(searchName(value));
   };
+
   const handleChangeSearch = (e) => {
     const value = e.target.value;
     if (typingTimeout.current) {
@@ -271,7 +271,6 @@ function ProductsManagement() {
 
   return (
     <>
-      <ToastContainer autoClose={2000} />
       <h1>Products Management</h1>
       <Search
         placeholder="search name"
@@ -300,26 +299,33 @@ function ProductsManagement() {
             <Form.Item name="name" label="Name">
               <Input />
             </Form.Item>
-            <Form.Item name="categories" label="Categoriy">
+            <Form.Item name="quantity" label="Quantity">
+              <Input />
+            </Form.Item>
+            <Form.Item name="category" label="Categoriy">
               <Select>
-                <Select.Option value="Quà lưu niệm">Quà lưu niệm</Select.Option>
-                <Select.Option value="Dụng cụ cá nhân">
-                  Dụng cụ cá nhân
-                </Select.Option>
-                <Select.Option value="Sticker">Sticker</Select.Option>
-                <Select.Option value="Đồ dùng học tập">
-                  Đồ dùng học tập
-                </Select.Option>
+                {categories.map((category) => (
+                  <Select.Option value={category._id}>
+                    {category.name}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Form.Item>
+            <Form.Item name="freeShipping" label="Free Shipping">
+              <Select>
+                <Select.Option value={true}>Yes</Select.Option>
+                <Select.Option value={false}>No</Select.Option>
               </Select>
             </Form.Item>
             <Form.Item name="price" label="Price">
               <Input
+                type="number"
                 style={{
                   width: "100%",
                 }}
               />
             </Form.Item>
-            <Form.Item name="description" label="Description">
+            <Form.Item name="desc" label="Description">
               <Input.TextArea />
             </Form.Item>
             <Form.Item name="image" label="Image">

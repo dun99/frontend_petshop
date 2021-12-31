@@ -10,7 +10,7 @@ let initialState = {
 };
 
 const getItemIndex = (cart, idFind) => {
-  const ids = cart.map((item) => item.id);
+  const ids = cart.map((item) => item._id);
   return ids.indexOf(idFind);
 };
 
@@ -19,7 +19,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      const itemIndex = getItemIndex(state.cartItem, action.payload.id);
+      const itemIndex = getItemIndex(state.cartItem, action.payload._id);
       if (itemIndex && itemIndex < 0) {
         state.cartItem.push({
           ...action.payload,
@@ -36,17 +36,17 @@ export const cartSlice = createSlice({
 
     decreaseCart: (state, action) => {
       state.cartItem.map((item) => {
-        if (item.id === action.payload.id) {
+        if (item._id === action.payload._id) {
           if (item.quantity > 1) {
             const newItem = {
               ...item,
               quantity: item.quantity - 1,
             };
-            const itemIndex = getItemIndex(state.cartItem, action.payload.id);
+            const itemIndex = getItemIndex(state.cartItem, action.payload._id);
             state.cartItem[itemIndex] = newItem;
           } else {
             const newCart = state.cartItem.filter(
-              (product) => product.id !== item.id
+              (product) => product._id !== item._id
             );
             state.cartItem = newCart;
             toast.success("Xóa sản phẩm khỏi giỏ hàng", {
@@ -61,12 +61,12 @@ export const cartSlice = createSlice({
 
     increaseCart: (state, action) => {
       state.cartItem.map((item) => {
-        if (item.id === action.payload.id) {
+        if (item._id === action.payload._id) {
           const newItem = {
             ...item,
             quantity: item.quantity + 1,
           };
-          const itemIndex = getItemIndex(state.cartItem, action.payload.id);
+          const itemIndex = getItemIndex(state.cartItem, action.payload._id);
           state.cartItem[itemIndex] = newItem;
           localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
         }
@@ -76,7 +76,7 @@ export const cartSlice = createSlice({
 
     removeCart: (state, action) => {
       state.cartItem = state.cartItem.filter(
-        (product) => product.id !== action.payload.id
+        (product) => product._id !== action.payload._id
       );
       toast.success("Xóa sản phẩm khỏi giỏ hàng", {
         position: "top-right",

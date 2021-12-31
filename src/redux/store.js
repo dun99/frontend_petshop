@@ -8,6 +8,7 @@ import orderReducer from "./orderSlice";
 import ordersReducer from "./ordersSlice";
 import productDetailReducer from "./productDetailSlice";
 import productsReducer from "./productsSlice";
+import categoriesReducer from "./categoriesSlice";
 import RevenueReducer from "./statisticSlice";
 import UsersReducer from "./userSlice";
 export const store = configureStore({
@@ -22,6 +23,7 @@ export const store = configureStore({
     orders: ordersReducer,
     comments: CommentsReducer,
     revenue: RevenueReducer,
+    categories: categoriesReducer,
   },
   middleware: [thunk],
 });

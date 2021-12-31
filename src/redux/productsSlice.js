@@ -1,13 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import productApi from "api/productApi";
 import { toast } from "react-toastify";
-let initialState = {
+import { LIMIT_PRODUCT } from "util/constant";
+
+const initialState = {
+  isLoading: false,
+  isFetchProductFailure: false,
+  isFetchProductSuccess: false,
   list: [],
   count: 0,
-  status: null,
   filters: {
     _page: 1,
-    _limit: 6,
+    _limit: LIMIT_PRODUCT,
   },
 };
 
@@ -38,7 +42,7 @@ export const updateProductRequest = createAsyncThunk(
 export const deleteProductRequest = createAsyncThunk(
   "products/delete",
   async (data) => {
-    const res = await productApi.delete(data.id);
+    const res = await productApi.delete(data._id);
     toast.success("Delete product success", {
       position: "top-right",
     });
@@ -57,7 +61,7 @@ export const productsSlice = createSlice({
       state.filters = {
         ...state.filters,
         _page: 1,
-        categories: action.payload.categories,
+        category: action.payload.category,
       };
     },
 
@@ -73,46 +77,47 @@ export const productsSlice = createSlice({
     searchName: (state, action) => {
       state.filters = {
         ...state.filters,
-        name_like: action.payload,
+        name: action.payload,
         _page: 1,
       };
     },
 
     deleteProduct: (state, action) => {
       state.list.filter((item) => item.id !== action.payload.data.id);
-      state.count += 1;
+      state.count -= 1;
     },
   },
 
   extraReducers: {
     [fetchProductsRequest.pending]: (state) => {
-      state.status = "loading";
+      state.isLoading = true;
     },
 
     [fetchProductsRequest.rejected]: (state) => {
-      state.status = "failed";
+      state.isLoading = false;
+      state.isFetchProductFailure = true;
+      state.isFetchProductSuccess = false;
     },
 
     [fetchProductsRequest.fulfilled]: (state, action) => {
-      state.status = "success";
       state.list = action.payload.data;
       state.count = action.payload.total;
+      state.isLoading = false;
+      state.isFetchProductFailure = false;
+      state.isFetchProductSuccess = true;
     },
 
     [createProductRequest.fulfilled]: (state) => {
-      state.status = "success";
       state.count += 1;
     },
 
     [deleteProductRequest.fulfilled]: (state) => {
-      state.status = "success";
       state.count -= 1;
     },
 
     [updateProductRequest.fulfilled]: (state, action) => {
-      state.status = "success";
       state.list.map((item, index) => {
-        if (item.id === action.payload.data.id) {
+        if (item._id === action.payload.data._id) {
           state.list[index] = action.payload.data;
         }
       });

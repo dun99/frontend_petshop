@@ -6,9 +6,11 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addToCart } from "redux/cartSlice";
 import { formatMoney } from "util/formatMoney";
+import { useTranslation } from "react-i18next";
 import "./Product.scss";
 
 function Product(props) {
+  const { t } = useTranslation();
   const { product } = props;
   const dispatch = useDispatch();
 
@@ -29,13 +31,18 @@ function Product(props) {
         </ShoppingCartOutlined>,
         <div>Mua ngay</div>,
         <div>
-          <Link to={`${PRODUCTS_PATH}/${product.id}`}>Xem chi tiết </Link>
+          <Link to={`${PRODUCTS_PATH}/${product._id}`}>Xem chi tiết </Link>
         </div>,
       ]}
     >
-      {product.free_shipping && (
-        <Tag className="freeship-tag" color="red">
-          Freeship
+      {product.freeShipping && product.status === "In stock" && (
+        <Tag className="freeship-tag" color="blue">
+          {t("freeShip")}
+        </Tag>
+      )}
+      {product.status === "Out of stock" && (
+        <Tag className="status-tag" color="red">
+          {t(`${product.status}`)}
         </Tag>
       )}
       <div className="product-title">{product.name}</div>

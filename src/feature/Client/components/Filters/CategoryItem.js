@@ -7,18 +7,19 @@ function CategoryItem(props) {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.products.filters);
   const handleChangeCategory = (name) => {
+    console.log("name", name);
     const newFilters = {
       ...filters,
-      categories: name,
+      category: name,
     };
     dispatch(changeCategory(newFilters));
   };
 
   return (
     <div
-      onClick={() => handleChangeCategory(props.name)}
+      onClick={() => handleChangeCategory(props.id)}
       className={`category-item ${
-        filters.categories === props.name ? "active" : ""
+        filters.category === props.id ? "active" : ""
       }`}
     >
       <span className="icon">
