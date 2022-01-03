@@ -8,11 +8,13 @@ import {
   fetchOrdersRequest,
   updateOrderRequest,
 } from "redux/ordersSlice";
+import { fetchOrderItemRequest } from "redux/orderItemSlice";
 import { formatMoney } from "util/formatMoney";
 function OrderManagement() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const orders = useSelector((state) => state.orders.list);
+  const orderItem = useSelector((state) => state.orderItem.list);
   const filters = useSelector((state) => state.orders.filters);
   const totalCount = useSelector((state) => state.orders.count);
 
@@ -20,6 +22,7 @@ function OrderManagement() {
     setLoading(true);
     setTimeout(() => {
       dispatch(fetchOrdersRequest(filters));
+      dispatch(fetchOrderItemRequest());
       setLoading(false);
     }, 1000);
   }, [filters]);
@@ -38,31 +41,42 @@ function OrderManagement() {
 
   const columns = [
     {
-      title: "ID",
-      dataIndex: "id",
-      key: "id",
+      title: "No.",
+      render: (text, record, index) => index + 1,
+      key: "index",
     },
     {
       title: "Products",
       dataIndex: "cart",
       key: "name",
       render: (cart) => {
-        return cart.cartItem.map((item) => {
+        return cart.map((item) => {
           return (
-            <>
-              <p>{item.name}</p>
-              <span>Quantity: {item.quantity}</span>
-            </>
+            <div className="item">
+              <img width="100px" src={item.image} />
+              <div className="item__detail">
+                <div>{item.name}</div>
+                <div>Quantity: {item.quantity}</div>
+              </div>
+            </div>
           );
         });
       },
     },
     {
       title: "Total",
-      dataIndex: "cart",
-      key: "total",
-      render: (cart) => {
-        return <div>{formatMoney(cart.cartTotalAmount)}</div>;
+      dataIndex: "orderTotalAmount",
+      key: "orderTotalAmount",
+      render: (orderTotalAmount) => {
+        return <div>{orderTotalAmount}</div>;
+      },
+    },
+    {
+      title: "Total Quantity",
+      dataIndex: "orderTotalQuantity",
+      key: "orderTotalQuantity",
+      render: (orderTotalQuantity) => {
+        return <div>{orderTotalQuantity}</div>;
       },
     },
     {
@@ -143,6 +157,13 @@ function OrderManagement() {
         total={totalCount}
         pagination={false}
       />
+      {/* <Table
+        loading={loading}
+        columns={columnsOrderItem}
+        dataSource={orderItem}
+        total={totalCount}
+        pagination={false}
+      /> */}
       <PaginationApp totalCount={totalCount} />
     </>
   );

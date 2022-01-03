@@ -31,7 +31,7 @@ function ProductsManagement() {
   const [loading, setloading] = useState(false);
   const [urls, setUrls] = useState("");
   const products = useSelector((state) => state.products.list);
-  const categories = useSelector((state) => state.categories.list);
+  const { categories } = useSelector((state) => state.categories);
   const filters = useSelector((state) => state.products.filters);
   const totalCount = useSelector((state) => state.products.count);
   const productDetail = useSelector((state) => state.productDetail.product);
@@ -109,7 +109,7 @@ function ProductsManagement() {
 
   const columns = [
     {
-      title: "ID",
+      title: "No.",
       render: (text, record, index) => index + 1,
       key: "index",
     },

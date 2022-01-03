@@ -4,15 +4,17 @@ import { toast } from "react-toastify";
 let initialState = {
   list: [],
   count: 0,
-  status: null,
+  orderStatus: null,
   filters: {
     _page: 1,
     _limit: 10,
   },
+  orderTotalQuantity: 0,
+  orderTotalAmount: 0,
 };
 
 export const fetchOrdersRequest = createAsyncThunk(
-  "orders",
+  "orders/fetchOrders",
   async (paramString) => {
     const res = await orderApi.getAll(paramString);
     return res;
@@ -46,18 +48,17 @@ export const OrdersSlice = createSlice({
   reducers: {},
 
   extraReducers: {
-    [fetchOrdersRequest.pending]: (state) => {
-      state.status = "loading";
-    },
+    [fetchOrdersRequest.pending]: (state) => {},
 
-    [fetchOrdersRequest.rejected]: (state) => {
-      state.status = "failed";
-    },
+    [fetchOrdersRequest.rejected]: (state) => {},
 
     [fetchOrdersRequest.fulfilled]: (state, action) => {
-      state.status = "success";
+      console.log(action.payload, "hhhh");
       state.list = action.payload.data;
       state.count = action.payload.total;
+      state.orderTotalQuantity = action.payload.orderTotalQuantity;
+      state.orderTotalAmount = action.payload.orderTotalAmount;
+      state.orderStatus = action.payload.orderStatus;
     },
 
     [deleteOrderRequest.fulfilled]: (state) => {

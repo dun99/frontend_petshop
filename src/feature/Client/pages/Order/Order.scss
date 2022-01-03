@@ -1,26 +1,36 @@
 @import "assets/styles/variables";
 
 .order {
-    margin: 2rem auto;
+  margin: 2rem auto;
 
-    &-title {
-        text-align: center;
-        font-size: 2rem;
-        margin-left: 2rem;
+  label {
+    font-weight: 600;
+  }
+
+  &-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-left: 2rem;
+    font-weight: bolder;
+    width: 100%;
+  }
+
+  &-form {
+    margin-top: 2rem;
+    form {
+      margin: auto;
     }
-    &-form {
-        margin-top: 2rem;
-        form {
-            margin: auto;
-        }
 
-        button {
-            background-color: $pink;
-            border: none;
+    button {
+      background-color: $pink;
+      border: none;
+      width: 100%;
+      font-weight: bolder;
+      text-transform: uppercase;
 
-            &:hover {
-                background-color: $pink-hover;
-            }
-        }
+      &:hover {
+        background-color: $pink-hover;
+      }
     }
+  }
 }

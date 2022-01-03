@@ -2,25 +2,25 @@
 @import "assets/styles/mixin.scss";
 
 .login-form {
-    width: 400px;
-    margin: 2rem auto;
+  width: 400px;
+  margin: 2rem auto;
 
-    button {
-        @include button($white, $pink);
-        text-align: center;
+  button {
+    @include button($white, $pink);
+    text-align: center;
 
-        &:hover {
-            @include button($black, $pink-hover);
-        }
+    &:hover {
+      @include button($black, $pink-hover);
     }
+  }
 
-    .google {
-        @include button($black, transparent);
-        border: 1px solid $black !important;
-        text-align: center;
+  .google {
+    @include button($black, transparent);
+    border: 1px solid $black !important;
+    width: 100%;
 
-        &:hover {
-            @include button($pink-hover, transparent);
-        }
+    &:hover {
+      @include button($pink-hover, transparent);
     }
+  }
 }

@@ -27,11 +27,11 @@ function Product(props) {
           key="cart"
           onClick={() => handleAddToCart(product)}
         >
-          Thêm vào giỏ
+          {t("Add to cart")}
         </ShoppingCartOutlined>,
-        <div>Mua ngay</div>,
+        <div>{t("Buy Now")}</div>,
         <div>
-          <Link to={`${PRODUCTS_PATH}/${product._id}`}>Xem chi tiết </Link>
+          <Link to={`${PRODUCTS_PATH}/${product._id}`}>{t("Detail")} </Link>
         </div>,
       ]}
     >

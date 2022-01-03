@@ -16,9 +16,9 @@ function App() {
         <PublicRoute restricted={true} path={SIGN_IN_PATH}>
           <LoginForm />
         </PublicRoute>
-        <PrivateRoute path={ADMIN_PATH}>
+        <PublicRoute path={ADMIN_PATH}>
           <Admin />
-        </PrivateRoute>
+        </PublicRoute>
         <PublicRoute restricted={false} path={ROOT_PATH}>
           <Client />
         </PublicRoute>

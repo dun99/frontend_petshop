@@ -8,8 +8,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import { fetchProductsRequest } from "redux/productsSlice";
 import "./Home.scss";
+import { useTranslation } from "react-i18next";
+
 function Home() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const filters = useSelector((state) => state.products.filters);
   const products = useSelector((state) => state.products.list);
   useEffect(() => {
@@ -28,7 +31,7 @@ function Home() {
 
   const renderProductFreeship = (list) => {
     return list.map((product, index) => {
-      if (product.free_shipping === true) {
+      if (product.freeShipping === true) {
         return (
           <Col xs={24} sm={12} md={12} xl={6}>
             <Product key={index} product={product} />
@@ -67,7 +70,7 @@ function Home() {
   return (
     <div className="products-list">
       <ToastContainer autoClose={3000} />
-      <h2 className="category-name">Sản phẩm mới</h2>
+      <h2 className="category-name">{t("newProduct")}</h2>
       <Row gutter={24}>
         {products.length === 0 ? (
           <Empty />
@@ -77,7 +80,7 @@ function Home() {
           </Col>
         )}
       </Row>
-      <h2 className="category-name">Sản phẩm freeship</h2>
+      <h2 className="category-name">{t("freeShippingProduct")}</h2>
       <Row gutter={24}>
         {products.length === 0 ? (
           <Empty />

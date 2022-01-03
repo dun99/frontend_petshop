@@ -83,21 +83,19 @@ function ProductDetail() {
           </div>
           <p className="product-detail-desc">{product.desc}</p>
           <div className="product-detail-quantity">
-            <span>{t("Quantity")} </span>
+            <span>{t("Quantity")}: </span>
             <span>{product.quantity}</span>
           </div>
           <div className="product-detail-action">
             <Button onClick={() => handleAddToCart(product)}>
               {t("Add to cart")}
             </Button>
-            <Button>{t("Buy Now")}</Button>
             <Button>
               <Link to={PRODUCTS_PATH}>{t("Continue shopping")}</Link>
             </Button>
           </div>
         </Col>
       </Row>
-
       <div className="comments">
         {comments.length > 0 && (
           <>

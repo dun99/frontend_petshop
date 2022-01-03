@@ -33,7 +33,7 @@ function UserManagement() {
 
   const columns = [
     {
-      title: "Index",
+      title: "No.",
       key: "index",
       render: (text, record) => <span>{users.indexOf(record) + 1}</span>,
     },
