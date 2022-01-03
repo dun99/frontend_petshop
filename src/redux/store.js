@@ -11,6 +11,7 @@ import productsReducer from "./productsSlice";
 import categoriesReducer from "./categoriesSlice";
 import RevenueReducer from "./statisticSlice";
 import UsersReducer from "./userSlice";
+import orderItemReduder from "./orderItemSlice";
 export const store = configureStore({
   reducer: {
     products: productsReducer,
@@ -24,6 +25,7 @@ export const store = configureStore({
     comments: CommentsReducer,
     revenue: RevenueReducer,
     categories: categoriesReducer,
+    orderItem: orderItemReduder,
   },
   middleware: [thunk],
 });

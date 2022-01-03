@@ -9,9 +9,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { totalCart } from "redux/cartSlice";
 import { formatMoney } from "util/formatMoney";
 import "./Cart.scss";
+import { useTranslation } from "react-i18next";
 
 function Cart() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const cart = useSelector((state) => state.cart.cartItem);
   const amount = useSelector((state) => state.cart.cartTotalAmount);
 
@@ -30,30 +32,30 @@ function Cart() {
         <ToastContainer autoClose={2000} />
         <table>
           <thead>
-            <th>Sản phẩm</th>
-            <th>Mô tả</th>
-            <th>Đơn giá</th>
-            <th>Số lượng</th>
-            <th>Tổng</th>
-            <th>Thao tác</th>
+            <th>{t("Products")}</th>
+            <th>{t("Description")}</th>
+            <th>{t("Price")}</th>
+            <th>{t("QUantity")}</th>
+            <th>{t("Total")}</th>
+            <th>{t("Action")}</th>
           </thead>
           <tbody>{renderCart(cart)}</tbody>
         </table>
         <div className="cart-desc">
-          <p>Freeship cho đơn hàng từ 150k nội thành HN</p>
-          <p>Hỗ trợ ship 30k cho đơn hàng từ 500k toàn quốc</p>
-          <p>Đơn hàng trên website được xử lý trong giờ hành chính</p>
+          <p>{t("freeShipContent")}</p>
+          <p>{t("shipForAllCity")}</p>
+          <p>{t("warningContent")}</p>
         </div>
         <div className="total-cart">
-          <span>Tổng tiền: </span>
+          <span>{t("Total")}: </span>
           <span>{formatMoney(amount)}</span>
         </div>
         <div className="action-cart">
-          <Button type="primary">
-            <Link to={ROOT_PATH}>Tiếp tục mua sắm</Link>
-          </Button>
           <Button>
-            <Link to={ORDER_PATH}>Đặt hàng</Link>
+            <Link to={ROOT_PATH}>{t("Continue shopping")}</Link>
+          </Button>
+          <Button className="buy-now-btn">
+            <Link to={ORDER_PATH}>{t("Buy Now")}</Link>
           </Button>
         </div>
       </div>

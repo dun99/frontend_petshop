@@ -2,6 +2,7 @@ import { GoogleOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Checkbox, Form, Input } from "antd";
 import authApi from "api/authApi";
 import Banner from "components/Banner/Banner";
+import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
 import { REGISTER_PATH, ROOT_PATH } from "constants/route";
 import { auth } from "feature/Auth/firebase";
@@ -82,11 +83,11 @@ const LoginForm = () => {
               placeholder="Password"
             />
           </Form.Item>
-          <Form.Item>
+          {/* <Form.Item>
             <Form.Item name="remember" valuePropName="checked" noStyle>
               <Checkbox>Remember me</Checkbox>
             </Form.Item>
-          </Form.Item>
+          </Form.Item> */}
 
           <Form.Item>
             <Button
@@ -105,6 +106,7 @@ const LoginForm = () => {
           Signin with google
         </Button>
       </div>
+      <FooterApp />
     </>
   );
   // }

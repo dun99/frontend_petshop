@@ -6,9 +6,11 @@ import { Link } from "react-router-dom";
 import { decreaseCart, increaseCart, removeCart } from "redux/cartSlice";
 import { formatMoney } from "util/formatMoney";
 import "./CartItem.scss";
+import { useTranslation } from "react-i18next";
 
 function CartItem(props) {
   const { product } = props;
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const [totalPrice, settotalPrice] = useState(0);
 
@@ -58,7 +60,7 @@ function CartItem(props) {
       </td>
       <td>{formatMoney(totalPrice)}</td>
       <td>
-        <span onClick={() => handleRemove(product)}>Xóa</span>
+        <span onClick={() => handleRemove(product)}>{t("Remove")}</span>
       </td>
     </tr>
   );
