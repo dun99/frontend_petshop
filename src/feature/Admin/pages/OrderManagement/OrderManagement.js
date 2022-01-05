@@ -8,13 +8,11 @@ import {
   fetchOrdersRequest,
   updateOrderRequest,
 } from "redux/ordersSlice";
-import { fetchOrderItemRequest } from "redux/orderItemSlice";
 import { formatMoney } from "util/formatMoney";
 function OrderManagement() {
   const dispatch = useDispatch();
   const [loading, setLoading] = useState(false);
   const orders = useSelector((state) => state.orders.list);
-  const orderItem = useSelector((state) => state.orderItem.list);
   const filters = useSelector((state) => state.orders.filters);
   const totalCount = useSelector((state) => state.orders.count);
 
@@ -22,9 +20,8 @@ function OrderManagement() {
     setLoading(true);
     setTimeout(() => {
       dispatch(fetchOrdersRequest(filters));
-      dispatch(fetchOrderItemRequest());
       setLoading(false);
-    }, 1000);
+    }, 2000);
   }, [filters]);
 
   const updateOrder = (value, record) => {
@@ -35,10 +32,6 @@ function OrderManagement() {
     dispatch(updateOrderRequest(newOrder));
   };
 
-  const handleDeleteOrder = (record) => {
-    dispatch(deleteOrderRequest(record));
-  };
-
   const columns = [
     {
       title: "No.",
@@ -47,15 +40,16 @@ function OrderManagement() {
     },
     {
       title: "Products",
-      dataIndex: "cart",
+      dataIndex: "items",
       key: "name",
-      render: (cart) => {
-        return cart.map((item) => {
+      render: (items) => {
+        return items.map((item) => {
+          console.log("item", item);
           return (
             <div className="item">
-              <img width="100px" src={item.image} />
+              <img width="100px" src={item.item.image} />
               <div className="item__detail">
-                <div>{item.name}</div>
+                <div>{item.item.name}</div>
                 <div>Quantity: {item.quantity}</div>
               </div>
             </div>
@@ -65,18 +59,18 @@ function OrderManagement() {
     },
     {
       title: "Total",
-      dataIndex: "orderTotalAmount",
-      key: "orderTotalAmount",
-      render: (orderTotalAmount) => {
-        return <div>{orderTotalAmount}</div>;
+      dataIndex: "totalAmount",
+      key: "totalAmount",
+      render: (totalAmount) => {
+        return <div>{formatMoney(totalAmount)}</div>;
       },
     },
     {
-      title: "Total Quantity",
-      dataIndex: "orderTotalQuantity",
-      key: "orderTotalQuantity",
-      render: (orderTotalQuantity) => {
-        return <div>{orderTotalQuantity}</div>;
+      title: "Quantity",
+      dataIndex: "totalQuantity",
+      key: "totalQuantity",
+      render: (totalQuantity) => {
+        return <div>{totalQuantity}</div>;
       },
     },
     {
@@ -86,8 +80,14 @@ function OrderManagement() {
       render: (info) => {
         return (
           <>
-            <div>Name: {info.name}</div>
-            <div>Address: {info.address}</div>
+            <div>
+              <span>
+                Name: {info.lastName} {info.firstName}
+              </span>
+            </div>
+            <div>
+              Address: {info.desc}, {info.district}, {info.city}
+            </div>
             <div>Phone: {info.phone}</div>
           </>
         );
@@ -135,20 +135,10 @@ function OrderManagement() {
         return record.orderStatus.indexOf(value) === 0;
       },
     },
-    {
-      title: "Action",
-      key: "action",
-      render: (text, record) => (
-        <Space size="middle">
-          <a onClick={() => handleDeleteOrder(record)}>Delete</a>
-        </Space>
-      ),
-    },
   ];
 
   return (
     <>
-      <ToastContainer autoClose={2000} />
       <h1>Orders Management</h1>
       <Table
         loading={loading}
@@ -157,14 +147,6 @@ function OrderManagement() {
         total={totalCount}
         pagination={false}
       />
-      {/* <Table
-        loading={loading}
-        columns={columnsOrderItem}
-        dataSource={orderItem}
-        total={totalCount}
-        pagination={false}
-      /> */}
-      <PaginationApp totalCount={totalCount} />
     </>
   );
 }

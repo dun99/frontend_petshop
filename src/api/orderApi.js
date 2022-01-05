@@ -6,9 +6,9 @@ const orderApi = {
     return axiosClient.post(url, order);
   },
 
-  getListOrderByUserId: (params) => {
-    const url = "/orders";
-    return axiosClient.get(url, { params });
+  getListOrderByUserId: (userId) => {
+    const url = `/orders/history/${userId}`;
+    return axiosClient.get(url);
   },
 
   getAll: (params) => {

@@ -9,7 +9,6 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import "./Admin.scss";
 import Navbar from "./components/Navbar/Navbar";
-import Home from "./pages/Home/Home";
 import OrderManagement from "./pages/OrderManagement/OrderManagement";
 import ProductsManagement from "./pages/ProductsManagement/ProductsManagement";
 import UserManagement from "./pages/UserManagement/UserManagement";
@@ -25,9 +24,6 @@ function Admin() {
         <Layout className="main-page">
           <Content>
             <Switch>
-              <Route path={ADMIN_PATH} exact>
-                <Home />
-              </Route>
               <Route path={ADMIN_PRODUCTS_PATH}>
                 <ProductsManagement />
               </Route>

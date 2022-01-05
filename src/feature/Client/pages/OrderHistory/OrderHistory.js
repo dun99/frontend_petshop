@@ -11,11 +11,7 @@ function OrderHistory() {
   const ordersHistory = useSelector((state) => state.ordersHistory.list);
 
   useEffect(() => {
-    const newFilters = {
-      ...filters,
-      "user.id": currentUser.uid,
-    };
-    dispatch(fetchOrderHistoryRequest(newFilters));
+    dispatch(fetchOrderHistoryRequest(currentUser.uid));
   }, []);
 
   const renderOrder = (list) => {

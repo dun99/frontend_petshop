@@ -1,17 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authApi from "api/authApi";
+import usersApi from "api/usersApi";
 let initialState = {
   isAuth: false,
   currentUser: {},
+  user: {},
 };
 
-export const createUser = createAsyncThunk(
-  "auth/createAuth",
-  async (userInfo) => {
-    const res = await authApi.signup(userInfo);
-    return res;
-  }
-);
+export const signup = createAsyncThunk("auth/createAuth", async (userInfo) => {
+  console.log("userinfo", userInfo);
+  const res = await authApi.signup(userInfo);
+  return res;
+});
 
 export const loginRequest = createAsyncThunk("auth/login", async (userInfo) => {
   const res = await authApi.signin(userInfo);
@@ -45,9 +45,9 @@ export const authSlice = createSlice({
   },
 
   extraReducers: {
-    [createUser.fulfilled]: (state, action) => {
-      state.currentUser = action.payload;
-      state.isAuth = true;
+    [signup.fulfilled]: (state, action) => {
+      // state.currentUser = action.payload;
+      // state.isAuth = true;
     },
 
     [loginRequest.fulfilled]: (state, action) => {

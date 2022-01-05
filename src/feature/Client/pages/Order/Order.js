@@ -1,33 +1,49 @@
 import { Button, Form, Input } from "antd";
 import { ORDER_SUCCESS } from "constants/route";
 import React from "react";
+import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { removeAllCart } from "redux/cartSlice";
 import { createOrderRequest } from "redux/orderSlice";
 import "./Order.scss";
-import { useTranslation } from "react-i18next";
+import { useHistory } from "react-router-dom";
 
 function Order() {
   const currentUser = useSelector((state) => state.auth.currentUser);
   const cart = useSelector((state) => state.cart);
-  const order = useSelector((state) => state.order);
   const dispatch = useDispatch();
   const { t } = useTranslation();
+  const history = useHistory();
 
   const onFinish = (values) => {
+    console.log("jjjjj", values);
+    const items = [];
+    let totalQuantity = 0;
+    cart.cartItem.forEach((product) => {
+      const temp = {
+        item: product._id,
+        quantity: product.quantity,
+        price: product.price,
+      };
+      items.push(temp);
+    });
+    cart.cartItem.forEach((product) => {
+      totalQuantity += product.quantity;
+    });
     const order = {
-      cart: cart,
+      orderTotalQuantity: totalQuantity,
+      orderTotalAmount: cart.cartTotalAmount,
       info: values,
-      user: {
-        id: currentUser.uid,
-        email: currentUser.email,
-      },
+      user: currentUser && currentUser.uid ? currentUser.uid : "unknown",
       orderStatus: "pending",
       createAt: Date.now(),
+      items,
     };
     dispatch(createOrderRequest(order));
+
     dispatch(removeAllCart());
+    history.push(ORDER_SUCCESS);
   };
 
   return (
@@ -97,10 +113,11 @@ function Order() {
             <Input.TextArea />
           </Form.Item>
           <Form.Item label=" " colon={false}>
+            {/* <Link to={ORDER_SUCCESS}> */}
             <Button type="primary" htmlType="submit" className="order-btn">
               {t("Order")}
-              {order.status && <Redirect to={ORDER_SUCCESS} />}
             </Button>
+            {/* </Link> */}
           </Form.Item>
         </Form>
       </div>

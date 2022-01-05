@@ -1,5 +1,8 @@
 import firebase, { auth, db } from "feature/Auth/firebase";
+import usersApi from "api/usersApi";
+
 var provider = new firebase.auth.GoogleAuthProvider();
+
 const authApi = {
   signup: async (userInfo) => {
     const { email, password } = userInfo;
@@ -13,16 +16,24 @@ const authApi = {
       delete userInfo.password;
       userInfo.createdDate = firebase.firestore.FieldValue.serverTimestamp();
       userInfo.role = "customer";
-      db.collection("users")
-        .doc(user.uid)
-        .set(userInfo)
-        .then(() => {
-          userInfo.id = user.uid;
-          return userInfo;
-        })
-        .catch((error) => {
-          return error;
-        });
+      // db.collection("users")
+      //   .doc(user.uid)
+      //   .set(userInfo)
+      //   .then(() => {
+      //     userInfo.id = user.uid;
+      //     return userInfo;
+      //   })
+      //   .catch((error) => {
+      //     console.log("err", error);
+      //     return error;
+      //   });
+      console.log("hhhh", userInfo, user.uid);
+      usersApi.creatUser({
+        ...userInfo,
+        _id: user.uid,
+      });
+    } else {
+      console.log("fail");
     }
   },
 
@@ -31,16 +42,18 @@ const authApi = {
       userInfo.email,
       userInfo.password
     );
-    try {
-      const doc = await db.collection("users").doc(user.uid).get();
-      if (doc.exists) {
-        return doc.data();
-      } else {
-        return new Error("No data");
-      }
-    } catch (error) {
-      return error;
-    }
+    // try {
+    //   const doc = await db.collection("users").doc(user.uid).get();
+    //   if (doc.exists) {
+    //     return doc.data();
+    //   } else {
+    //     return new Error("No data");
+    //   }
+    // } catch (error) {
+    //   return error;
+    // }
+    console.log("user", user.uid);
+    usersApi.getUserById(user.uid);
   },
 
   logout: async () => {

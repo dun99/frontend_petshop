@@ -34,11 +34,7 @@ function ProductDetail() {
 
   useEffect(() => {
     dispatch(getProductById(id));
-    // dispatch(
-    //   fetchCommentRequest({
-    //     productId: id,
-    //   })
-    // );
+    dispatch(fetchCommentRequest(id));
   }, []);
 
   const handleAddToCart = (item) => {
@@ -55,11 +51,9 @@ function ProductDetail() {
       setvalue("");
       dispatch(
         createCommentRequest({
-          productId: product._id,
-          author: currentUser.uid,
+          product: product._id,
+          user: currentUser.uid,
           content: value,
-          avatar: user.avatar,
-          account: user.email,
         })
       );
     }, 5000);

@@ -1,7 +1,7 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { createUser } from "redux/authSlice";
+import { signup } from "redux/authSlice";
 import "./loginForm.scss";
 const formItemLayout = {
   labelCol: {
@@ -41,7 +41,7 @@ const RegistrationForm = () => {
 
   const onFinish = async (values) => {
     dispatch(
-      createUser({
+      signup({
         email: values.email,
         password: values.password,
       })

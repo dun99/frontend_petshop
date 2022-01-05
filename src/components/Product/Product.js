@@ -15,7 +15,7 @@ function Product(props) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (item) => {
-    dispatch(addToCart(item));
+    if (item.status === "In stock") dispatch(addToCart(item));
   };
 
   return (
@@ -29,7 +29,7 @@ function Product(props) {
         >
           {t("Add to cart")}
         </ShoppingCartOutlined>,
-        <div>{t("Buy Now")}</div>,
+
         <div>
           <Link to={`${PRODUCTS_PATH}/${product._id}`}>{t("Detail")} </Link>
         </div>,

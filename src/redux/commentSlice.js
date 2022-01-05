@@ -11,13 +11,10 @@ let initialState = {
   },
 };
 
-export const fetchCommentRequest = createAsyncThunk(
-  "orders",
-  async (paramString) => {
-    const res = await commentApi.getAll(paramString);
-    return res;
-  }
-);
+export const fetchCommentRequest = createAsyncThunk("orders", async (id) => {
+  const res = await commentApi.getAll(id);
+  return res;
+});
 
 export const createCommentRequest = createAsyncThunk(
   "comments/create",

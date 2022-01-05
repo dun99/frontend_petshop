@@ -12,8 +12,8 @@ let initialState = {
 
 export const fetchOrderHistoryRequest = createAsyncThunk(
   "ordersHistory",
-  async (paramString) => {
-    const res = await orderApi.getListOrderByUserId(paramString);
+  async (userId) => {
+    const res = await orderApi.getListOrderByUserId(userId);
     return res;
   }
 );
