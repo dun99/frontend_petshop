@@ -31,7 +31,7 @@ import Profile from "./pages/Profile/Profile";
 
 function Client() {
   const { Content } = Layout;
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   return (
     <>
       <HeaderApp />

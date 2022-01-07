@@ -1,14 +1,12 @@
-import { ADMIN_PATH, ROOT_PATH } from "constants/route";
+import { ADMIN_PATH } from "constants/route";
 import React from "react";
-import { useSelector } from "react-redux";
-import { Route, Redirect } from "react-router-dom";
+import { Redirect, Route } from "react-router-dom";
 
 const PublicRoute = ({ children, restricted, ...rest }) => {
-  const currentUser = useSelector((state) => state.auth.currentUser);
-  const user = useSelector((state) => state.users.user);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   return (
     <Route {...rest}>
-      {currentUser && user.role === "admin" && restricted ? (
+      {currentUser && currentUser.role === "admin" && restricted ? (
         <Redirect to={ADMIN_PATH} />
       ) : (
         children

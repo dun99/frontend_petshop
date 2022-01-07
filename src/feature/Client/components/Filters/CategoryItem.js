@@ -7,7 +7,6 @@ function CategoryItem(props) {
   const dispatch = useDispatch();
   const filters = useSelector((state) => state.products.filters);
   const handleChangeCategory = (name) => {
-    console.log("name", name);
     const newFilters = {
       ...filters,
       category: name,

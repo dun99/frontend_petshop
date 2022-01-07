@@ -1,42 +1,53 @@
 import { GoogleOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Checkbox, Form, Input } from "antd";
+import { Button, Form, Input } from "antd";
 import authApi from "api/authApi";
 import Banner from "components/Banner/Banner";
 import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
-import { REGISTER_PATH, ROOT_PATH } from "constants/route";
-import { auth } from "feature/Auth/firebase";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
-import { loginRequest, logoutRequest, setUserCurrent } from "redux/authSlice";
+import {
+  ADMIN_PATH,
+  ADMIN_PRODUCTS_PATH,
+  REGISTER_PATH,
+  ROOT_PATH,
+} from "constants/route";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { fetchUserById, loginRequest } from "redux/authSlice";
+import { checkRole } from "util/isLoggined";
 import "./loginForm.scss";
+
 const LoginForm = () => {
   const dispatch = useDispatch();
-  const isAuth = useSelector((state) => state.auth.isAuth);
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const history = useHistory();
+  const currentUser = JSON.parse(localStorage.getItem("user"));
 
-  const onFinish = (values) => {
-    dispatch(
+  const onFinish = async (values) => {
+    await dispatch(
       loginRequest({
         email: values.email,
         password: values.password,
       })
     );
+    const role = checkRole();
+    if (role === "customer") history.push(ROOT_PATH);
+    if (role === "admin") history.push(ADMIN_PRODUCTS_PATH);
   };
 
-  const handleLogout = () => {
-    dispatch(logoutRequest());
+  const signinWithGoogle = async () => {
+    await dispatch(signinWithGoogle());
+    const role = checkRole();
+    if (role === "customer") history.push(ROOT_PATH);
+    if (role === "admin") history.push(ADMIN_PRODUCTS_PATH);
   };
 
-  useEffect(() => {
-    const unregisterAuthObserver = auth.onAuthStateChanged((user) => {
-      dispatch(setUserCurrent(user));
-    });
-    unregisterAuthObserver();
-  }, [currentUser]);
+  // useEffect(() => {
+  //   const unregisterAuthObserver = auth.onAuthStateChanged((user) => {
+  //     dispatch(setUserCurrent(user));
+  //   });
+  //   unregisterAuthObserver();
+  // }, [currentUser]);
 
-  // if (!isAuth || !currentUser) {
   return (
     <>
       <HeaderApp />
@@ -83,12 +94,6 @@ const LoginForm = () => {
               placeholder="Password"
             />
           </Form.Item>
-          {/* <Form.Item>
-            <Form.Item name="remember" valuePropName="checked" noStyle>
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
-          </Form.Item> */}
-
           <Form.Item>
             <Button
               type="primary"
@@ -101,7 +106,7 @@ const LoginForm = () => {
           </Form.Item>
         </Form>
 
-        <Button className="google" onClick={authApi.singinWithGoogle}>
+        <Button className="google" onClick={signinWithGoogle}>
           <GoogleOutlined />
           Signin with google
         </Button>
@@ -109,7 +114,6 @@ const LoginForm = () => {
       <FooterApp />
     </>
   );
-  // }
-  // return <Redirect to={ROOT_PATH} />;
 };
+
 export default LoginForm;

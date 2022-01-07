@@ -1,8 +1,11 @@
 import { Button, Checkbox, Form, Input } from "antd";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { createUser } from "redux/authSlice";
+import { signup } from "redux/authSlice";
 import "./loginForm.scss";
+import { useHistory } from "react-router-dom";
+import { SIGN_IN_PATH } from "constants/route";
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -38,14 +41,16 @@ const tailFormItemLayout = {
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
+  const history = useHistory();
 
   const onFinish = async (values) => {
-    dispatch(
-      createUser({
+    await dispatch(
+      signup({
         email: values.email,
         password: values.password,
       })
     );
+    history.push(SIGN_IN_PATH);
   };
 
   return (
@@ -115,7 +120,7 @@ const RegistrationForm = () => {
         </Form.Item>
 
         <Form.Item
-          name="nickname"
+          name="name"
           label="Nickname"
           tooltip="What do you want others to call you?"
           rules={[

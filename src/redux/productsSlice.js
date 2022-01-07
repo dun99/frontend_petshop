@@ -35,6 +35,10 @@ export const updateProductRequest = createAsyncThunk(
   "products/update",
   async (data) => {
     const res = await productApi.update(data);
+    toast.success("Update product success", {
+      position: "top-right",
+    });
+    console.log("update", res);
     return res;
   }
 );

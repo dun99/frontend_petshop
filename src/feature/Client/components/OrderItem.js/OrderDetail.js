@@ -16,10 +16,10 @@ function OrderDetail(props) {
     <tr className="order">
       <td>
         <Link to={`${PRODUCTS_PATH}/${product.id}`}>
-          <img src={product.image} atl={product.image} />
+          <img src={product.item.image} atl={product.image} />
         </Link>
       </td>
-      <td>{product.name}</td>
+      <td>{product.item.name}</td>
       <td>{formatMoney(product.price)}</td>
       <td>
         <div className="quantity">{product.quantity}</div>

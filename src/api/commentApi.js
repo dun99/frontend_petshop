@@ -1,9 +1,9 @@
 import axiosClient from "./axiosClient";
 
 const commentApi = {
-  getAll: (params) => {
-    const url = "/comments";
-    return axiosClient.get(url, { params });
+  getAll: (productId) => {
+    const url = `/comments/product/${productId}`;
+    return axiosClient.get(url);
   },
 
   create: (data) => {

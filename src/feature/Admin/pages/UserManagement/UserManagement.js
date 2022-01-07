@@ -1,8 +1,9 @@
-import { Select, Space, Table } from "antd";
+import { Select, Table } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { deleteUser, fetchUser, updateUser } from "redux/userSlice";
+import { updateUser } from "redux/authSlice";
+import { fetchUser } from "redux/userSlice";
 
 function UserManagement() {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ function UserManagement() {
       dispatch(fetchUser());
       setLoading(false);
     }, 2000);
-  }, [users]);
+  }, []);
 
   const updateRoleUser = (value, record) => {
     dispatch(
@@ -25,10 +26,6 @@ function UserManagement() {
         role: value,
       })
     );
-  };
-
-  const handleDeleteUser = (record) => {
-    dispatch(deleteUser(record.id));
   };
 
   const columns = [
@@ -43,9 +40,9 @@ function UserManagement() {
       key: "email",
     },
     {
-      title: "Nickname",
-      dataIndex: "nickname",
-      key: "nickname",
+      title: "name",
+      dataIndex: "name",
+      key: "name",
     },
     {
       title: "Role",
@@ -78,15 +75,6 @@ function UserManagement() {
       onFilter: (value, record) => {
         return record.role.indexOf(value) === 0;
       },
-    },
-    {
-      title: "Action",
-      key: "action",
-      render: (text, record) => (
-        <Space size="middle">
-          <a onClick={() => handleDeleteUser(record)}>Delete</a>
-        </Space>
-      ),
     },
   ];
 

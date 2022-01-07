@@ -34,7 +34,6 @@ function ProductsManagement() {
   const { categories } = useSelector((state) => state.categories);
   const filters = useSelector((state) => state.products.filters);
   const totalCount = useSelector((state) => state.products.count);
-  const productDetail = useSelector((state) => state.productDetail.product);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [imageUrl, setImageUrl] = useState("");
   const [item, setItem] = useState(null);
@@ -49,7 +48,7 @@ function ProductsManagement() {
       dispatch(fetchProductsRequest(filters));
       setloading(false);
     }, 1000);
-  }, [filters, totalCount, productDetail]);
+  }, [filters, totalCount, dispatch]);
 
   useEffect(() => {
     dispatch(fetchCategoriesRequest());
@@ -61,7 +60,7 @@ function ProductsManagement() {
       setEditing(null);
       form.setFieldsValue({
         name: "",
-        categories: "",
+        category: "",
         price: "",
         desc: "",
         image: "",
@@ -76,7 +75,7 @@ function ProductsManagement() {
       if (editing !== null) {
         form.setFieldsValue({
           name: editing.name,
-          categories: editing.categories,
+          category: editing.category._id,
           price: editing.price,
           desc: editing.desc,
           image: editing.image,
@@ -186,8 +185,7 @@ function ProductsManagement() {
     },
   };
 
-  const onFinish = (values) => {
-    console.log(urls, imageUrl);
+  const onFinish = async (values) => {
     const newinfo = {
       ...values,
       price: parseFloat(values.price),
@@ -196,12 +194,13 @@ function ProductsManagement() {
     if (editing === null) {
       dispatch(createProductRequest(newinfo));
     } else {
-      dispatch(
+      await dispatch(
         updateProductRequest({
           ...newinfo,
           _id: item._id,
         })
       );
+      dispatch(fetchProductsRequest(filters));
     }
     setIsModalVisible(false);
   };

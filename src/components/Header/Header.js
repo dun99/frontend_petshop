@@ -15,15 +15,15 @@ import {
   ROOT_PATH,
   SIGN_IN_PATH,
 } from "constants/route";
-import { auth } from "feature/Auth/firebase";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { logoutRequest, setUserCurrent } from "redux/authSlice";
+import { logoutRequest } from "redux/authSlice";
 import { totalCart } from "redux/cartSlice";
-import { fetchUserById } from "redux/userSlice";
 import "./Header.scss";
+import { useHistory } from "react-router-dom";
+import { fetchUserById } from "redux/userSlice";
 const { Header } = Layout;
 const { SubMenu } = Menu;
 
@@ -31,28 +31,16 @@ function HeaderApp() {
   const dispatch = useDispatch();
   const cartCount = useSelector((state) => state.cart.cartTotalQuantity);
   const cart = useSelector((state) => state.cart.cartItem);
-  const isAuth = useSelector((state) => state.auth.isAuth);
-  const currentUser = useSelector((state) => state.auth.currentUser);
-  const user = useSelector((state) => state.users.user);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const user = useSelector((state) => state.auth.user);
   const { t, i18n } = useTranslation();
-
-  const userInfo = useSelector((state) => state.users.user);
-  useEffect(() => {
-    if (currentUser && currentUser.uid) {
-      dispatch(fetchUserById(currentUser.uid));
-    }
-  }, [currentUser, userInfo.id]);
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(totalCart());
   }, [cartCount, cart]);
 
-  useEffect(() => {
-    const unregisterAuthObserver = auth.onAuthStateChanged((user) => {
-      dispatch(setUserCurrent(user));
-    });
-    return () => unregisterAuthObserver();
-  }, [currentUser, user.email]);
+  useEffect(() => {}, [user]);
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -60,6 +48,7 @@ function HeaderApp() {
 
   const handleLogout = () => {
     dispatch(logoutRequest());
+    history.push(ROOT_PATH);
   };
 
   return (
@@ -102,7 +91,7 @@ function HeaderApp() {
                 {t("Product")}
                 <Link to={PRODUCTS_PATH} />
               </Menu.Item>
-              {currentUser && user.role === "admin" && (
+              {currentUser && currentUser.role === "admin" && (
                 <Menu.Item key="products1">
                   Management
                   <Link to={ADMIN_PATH} />
@@ -121,7 +110,7 @@ function HeaderApp() {
                 title={currentUser ? currentUser.email : `${t("Account")}`}
                 className="account"
               >
-                {!isAuth || !currentUser ? (
+                {!currentUser ? (
                   <>
                     <Menu.Item key="1">
                       {t("Signup")}

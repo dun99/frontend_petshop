@@ -3,35 +3,31 @@ import { Button, Form, Input, message, Upload } from "antd";
 import { storage } from "feature/Auth/firebase";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchUserById, updateUser } from "redux/userSlice";
 import "./Profile.scss";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { fetchUserById, updateUser } from "redux/authSlice";
 function Profile() {
   const [imageUrl, setimageUrl] = useState("");
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.auth.currentUser);
-  const userInfo = useSelector((state) => state.users.user);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const user = useSelector((state) => state.auth.user);
   const [urls, setUrls] = useState("");
   const [form] = Form.useForm();
 
   useEffect(() => {
-    if (currentUser && currentUser.uid) {
-      dispatch(fetchUserById(currentUser.uid));
-      setimageUrl(userInfo.avatar);
+    if (currentUser._id) {
+      dispatch(fetchUserById(currentUser._id));
+      setUrls(currentUser.avatar);
+      setimageUrl(currentUser.avatar);
       form.setFieldsValue({
-        email: userInfo.email,
-        nickname: userInfo.nickname,
-        phone: userInfo.phone,
-        avatar: userInfo.avatar,
+        email: currentUser.email,
+        name: currentUser.name,
+        phone: currentUser.phone,
+        avatar: currentUser.avatar,
       });
     }
-  }, [currentUser, userInfo.email, imageUrl]);
-
-  useEffect(() => {
-    dispatch(fetchUserById(currentUser.uid));
-    setUrls(userInfo.avatar);
-  }, []);
+  }, [currentUser.name]);
 
   const formItemLayout = {
     labelCol: {
@@ -68,7 +64,7 @@ function Profile() {
   const onFinish = (values) => {
     const newinfo = {
       ...values,
-      id: userInfo.id,
+      _id: currentUser._id,
       avatar: urls,
     };
     dispatch(updateUser(newinfo));
@@ -78,6 +74,7 @@ function Profile() {
     const reader = new FileReader();
     reader.addEventListener("load", () => callback(reader.result));
     reader.readAsDataURL(img);
+    setimageUrl(img);
   };
 
   const uploadButton = (
@@ -108,7 +105,7 @@ function Profile() {
 
   const uploadAvatar = () => {
     storage
-      .ref("images/" + imageUrl)
+      .ref("images/" + imageUrl.name)
       .put(imageUrl)
       .then((snapshot) => {
         return snapshot.ref.getDownloadURL();
@@ -130,13 +127,13 @@ function Profile() {
         form={form}
         name="register"
         onFinish={onFinish}
-        initialValues={{
-          email: userInfo.email,
-          nickname: userInfo.nickname,
-          phone: userInfo.phone,
-          avatar: userInfo.avatar,
-        }}
         className="register-form"
+        initialValues={{
+          email: currentUser.email,
+          name: currentUser.name,
+          phone: currentUser.phone,
+          avatar: currentUser.avatar,
+        }}
       >
         <Form.Item
           name="email"
@@ -148,9 +145,9 @@ function Profile() {
             },
           ]}
         >
-          <Input />
+          <Input disabled />
         </Form.Item>
-        <Form.Item name="nickname" label="Nickname">
+        <Form.Item name="name" label="Nickname">
           <Input />
         </Form.Item>
         <Form.Item name="phone" label="Phone Number">
@@ -178,7 +175,7 @@ function Profile() {
           </Upload>
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
-          <Button type="primary" htmlType="submit">
+          <Button className="save" htmlType="submit">
             Lưu
           </Button>
         </Form.Item>

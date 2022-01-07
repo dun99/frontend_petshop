@@ -17,10 +17,10 @@ function Navbar() {
   return (
     <div className="dashboard-nav">
       <Menu className="nav" mode="inline" theme="dark" defaultSelectedKeys="1">
-        <Menu.Item key="1" icon={<PieChartOutlined />}>
+        <Menu.Item key="2" icon={<PieChartOutlined />}>
           <Link to={ADMIN_PATH}>Home</Link>
         </Menu.Item>
-        <Menu.Item key="2" icon={<PieChartOutlined />}>
+        <Menu.Item key="1" icon={<PieChartOutlined />}>
           <Link to={ADMIN_PRODUCTS_PATH}>Products</Link>
         </Menu.Item>
         <Menu.Item key="3" icon={<DesktopOutlined />}>

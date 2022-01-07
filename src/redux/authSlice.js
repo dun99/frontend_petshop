@@ -1,20 +1,34 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authApi from "api/authApi";
+import usersApi from "api/usersApi";
+import { toast } from "react-toastify";
+
 let initialState = {
-  isAuth: false,
-  currentUser: {},
+  user: {
+    _id: "",
+    avatar: "",
+    name: "",
+    phone: "",
+    role: "",
+  },
 };
 
-export const createUser = createAsyncThunk(
-  "auth/createAuth",
-  async (userInfo) => {
-    const res = await authApi.signup(userInfo);
+export const signup = createAsyncThunk("auth/createAuth", async (userInfo) => {
+  const res = await authApi.signup(userInfo);
+  return res;
+});
+
+export const signinWithGoogle = createAsyncThunk(
+  "auth/sininWithGoogle",
+  async () => {
+    const res = await authApi.singinWithGoogle();
     return res;
   }
 );
 
 export const loginRequest = createAsyncThunk("auth/login", async (userInfo) => {
   const res = await authApi.signin(userInfo);
+
   return res;
 });
 
@@ -23,41 +37,64 @@ export const logoutRequest = createAsyncThunk("auth/logout", async () => {
   return res;
 });
 
+export const fetchUserById = createAsyncThunk(
+  "user/getUserById",
+  async (id) => {
+    const res = await usersApi.getUserById(id);
+    localStorage.setItem("user", JSON.stringify(res.data));
+    return res;
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  "user/updateUser",
+  async (userInfo) => {
+    const res = await usersApi.update(userInfo);
+    toast.success("Update success", {
+      position: "top-right",
+    });
+    localStorage.setItem("user", JSON.stringify(res.data));
+    return res;
+  }
+);
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
 
-  reducers: {
-    setUserCurrent: (state, action) => {
-      state.currentUser = action.payload;
-      state.isAuth = true;
-    },
+  // reducers: {
+  //   setUserCurrent: (state, action) => {
+  //     state.currentUser = action.payload;
+  //     state.isAuth = true;
+  //   },
 
-    logout: (state) => {
-      state.isAuth = false;
-      state.currentUser = null;
-    },
+  //   logout: (state) => {
+  //     state.isAuth = false;
+  //     state.currentUser = null;
+  //   },
 
-    loginWithGoogle: (state, action) => {
-      state.currentUser = action.payload;
-      state.isAuth = true;
-    },
-  },
+  //   loginWithGoogle: (state, action) => {
+  //     state.currentUser = action.payload;
+  //     state.isAuth = true;
+  //   },
+  // },
 
   extraReducers: {
-    [createUser.fulfilled]: (state, action) => {
-      state.currentUser = action.payload;
-      state.isAuth = true;
-    },
-
     [loginRequest.fulfilled]: (state, action) => {
-      state.currentUser = action.payload;
+      state.user = action.payload;
       state.isAuth = true;
     },
 
     [logoutRequest.fulfilled]: (state) => {
-      state.currentUser = null;
+      state.user = null;
       state.isAuth = false;
+    },
+    [fetchUserById.fulfilled]: (state, action) => {
+      state.user = action.payload.data;
+    },
+
+    [updateUser.fulfilled]: (state, action) => {
+      state.user = action.payload.data;
     },
   },
 });

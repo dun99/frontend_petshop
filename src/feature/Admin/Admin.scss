@@ -12,11 +12,14 @@
   .content {
     padding: 2rem;
     margin-left: 256px;
-    width: calc(100% - 256px);
+    width: 90%;
   }
 }
 
 .item {
+  img {
+    width: 80px;
+  }
   display: flex;
   align-items: center;
 

@@ -11,6 +11,7 @@ let initialState = {
   },
   orderTotalQuantity: 0,
   orderTotalAmount: 0,
+  createOrderSuccess: false,
 };
 
 export const fetchOrdersRequest = createAsyncThunk(
@@ -32,28 +33,21 @@ export const updateOrderRequest = createAsyncThunk(
   }
 );
 
-export const deleteOrderRequest = createAsyncThunk(
-  "orders/delete",
-  async (data) => {
-    const res = await orderApi.delete(data.id);
-    toast.success("Delete order success", {
-      position: "top-right",
-    });
-    return res;
+export const createOrderRequest = createAsyncThunk(
+  "order/createOrder",
+  async (orderInfor) => {
+    const res = await orderApi.createOrder(orderInfor);
+    return res.data;
   }
 );
+
 export const OrdersSlice = createSlice({
   name: "orders",
   initialState,
   reducers: {},
 
   extraReducers: {
-    [fetchOrdersRequest.pending]: (state) => {},
-
-    [fetchOrdersRequest.rejected]: (state) => {},
-
     [fetchOrdersRequest.fulfilled]: (state, action) => {
-      console.log(action.payload, "hhhh");
       state.list = action.payload.data;
       state.count = action.payload.total;
       state.orderTotalQuantity = action.payload.orderTotalQuantity;
@@ -61,13 +55,11 @@ export const OrdersSlice = createSlice({
       state.orderStatus = action.payload.orderStatus;
     },
 
-    [deleteOrderRequest.fulfilled]: (state) => {
-      state.status = "success";
-      state.count -= 1;
+    [createOrderRequest.fulfilled]: (state, action) => {
+      state.createOrderSuccess = true;
     },
 
     [updateOrderRequest.fulfilled]: (state, action) => {
-      state.status = "success";
       state.list.map((item, index) => {
         if (item.id === action.payload.data.id) {
           state.list[index] = action.payload.data;

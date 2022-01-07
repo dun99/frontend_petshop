@@ -5,6 +5,7 @@ import "./OrderItem.scss";
 
 function OrderItem(props) {
   const { order } = props;
+
   const renderCart = (list) => {
     return list.map((item, index) => {
       return <OrderDetail product={item} key={index} />;
@@ -28,14 +29,14 @@ function OrderItem(props) {
 
   return (
     <>
-      {renderCart(order.cart.cartItem)}
+      {renderCart(order.items)}
       <div className="status">
         <span className="status-title">Trạng thái: </span>
         {renderStatus(order.orderStatus)}
       </div>
       <div className="status total">
         <span className="status-title">Thành tiền: </span>
-        <span>{formatMoney(order.cart.cartTotalAmount)}</span>
+        <span>{formatMoney(order.totalAmount)}</span>
       </div>
     </>
   );

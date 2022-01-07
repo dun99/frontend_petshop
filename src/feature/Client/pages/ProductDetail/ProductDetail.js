@@ -9,10 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { fetchUserById } from "redux/authSlice";
 import { addToCart } from "redux/cartSlice";
 import { createCommentRequest, fetchCommentRequest } from "redux/commentSlice";
 import { getProductById } from "redux/productDetailSlice";
-import { fetchUserById } from "redux/userSlice";
 import { formatMoney } from "util/formatMoney";
 import "./ProductDetail.scss";
 
@@ -23,23 +23,19 @@ function ProductDetail() {
   const comments = useSelector((state) => state.comments.list);
   const [submitting, setsubmitting] = useState(false);
   const [value, setvalue] = useState("");
-  const currentUser = useSelector((state) => state.auth.currentUser);
-  const user = useSelector((state) => state.users.user);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  // const user = useSelector((state) => state.auth.user);
   const { t } = useTranslation();
   useEffect(() => {
     if (currentUser && currentUser.uid) {
-      dispatch(fetchUserById(currentUser.uid));
+      dispatch(fetchUserById(currentUser._id));
     }
   }, [currentUser]);
 
   useEffect(() => {
     dispatch(getProductById(id));
-    // dispatch(
-    //   fetchCommentRequest({
-    //     productId: id,
-    //   })
-    // );
-  }, []);
+    dispatch(fetchCommentRequest(id));
+  }, [comments.length]);
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
@@ -55,11 +51,9 @@ function ProductDetail() {
       setvalue("");
       dispatch(
         createCommentRequest({
-          productId: product._id,
-          author: currentUser.uid,
+          product: product._id,
+          user: currentUser._id,
           content: value,
-          avatar: user.avatar,
-          account: user.email,
         })
       );
     }, 5000);
@@ -99,20 +93,22 @@ function ProductDetail() {
       <div className="comments">
         {comments.length > 0 && (
           <>
-            <CommentList comments={comments} user={user} />
+            <CommentList comments={comments} />
           </>
         )}
-        <Comment
-          avatar={<Avatar src={user.avatar} alt="User" />}
-          content={
-            <CommentInput
-              onChange={handleChange}
-              onSubmit={handleSubmit}
-              submitting={submitting}
-              value={value}
-            />
-          }
-        />
+        {currentUser && (
+          <Comment
+            avatar={<Avatar src={currentUser.avatar} alt="User" />}
+            content={
+              <CommentInput
+                onChange={handleChange}
+                onSubmit={handleSubmit}
+                submitting={submitting}
+                value={value}
+              />
+            }
+          />
+        )}
       </div>
     </div>
   );

@@ -5,12 +5,11 @@ import React from "react";
 function CommentList(props) {
   const renderItem = (list) => {
     return list.map((comment, index) => {
-      console.log(comment);
       return (
         <Comment
-          author={<a>{props.user.email}</a>}
+          author={<a>{comment.user.email}</a>}
           content={comment.content}
-          avatar={<Avatar src={props.user.avatar} alt="User" />}
+          avatar={<Avatar src={comment.user.avatar} alt="User" />}
         />
       );
     });
