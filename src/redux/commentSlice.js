@@ -13,7 +13,6 @@ let initialState = {
 
 export const fetchCommentRequest = createAsyncThunk("orders", async (id) => {
   const res = await commentApi.getAll(id);
-  console.log(res);
   return res;
 });
 
@@ -21,7 +20,6 @@ export const createCommentRequest = createAsyncThunk(
   "comments/create",
   async (data) => {
     const res = await commentApi.create(data);
-    console.log("comment iiiii", res);
     return res;
   }
 );

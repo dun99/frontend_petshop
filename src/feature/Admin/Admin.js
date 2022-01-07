@@ -24,6 +24,9 @@ function Admin() {
         <Layout className="main-page">
           <Content>
             <Switch>
+              {/* <Route path={ADMIN_PATH}>
+                <div>Management</div>
+              </Route> */}
               <Route path={ADMIN_PRODUCTS_PATH}>
                 <ProductsManagement />
               </Route>

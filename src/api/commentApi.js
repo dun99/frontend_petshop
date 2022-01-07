@@ -7,7 +7,6 @@ const commentApi = {
   },
 
   create: (data) => {
-    console.log("comment dtaa", data);
     const url = "/comments";
     return axiosClient.post(url, data);
   },

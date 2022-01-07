@@ -4,13 +4,27 @@ import usersApi from "api/usersApi";
 import { toast } from "react-toastify";
 
 let initialState = {
-  user: {},
+  user: {
+    _id: "",
+    avatar: "",
+    name: "",
+    phone: "",
+    role: "",
+  },
 };
 
 export const signup = createAsyncThunk("auth/createAuth", async (userInfo) => {
   const res = await authApi.signup(userInfo);
   return res;
 });
+
+export const signinWithGoogle = createAsyncThunk(
+  "auth/sininWithGoogle",
+  async () => {
+    const res = await authApi.singinWithGoogle();
+    return res;
+  }
+);
 
 export const loginRequest = createAsyncThunk("auth/login", async (userInfo) => {
   const res = await authApi.signin(userInfo);
@@ -27,8 +41,7 @@ export const fetchUserById = createAsyncThunk(
   "user/getUserById",
   async (id) => {
     const res = await usersApi.getUserById(id);
-    // console.log("res user", res);
-    // localStorage.setItem(JSON.stringify("user", res.data));
+    localStorage.setItem("user", JSON.stringify(res.data));
     return res;
   }
 );
@@ -36,12 +49,11 @@ export const fetchUserById = createAsyncThunk(
 export const updateUser = createAsyncThunk(
   "user/updateUser",
   async (userInfo) => {
-    console.log("update", userInfo);
     const res = await usersApi.update(userInfo);
     toast.success("Update success", {
       position: "top-right",
     });
-    await localStorage.setItem(JSON.stringify("user", res.data));
+    localStorage.setItem("user", JSON.stringify(res.data));
     return res;
   }
 );

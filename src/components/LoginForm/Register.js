@@ -120,7 +120,7 @@ const RegistrationForm = () => {
         </Form.Item>
 
         <Form.Item
-          name="nickname"
+          name="name"
           label="Nickname"
           tooltip="What do you want others to call you?"
           rules={[

@@ -16,28 +16,18 @@ function Profile() {
   const [form] = Form.useForm();
 
   useEffect(() => {
-    if (currentUser.id) {
-      dispatch(fetchUserById(currentUser.id));
-      console.log("kkkk", user);
-    }
-  }, []);
-  useEffect(() => {
-    if (user) {
-      setUrls(user.avatar);
-      setimageUrl(user.avatar);
+    if (currentUser._id) {
+      dispatch(fetchUserById(currentUser._id));
+      setUrls(currentUser.avatar);
+      setimageUrl(currentUser.avatar);
       form.setFieldsValue({
-        email: user.email,
-        name: user.name,
-        phone: user.phone,
-        avatar: user.avatar,
+        email: currentUser.email,
+        name: currentUser.name,
+        phone: currentUser.phone,
+        avatar: currentUser.avatar,
       });
     }
-  }, [user]);
-  // useEffect(() => {
-  //   console.log(currentUser);
-  //   dispatch(fetchUserById(currentUser.id));
-  //   setUrls(currentUser.avatar);
-  // }, []);
+  }, [currentUser.name]);
 
   const formItemLayout = {
     labelCol: {
@@ -74,7 +64,7 @@ function Profile() {
   const onFinish = (values) => {
     const newinfo = {
       ...values,
-      _id: currentUser.id,
+      _id: currentUser._id,
       avatar: urls,
     };
     dispatch(updateUser(newinfo));
@@ -139,10 +129,10 @@ function Profile() {
         onFinish={onFinish}
         className="register-form"
         initialValues={{
-          email: user.email,
-          name: user.name,
-          phone: user.phone,
-          avatar: user.avatar,
+          email: currentUser.email,
+          name: currentUser.name,
+          phone: currentUser.phone,
+          avatar: currentUser.avatar,
         }}
       >
         <Form.Item
@@ -155,7 +145,7 @@ function Profile() {
             },
           ]}
         >
-          <Input />
+          <Input disabled />
         </Form.Item>
         <Form.Item name="name" label="Nickname">
           <Input />

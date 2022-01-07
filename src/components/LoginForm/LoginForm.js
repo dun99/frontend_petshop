@@ -4,12 +4,16 @@ import authApi from "api/authApi";
 import Banner from "components/Banner/Banner";
 import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
-import { ADMIN_PATH, REGISTER_PATH, ROOT_PATH } from "constants/route";
+import {
+  ADMIN_PATH,
+  ADMIN_PRODUCTS_PATH,
+  REGISTER_PATH,
+  ROOT_PATH,
+} from "constants/route";
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { loginRequest } from "redux/authSlice";
-import { fetchUserById } from "redux/userSlice";
+import { fetchUserById, loginRequest } from "redux/authSlice";
 import { checkRole } from "util/isLoggined";
 import "./loginForm.scss";
 
@@ -25,10 +29,16 @@ const LoginForm = () => {
         password: values.password,
       })
     );
-    // dispatch(fetchUserById(currentUser.id));
     const role = checkRole();
     if (role === "customer") history.push(ROOT_PATH);
-    if (role === "admin") history.push(ADMIN_PATH);
+    if (role === "admin") history.push(ADMIN_PRODUCTS_PATH);
+  };
+
+  const signinWithGoogle = async () => {
+    await dispatch(signinWithGoogle());
+    const role = checkRole();
+    if (role === "customer") history.push(ROOT_PATH);
+    if (role === "admin") history.push(ADMIN_PRODUCTS_PATH);
   };
 
   // useEffect(() => {
@@ -96,7 +106,7 @@ const LoginForm = () => {
           </Form.Item>
         </Form>
 
-        <Button className="google" onClick={authApi.singinWithGoogle}>
+        <Button className="google" onClick={signinWithGoogle}>
           <GoogleOutlined />
           Signin with google
         </Button>

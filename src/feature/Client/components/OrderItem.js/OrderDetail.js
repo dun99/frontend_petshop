@@ -5,7 +5,6 @@ import { formatMoney } from "util/formatMoney";
 
 function OrderDetail(props) {
   const { product } = props;
-  console.log(product, "product");
   const [totalPrice, settotalPrice] = useState(0);
 
   useEffect(() => {

@@ -7,7 +7,6 @@ const usersApi = {
   },
 
   getUserById: (id) => {
-    console.log("id", id);
     const url = `/users/${id}`;
     return axiosClient.get(url);
   },

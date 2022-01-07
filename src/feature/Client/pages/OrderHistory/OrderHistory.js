@@ -10,7 +10,7 @@ function OrderHistory() {
   const ordersHistory = useSelector((state) => state.ordersHistory.list);
 
   useEffect(() => {
-    dispatch(fetchOrderHistoryRequest(currentUser.id));
+    dispatch(fetchOrderHistoryRequest(currentUser._id));
   }, []);
 
   const renderOrder = (list) => {

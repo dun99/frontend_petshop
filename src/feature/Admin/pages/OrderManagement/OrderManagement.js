@@ -38,7 +38,6 @@ function OrderManagement() {
       key: "name",
       render: (items) => {
         return items.map((item) => {
-          console.log("item", item);
           return (
             <div className="item">
               <img width="100px" src={item.item.image} />

@@ -37,7 +37,6 @@ export const createOrderRequest = createAsyncThunk(
   "order/createOrder",
   async (orderInfor) => {
     const res = await orderApi.createOrder(orderInfor);
-    console.log("res", res);
     return res.data;
   }
 );

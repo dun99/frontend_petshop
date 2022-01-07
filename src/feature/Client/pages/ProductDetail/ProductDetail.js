@@ -24,18 +24,18 @@ function ProductDetail() {
   const [submitting, setsubmitting] = useState(false);
   const [value, setvalue] = useState("");
   const currentUser = JSON.parse(localStorage.getItem("user"));
-  const user = useSelector((state) => state.auth.user);
+  // const user = useSelector((state) => state.auth.user);
   const { t } = useTranslation();
   useEffect(() => {
     if (currentUser && currentUser.uid) {
-      dispatch(fetchUserById(currentUser.id));
+      dispatch(fetchUserById(currentUser._id));
     }
   }, [currentUser]);
 
   useEffect(() => {
     dispatch(getProductById(id));
     dispatch(fetchCommentRequest(id));
-  }, []);
+  }, [comments.length]);
 
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
@@ -52,7 +52,7 @@ function ProductDetail() {
       dispatch(
         createCommentRequest({
           product: product._id,
-          user: currentUser.id,
+          user: currentUser._id,
           content: value,
         })
       );
@@ -93,12 +93,12 @@ function ProductDetail() {
       <div className="comments">
         {comments.length > 0 && (
           <>
-            <CommentList comments={comments} user={user} />
+            <CommentList comments={comments} />
           </>
         )}
         {currentUser && (
           <Comment
-            avatar={<Avatar src={user.avatar} alt="User" />}
+            avatar={<Avatar src={currentUser.avatar} alt="User" />}
             content={
               <CommentInput
                 onChange={handleChange}

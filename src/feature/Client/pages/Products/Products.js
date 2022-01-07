@@ -16,22 +16,25 @@ const { Search } = Input;
 function Products() {
   const dispatch = useDispatch();
 
-  const { filters, list, count } = useSelector((state) => state.products);
+  const { filters, list, count, isLoading } = useSelector(
+    (state) => state.products
+  );
   const { categories } = useSelector((state) => state.categories);
   const typingTimeout = useRef(null); // debouce search
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
+    // setIsLoading(true);
+    // dispatch(fetchProductsRequest(filters));
     setTimeout(() => {
       dispatch(fetchProductsRequest(filters));
-      setIsLoading(false);
-    }, 2000);
+      // setIsLoading(false);
+    }, 1000);
   }, [filters]);
 
   useEffect(() => {
     dispatch(fetchCategoriesRequest());
-  }, []);
+  }, [filters]);
 
   const renderProduct = () => {
     return list.map((product, index) => {

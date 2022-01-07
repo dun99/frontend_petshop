@@ -40,9 +40,9 @@ function UserManagement() {
       key: "email",
     },
     {
-      title: "Nickname",
-      dataIndex: "nickname",
-      key: "nickname",
+      title: "name",
+      dataIndex: "name",
+      key: "name",
     },
     {
       title: "Role",

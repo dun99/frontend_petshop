@@ -33,7 +33,7 @@ const authApi = {
     const userTemp = await usersApi.getUserById(user.uid);
     const info = {
       email: userTemp.data.email,
-      id: userTemp.data._id,
+      _id: userTemp.data._id,
       role: userTemp.data.role,
     };
     localStorage.setItem("user", JSON.stringify(info));

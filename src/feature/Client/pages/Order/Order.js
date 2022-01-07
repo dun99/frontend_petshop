@@ -34,13 +34,12 @@ function Order() {
       orderTotalQuantity: totalQuantity,
       orderTotalAmount: cart.cartTotalAmount,
       info: values,
-      user: currentUser && currentUser.id ? currentUser.id : "unknown",
+      user: currentUser && currentUser._id ? currentUser._id : "unknown",
       orderStatus: "pending",
       createAt: Date.now(),
       items,
     };
 
-    console.log("order", order);
     dispatch(createOrderRequest(order));
 
     dispatch(removeAllCart());
