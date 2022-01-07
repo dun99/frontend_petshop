@@ -1,13 +1,7 @@
-import { Select, Space, Table } from "antd";
-import PaginationApp from "components/Pagination/Pagination";
+import { Select, Table } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
-import {
-  deleteOrderRequest,
-  fetchOrdersRequest,
-  updateOrderRequest,
-} from "redux/ordersSlice";
+import { fetchOrdersRequest, updateOrderRequest } from "redux/ordersSlice";
 import { formatMoney } from "util/formatMoney";
 function OrderManagement() {
   const dispatch = useDispatch();

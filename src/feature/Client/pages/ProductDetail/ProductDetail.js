@@ -9,10 +9,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { fetchUserById } from "redux/authSlice";
 import { addToCart } from "redux/cartSlice";
 import { createCommentRequest, fetchCommentRequest } from "redux/commentSlice";
 import { getProductById } from "redux/productDetailSlice";
-import { fetchUserById } from "redux/userSlice";
 import { formatMoney } from "util/formatMoney";
 import "./ProductDetail.scss";
 
@@ -23,12 +23,12 @@ function ProductDetail() {
   const comments = useSelector((state) => state.comments.list);
   const [submitting, setsubmitting] = useState(false);
   const [value, setvalue] = useState("");
-  const currentUser = useSelector((state) => state.auth.currentUser);
-  const user = useSelector((state) => state.users.user);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
+  const user = useSelector((state) => state.auth.user);
   const { t } = useTranslation();
   useEffect(() => {
     if (currentUser && currentUser.uid) {
-      dispatch(fetchUserById(currentUser.uid));
+      dispatch(fetchUserById(currentUser.id));
     }
   }, [currentUser]);
 
@@ -52,7 +52,7 @@ function ProductDetail() {
       dispatch(
         createCommentRequest({
           product: product._id,
-          user: currentUser.uid,
+          user: currentUser.id,
           content: value,
         })
       );
@@ -96,17 +96,19 @@ function ProductDetail() {
             <CommentList comments={comments} user={user} />
           </>
         )}
-        <Comment
-          avatar={<Avatar src={user.avatar} alt="User" />}
-          content={
-            <CommentInput
-              onChange={handleChange}
-              onSubmit={handleSubmit}
-              submitting={submitting}
-              value={value}
-            />
-          }
-        />
+        {currentUser && (
+          <Comment
+            avatar={<Avatar src={user.avatar} alt="User" />}
+            content={
+              <CommentInput
+                onChange={handleChange}
+                onSubmit={handleSubmit}
+                submitting={submitting}
+                value={value}
+              />
+            }
+          />
+        )}
       </div>
     </div>
   );

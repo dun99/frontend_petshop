@@ -6,12 +6,11 @@ import "./OrderHistory.scss";
 
 function OrderHistory() {
   const dispatch = useDispatch();
-  const filters = useSelector((state) => state.ordersHistory.filters);
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   const ordersHistory = useSelector((state) => state.ordersHistory.list);
 
   useEffect(() => {
-    dispatch(fetchOrderHistoryRequest(currentUser.uid));
+    dispatch(fetchOrderHistoryRequest(currentUser.id));
   }, []);
 
   const renderOrder = (list) => {

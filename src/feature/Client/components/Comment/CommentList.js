@@ -5,6 +5,7 @@ import React from "react";
 function CommentList(props) {
   const renderItem = (list) => {
     return list.map((comment, index) => {
+      console.log("comment", comment);
       return (
         <Comment
           author={<a>{comment.user.email}</a>}

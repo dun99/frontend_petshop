@@ -11,6 +11,7 @@ let initialState = {
   },
   orderTotalQuantity: 0,
   orderTotalAmount: 0,
+  createOrderSuccess: false,
 };
 
 export const fetchOrdersRequest = createAsyncThunk(
@@ -33,9 +34,10 @@ export const updateOrderRequest = createAsyncThunk(
 );
 
 export const createOrderRequest = createAsyncThunk(
-  "orders/createOrder",
+  "order/createOrder",
   async (orderInfor) => {
     const res = await orderApi.createOrder(orderInfor);
+    console.log("res", res);
     return res.data;
   }
 );
@@ -46,16 +48,16 @@ export const OrdersSlice = createSlice({
   reducers: {},
 
   extraReducers: {
-    [fetchOrdersRequest.pending]: (state) => {},
-
-    [fetchOrdersRequest.rejected]: (state) => {},
-
     [fetchOrdersRequest.fulfilled]: (state, action) => {
       state.list = action.payload.data;
       state.count = action.payload.total;
       state.orderTotalQuantity = action.payload.orderTotalQuantity;
       state.orderTotalAmount = action.payload.orderTotalAmount;
       state.orderStatus = action.payload.orderStatus;
+    },
+
+    [createOrderRequest.fulfilled]: (state, action) => {
+      state.createOrderSuccess = true;
     },
 
     [updateOrderRequest.fulfilled]: (state, action) => {

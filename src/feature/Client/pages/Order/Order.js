@@ -5,19 +5,18 @@ import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { removeAllCart } from "redux/cartSlice";
-import { createOrderRequest } from "redux/orderSlice";
+import { createOrderRequest } from "redux/ordersSlice";
 import "./Order.scss";
 import { useHistory } from "react-router-dom";
 
 function Order() {
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const { t } = useTranslation();
   const history = useHistory();
 
   const onFinish = (values) => {
-    console.log("jjjjj", values);
     const items = [];
     let totalQuantity = 0;
     cart.cartItem.forEach((product) => {
@@ -35,11 +34,13 @@ function Order() {
       orderTotalQuantity: totalQuantity,
       orderTotalAmount: cart.cartTotalAmount,
       info: values,
-      user: currentUser && currentUser.uid ? currentUser.uid : "unknown",
+      user: currentUser && currentUser.id ? currentUser.id : "unknown",
       orderStatus: "pending",
       createAt: Date.now(),
       items,
     };
+
+    console.log("order", order);
     dispatch(createOrderRequest(order));
 
     dispatch(removeAllCart());

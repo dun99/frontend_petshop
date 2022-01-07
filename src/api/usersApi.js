@@ -6,9 +6,20 @@ const usersApi = {
     return axiosClient.post(url, user);
   },
 
-  getUserById: (params) => {
+  getUserById: (id) => {
+    console.log("id", id);
+    const url = `/users/${id}`;
+    return axiosClient.get(url);
+  },
+
+  getAllUser: () => {
     const url = "/users";
-    return axiosClient.get(url, { params });
+    return axiosClient.get(url);
+  },
+
+  update: (data) => {
+    const url = `/users/${data._id}`;
+    return axiosClient.put(url, data);
   },
 };
 

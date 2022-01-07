@@ -3,6 +3,9 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { signup } from "redux/authSlice";
 import "./loginForm.scss";
+import { useHistory } from "react-router-dom";
+import { SIGN_IN_PATH } from "constants/route";
+
 const formItemLayout = {
   labelCol: {
     xs: {
@@ -38,14 +41,16 @@ const tailFormItemLayout = {
 const RegistrationForm = () => {
   const dispatch = useDispatch();
   const [form] = Form.useForm();
+  const history = useHistory();
 
   const onFinish = async (values) => {
-    dispatch(
+    await dispatch(
       signup({
         email: values.email,
         password: values.password,
       })
     );
+    history.push(SIGN_IN_PATH);
   };
 
   return (
