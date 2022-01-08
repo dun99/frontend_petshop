@@ -1,6 +1,5 @@
 import { GoogleOutlined, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Form, Input } from "antd";
-import authApi from "api/authApi";
 import Banner from "components/Banner/Banner";
 import FooterApp from "components/Footer/Footer";
 import HeaderApp from "components/Header/Header";
@@ -13,7 +12,7 @@ import {
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { fetchUserById, loginRequest } from "redux/authSlice";
+import { googleSignin, loginRequest } from "redux/authSlice";
 import { checkRole } from "util/isLoggined";
 import "./loginForm.scss";
 
@@ -31,14 +30,14 @@ const LoginForm = () => {
     );
     const role = checkRole();
     if (role === "customer") history.push(ROOT_PATH);
-    if (role === "admin") history.push(ADMIN_PRODUCTS_PATH);
+    if (role === "admin") history.push(ADMIN_PATH);
   };
 
-  const signinWithGoogle = async () => {
-    await dispatch(signinWithGoogle());
+  const signinWithGoogleMenthod = async () => {
+    await dispatch(googleSignin());
     const role = checkRole();
     if (role === "customer") history.push(ROOT_PATH);
-    if (role === "admin") history.push(ADMIN_PRODUCTS_PATH);
+    if (role === "admin") history.push(ADMIN_PATH);
   };
 
   // useEffect(() => {
@@ -106,7 +105,7 @@ const LoginForm = () => {
           </Form.Item>
         </Form>
 
-        <Button className="google" onClick={signinWithGoogle}>
+        <Button className="google" onClick={signinWithGoogleMenthod}>
           <GoogleOutlined />
           Signin with google
         </Button>

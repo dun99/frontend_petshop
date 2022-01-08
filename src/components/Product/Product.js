@@ -15,7 +15,7 @@ function Product(props) {
   const dispatch = useDispatch();
 
   const handleAddToCart = (item) => {
-    if (item.status === "In stock") dispatch(addToCart(item));
+    dispatch(addToCart(item));
   };
 
   return (
