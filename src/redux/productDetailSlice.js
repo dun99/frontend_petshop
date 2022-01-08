@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import productApi from "api/productApi";
 
 let initialState = {
+  isLoading: false,
   product: {},
   status: null,
 };
@@ -17,9 +18,16 @@ export const productDetailSlice = createSlice({
   reducers: {},
 
   extraReducers: {
+    [getProductById.pending]: (state, action) => {
+      state.isLoading = true;
+    },
+    [getProductById.rejected]: (state, action) => {
+      state.isLoading = false;
+    },
     [getProductById.fulfilled]: (state, action) => {
       state.status = "success";
       state.product = action.payload.data;
+      state.isLoading = false;
     },
   },
 });
