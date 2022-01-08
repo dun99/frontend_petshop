@@ -39,13 +39,15 @@ function OrderManagement() {
       render: (items) => {
         return items.map((item) => {
           return (
-            <div className="item">
-              <img width="100px" src={item.item.image} />
-              <div className="item__detail">
-                <div>{item.item.name}</div>
-                <div>Quantity: {item.quantity}</div>
+            item.item && (
+              <div className="item">
+                <img width="100px" src={item.item.image} />
+                <div className="item__detail">
+                  <div>{item.item.name}</div>
+                  <div>Quantity: {item.quantity}</div>
+                </div>
               </div>
-            </div>
+            )
           );
         });
       },

@@ -9,6 +9,7 @@ let initialState = {
     _page: 1,
     _limit: 10,
   },
+  isLoading: false,
 };
 
 export const fetchCommentRequest = createAsyncThunk("orders", async (id) => {
@@ -29,8 +30,12 @@ export const OrdersSlice = createSlice({
   reducers: {},
 
   extraReducers: {
+    [fetchCommentRequest.pending]: (state, action) => {
+      state.isLoading = true;
+    },
     [fetchCommentRequest.fulfilled]: (state, action) => {
       state.status = "success";
+      state.isLoading = false;
       state.list = action.payload.data;
     },
     [createCommentRequest.fulfilled]: (state, action) => {
