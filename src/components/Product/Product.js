@@ -35,7 +35,7 @@ function Product(props) {
         </div>,
       ]}
     >
-      {product.freeShipping && product.status === "In stock" && (
+      {product.freeShipping && (
         <Tag className="freeship-tag" color="blue">
           {t("freeShip")}
         </Tag>
