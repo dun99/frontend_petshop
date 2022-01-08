@@ -119,7 +119,7 @@ const RegistrationForm = () => {
           <Input.Password />
         </Form.Item>
 
-        <Form.Item
+        {/* <Form.Item
           name="name"
           label="Nickname"
           tooltip="What do you want others to call you?"
@@ -131,7 +131,7 @@ const RegistrationForm = () => {
           ]}
         >
           <Input />
-        </Form.Item>
+        </Form.Item> */}
 
         <Form.Item
           name="agreement"

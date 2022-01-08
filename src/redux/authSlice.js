@@ -18,7 +18,7 @@ export const signup = createAsyncThunk("auth/createAuth", async (userInfo) => {
   return res;
 });
 
-export const signinWithGoogle = createAsyncThunk(
+export const googleSignin = createAsyncThunk(
   "auth/sininWithGoogle",
   async () => {
     const res = await authApi.singinWithGoogle();
