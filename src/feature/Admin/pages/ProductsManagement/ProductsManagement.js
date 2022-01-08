@@ -190,6 +190,7 @@ function ProductsManagement() {
       ...values,
       price: parseFloat(values.price),
       image: urls,
+      status: values.quantity === 0 ? "Out of stock" : "In stock",
     };
     if (editing === null) {
       dispatch(createProductRequest(newinfo));
