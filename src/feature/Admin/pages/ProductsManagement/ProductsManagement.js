@@ -28,7 +28,7 @@ import "./ProductsManagement.scss";
 const { Search } = Input;
 function ProductsManagement() {
   const dispatch = useDispatch();
-  const [loading, setloading] = useState(false);
+  // const [loading, setloading] = useState(false);
   const [urls, setUrls] = useState("");
   const products = useSelector((state) => state.products.list);
   const { categories } = useSelector((state) => state.categories);
@@ -39,15 +39,16 @@ function ProductsManagement() {
   const [item, setItem] = useState(null);
   const [editing, setEditing] = useState(null);
   const [form] = Form.useForm();
+  const { isLoading } = useSelector((state) => state.products);
   const typingTimeout = useRef(null); // debouce search
 
   useEffect(() => {
-    setloading(true);
+    // setloading(true);
 
-    setTimeout(() => {
-      dispatch(fetchProductsRequest(filters));
-      setloading(false);
-    }, 1000);
+    // setTimeout(() => {
+    dispatch(fetchProductsRequest(filters));
+    //   setloading(false);
+    // }, 1000);
   }, [filters, totalCount, dispatch]);
 
   useEffect(() => {
@@ -111,6 +112,12 @@ function ProductsManagement() {
       title: "No.",
       render: (text, record, index) => index + 1,
       key: "index",
+    },
+    {
+      title: "Image",
+      dataIndex: "image",
+      key: "image",
+      render: (text) => <img src={text}></img>,
     },
     {
       title: "Name",
@@ -353,7 +360,7 @@ function ProductsManagement() {
         </div>
       </Modal>
       <Table
-        loading={loading}
+        loading={isLoading}
         columns={columns}
         dataSource={products}
         total={totalCount}
