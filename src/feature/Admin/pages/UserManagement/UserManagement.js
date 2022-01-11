@@ -2,7 +2,7 @@ import { Select, Table } from "antd";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer } from "react-toastify";
-import { updateUser } from "redux/authSlice";
+import { updateUserForAdmin } from "redux/authSlice";
 import { fetchUser } from "redux/userSlice";
 
 function UserManagement() {
@@ -21,7 +21,7 @@ function UserManagement() {
 
   const updateRoleUser = (value, record) => {
     dispatch(
-      updateUser({
+      updateUserForAdmin({
         ...record,
         role: value,
       })

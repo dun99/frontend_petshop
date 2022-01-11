@@ -28,7 +28,7 @@ export const cartSlice = createSlice({
       } else {
         state.cartItem[itemIndex].quantity += 1;
       }
-      toast.success("Thêm vào giỏ hàng thành công", {
+      toast.success("Add to cart successfully", {
         position: "top-right",
       });
       localStorage.setItem("cartItem", JSON.stringify(state.cartItem));
@@ -49,7 +49,7 @@ export const cartSlice = createSlice({
               (product) => product._id !== item._id
             );
             state.cartItem = newCart;
-            toast.success("Xóa sản phẩm khỏi giỏ hàng", {
+            toast.success("Remove product from cart", {
               position: "top-right",
             });
           }
@@ -78,7 +78,7 @@ export const cartSlice = createSlice({
       state.cartItem = state.cartItem.filter(
         (product) => product._id !== action.payload._id
       );
-      toast.success("Xóa sản phẩm khỏi giỏ hàng", {
+      toast.success("Remove product from cart", {
         position: "top-right",
       });
       localStorage.setItem("cartItem", JSON.stringify(state.cartItem));

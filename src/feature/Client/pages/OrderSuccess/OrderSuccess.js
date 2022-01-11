@@ -7,17 +7,17 @@ import "./OrderSuccess.scss";
 function OrderSuccess() {
   return (
     <div className="order-success">
-      <p>Cảm ơn bạn đã đặt hàng tại shop.</p>
+      <p>Thank you for ordering at the shop.</p>
       <p>
-        Chúng tôi sẽ sớm liên hệ với với bạn qua số điện thoại bạn cung cấp để
-        xác nhận đơn hàng trong 24 giờ tới
+        We will contact you shortly with the phone number you provided to order
+        confirmation in next 24 hours
       </p>
       <div className="action-cart">
         <Button className="">
-          <Link to={PRODUCTS_PATH}>Tiếp tục mua sắm</Link>
+          <Link to={PRODUCTS_PATH}>Continue shopping</Link>
         </Button>
         <Button>
-          <Link to={ROOT_PATH}>Quay về trang chủ</Link>
+          <Link to={ROOT_PATH}>Back to home page</Link>
         </Button>
       </div>
     </div>

@@ -58,6 +58,17 @@ export const updateUser = createAsyncThunk(
   }
 );
 
+export const updateUserForAdmin = createAsyncThunk(
+  "user/updateUserForAdmin",
+  async (userInfo) => {
+    const res = await usersApi.update(userInfo);
+    toast.success("Update success", {
+      position: "top-right",
+    });
+    return res;
+  }
+);
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
