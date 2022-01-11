@@ -2,8 +2,10 @@ import React from "react";
 import { formatMoney } from "util/formatMoney";
 import OrderDetail from "./OrderDetail";
 import "./OrderItem.scss";
+import { useTranslation } from "react-i18next";
 
 function OrderItem(props) {
+  const { t } = useTranslation();
   const { order } = props;
 
   const renderCart = (list) => {
@@ -15,15 +17,15 @@ function OrderItem(props) {
   const renderStatus = (status) => {
     switch (status) {
       case "pending":
-        return "Chờ xác nhận";
+        return <>{t("Pending")}</>;
       case "confirm":
-        return "Đã xác nhận";
+        return <>{t("Confirm")}</>;
       case "shipping":
-        return "Đang vận chuyển";
+        return <>{t("Shipping")}</>;
       case "success":
-        return "Giao hàng thành công";
+        return <>{t("Success")}</>;
       default:
-        return "Chờ xác nhận";
+        return <>{t("Pending")}</>;
     }
   };
 
@@ -31,11 +33,11 @@ function OrderItem(props) {
     <>
       {renderCart(order.items)}
       <div className="status">
-        <span className="status-title">Trạng thái: </span>
+        <span className="status-title">{t("Status")}: </span>
         {renderStatus(order.orderStatus)}
       </div>
       <div className="status total">
-        <span className="status-title">Thành tiền: </span>
+        <span className="status-title">{t("Total")} :</span>
         <span>{formatMoney(order.totalAmount)}</span>
       </div>
     </>

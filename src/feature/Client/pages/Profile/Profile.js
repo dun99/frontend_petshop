@@ -7,6 +7,8 @@ import "./Profile.scss";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { fetchUserById, updateUser } from "redux/authSlice";
+import { useTranslation } from "react-i18next";
+
 function Profile() {
   const [imageUrl, setimageUrl] = useState("");
   const dispatch = useDispatch();
@@ -14,6 +16,7 @@ function Profile() {
   const user = useSelector((state) => state.auth.user);
   const [urls, setUrls] = useState("");
   const [form] = Form.useForm();
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (currentUser._id) {
@@ -121,7 +124,7 @@ function Profile() {
   return (
     <div className="profile">
       <ToastContainer autoClose={2000} />
-      <h1 className="profile-title">Hồ sơ của tôi</h1>
+      <h1 className="profile-title">{t("My profile")}</h1>
       <Form
         {...formItemLayout}
         form={form}
@@ -176,7 +179,7 @@ function Profile() {
         </Form.Item>
         <Form.Item {...tailFormItemLayout}>
           <Button className="save" htmlType="submit">
-            Lưu
+            {t("Save")}
           </Button>
         </Form.Item>
       </Form>

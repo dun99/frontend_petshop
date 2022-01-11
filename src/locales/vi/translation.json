@@ -38,5 +38,13 @@
   "city": "THành phố",
   "district": "Quận/Huyện",
   "phone": "Số điện thoại",
-  "detailAddress": "Địa chỉ chi tiết"
+  "detailAddress": "Địa chỉ chi tiết",
+  "Policy": "Chính sách mua hàng",
+  "Shopping guide": "Hướng dẫn mua hàng",
+  "Connect with us": "Hãy kết nối với chúng mình",
+  "My profile": "Hồ sơ của tôi",
+  "Pending": "Chờ xác nhận",
+  "Confirm": "Đã xác nhận",
+  "Shipping": "Đang vận chuyển",
+  "Success": "Giao hàng thành công"
 }

@@ -38,5 +38,13 @@
   "city": "City",
   "district": "District",
   "phone": "Phone",
-  "detailAddress": "Address detail"
+  "detailAddress": "Address detail",
+  "Policy": "Policy",
+  "Shopping guide": "Shopping guide",
+  "Connect with us": "Connect with us",
+  "My profile": "My profile",
+  "Pending": "Pending",
+  "Confirm": "Confirm",
+  "Shipping": "Shipping",
+  "Success": "Success"
 }

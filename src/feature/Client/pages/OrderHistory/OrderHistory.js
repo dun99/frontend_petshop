@@ -3,11 +3,12 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchOrderHistoryRequest } from "redux/orderHistorySlice";
 import "./OrderHistory.scss";
-
+import { useTranslation } from "react-i18next";
 function OrderHistory() {
   const dispatch = useDispatch();
   const currentUser = JSON.parse(localStorage.getItem("user"));
   const ordersHistory = useSelector((state) => state.ordersHistory.list);
+  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(fetchOrderHistoryRequest(currentUser._id));
@@ -23,11 +24,11 @@ function OrderHistory() {
     <div className="order-history">
       <table>
         <thead>
-          <th>Sản phẩm</th>
-          <th>Mô tả</th>
-          <th>Đơn giá</th>
-          <th>Số lượng</th>
-          <th>Tổng</th>
+          <th>{t("Product")}</th>
+          <th>{t("Description")}</th>
+          <th>{t("Price")}</th>
+          <th>{t("Quantity")}</th>
+          <th>{t("Total")}</th>
         </thead>
         <tbody>{renderOrder(ordersHistory)}</tbody>
       </table>
